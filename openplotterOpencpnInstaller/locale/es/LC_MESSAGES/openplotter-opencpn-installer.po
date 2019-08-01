@@ -1,0 +1,145 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: openplotter-opencpn-installer\n"
+"POT-Creation-Date: 2019-08-01 11:07+0200\n"
+"PO-Revision-Date: 2019-08-01 11:07+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: iso-8859-7\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: openplotterOpencpnInstaller.py:37
+msgid "Help"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:40
+msgid "Translate"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:43
+msgid "Update Packages Data"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:49
+msgid "OpenCPN packages"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:50
+msgid "Output"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:104
+msgid "Updating packages data, please wait... "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:106
+msgid "Done. Now you can check if there are available updates"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:111
+msgid "Name"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:112
+msgid "Category"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:113
+msgid "Installed"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:114
+msgid "Candidate"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:119
+msgid "Install"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:121
+msgid "Uninstall"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:124
+msgid "Open"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:126
+msgid "Changelog"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:141
+msgid "Are you sure you want to install "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:141 openplotterOpencpnInstaller.py:169
+msgid " and its dependencies?"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:142 openplotterOpencpnInstaller.py:170
+msgid "Question"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:149
+msgid "Installing package, please wait... "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:157
+msgid "Running post-installation scripts, please wait... "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:159 openplotterOpencpnInstaller.py:179
+#: openplotterOpencpnInstaller.py:195
+msgid "Done"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:169
+msgid "Are you sure you want to uninstall "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:177
+msgid "Uninstalling packages, please wait... "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:193
+msgid "Reading changelog, please wait... "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:209
+msgid "Weather Routing Plugin"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:210
+msgid "Weather"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:220
+msgid "S-63 Charts Plugin"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:221 openplotterOpencpnInstaller.py:232
+msgid "Chart Support"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:231
+msgid "oeSENC Charts Plugin"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:242
+msgid "OpenCPN"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:279
+msgid "missing source: "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:282
+msgid "coming soon"
+msgstr ""

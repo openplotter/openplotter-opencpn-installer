@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include openplotterOpencpnInstaller/data *
+recursive-include openplotterOpencpnInstaller/locale *
