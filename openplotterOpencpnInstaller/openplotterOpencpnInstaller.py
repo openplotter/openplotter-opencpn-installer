@@ -37,10 +37,19 @@ class MyFrame(wx.Frame):
 		toolHelp = self.toolbar1.AddTool(101, _('Help'), wx.Bitmap(self.currentdir+"/data/help.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolHelp, toolHelp)
 		self.toolbar1.AddSeparator()
-		toolTranslate = self.toolbar1.AddTool(103, _('Translate'), wx.Bitmap(self.currentdir+"/data/crowdin.png"))
+		toolStartup = self.toolbar1.AddCheckTool(102, _('Autostart'), wx.Bitmap(self.currentdir+"/data/autostart.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolStartup, toolStartup)
+		if self.conf.get('OPENCPN', 'autostart') == '1': self.toolbar1.ToggleTool(102,True)
+		toolFull = self.toolbar1.AddCheckTool(103, _('Full Screen'), wx.Bitmap(self.currentdir+"/data/fullscreen.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolFull, toolFull)
+		if self.conf.get('OPENCPN', 'fullscreen') == '1': self.toolbar1.ToggleTool(103,True)
+		if self.toolbar1.GetToolState(102): self.toolbar1.EnableTool(103,True)
+		else: self.toolbar1.EnableTool(103,False)
+		self.toolbar1.AddSeparator()
+		toolTranslate = self.toolbar1.AddTool(104, _('Translate'), wx.Bitmap(self.currentdir+"/data/crowdin.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolTranslate, toolTranslate)
 		self.toolbar1.AddSeparator()
-		toolUpdate = self.toolbar1.AddTool(104, _('Update Packages Data'), wx.Bitmap(self.currentdir+"/data/package.png"))
+		toolUpdate = self.toolbar1.AddTool(105, _('Update Packages Data'), wx.Bitmap(self.currentdir+"/data/package.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolUpdate, toolUpdate)
 		
 		self.notebook = wx.Notebook(self)
@@ -94,6 +103,24 @@ class MyFrame(wx.Frame):
 	def OnToolTranslate(self, event): 
 		url = "https://crowdin.com/project/opencpn"
 		webbrowser.open(url, new=2)
+
+	def OnToolStartup(self, e):
+		if self.toolbar1.GetToolState(102):
+			self.conf.set('OPENCPN', 'autostart', '1')
+			self.ShowStatusBarBLACK(_('OpenCPN autostart enabled'))
+			self.toolbar1.EnableTool(103,True)
+		else: 
+			self.conf.set('OPENCPN', 'autostart', '0')
+			self.ShowStatusBarBLACK(_('OpenCPN autostart disabled'))
+			self.toolbar1.EnableTool(103,False)
+
+	def OnToolFull(self, e):
+		if self.toolbar1.GetToolState(103):
+			self.conf.set('OPENCPN', 'fullscreen', '1')
+			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart enabled'))
+		else: 
+			self.conf.set('OPENCPN', 'fullscreen', '0')
+			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart disabled'))
 
 	def OnToolUpdate(self, event):
 		self.logger.Clear()
