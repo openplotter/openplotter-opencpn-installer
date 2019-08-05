@@ -28,7 +28,7 @@ class MyFrame(wx.Frame):
 		currentLanguage = self.conf.get('GENERAL', 'lang')
 		self.language = language.Language(self.currentdir,'openplotter-opencpn-installer',currentLanguage)
 
-		wx.Frame.__init__(self, None, title='OpenCPN Installer', size=(800,444))
+		wx.Frame.__init__(self, None, title=_('OpenCPN Installer'), size=(800,444))
 		self.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))
 		icon = wx.Icon(self.currentdir+"/data/opencpn.png", wx.BITMAP_TYPE_PNG)
 		self.SetIcon(icon)
@@ -36,6 +36,8 @@ class MyFrame(wx.Frame):
 		self.toolbar1 = wx.ToolBar(self, style=wx.TB_TEXT)
 		toolHelp = self.toolbar1.AddTool(101, _('Help'), wx.Bitmap(self.currentdir+"/data/help.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolHelp, toolHelp)
+		toolSettings = self.toolbar1.AddTool(106, _('Settings'), wx.Bitmap(self.currentdir+"/data/settings.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolSettings, toolSettings)
 		self.toolbar1.AddSeparator()
 		toolStartup = self.toolbar1.AddCheckTool(102, _('Autostart'), wx.Bitmap(self.currentdir+"/data/autostart.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolStartup, toolStartup)
@@ -99,6 +101,10 @@ class MyFrame(wx.Frame):
 	def OnToolHelp(self, event): 
 		url = "/usr/share/openplotter-doc/xxx/xxx.html"
 		webbrowser.open(url, new=2)
+
+	def OnToolSettings(self, event): 
+		subprocess.call(['pkill', '-f', 'openplotter-settings'])
+		subprocess.Popen('openplotter-settings')
 
 	def OnToolTranslate(self, event): 
 		url = "https://crowdin.com/project/opencpn"
