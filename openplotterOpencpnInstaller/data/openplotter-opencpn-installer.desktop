@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=OpenCPN Installer
+Exec=openplotter-opencpn-installer
+Icon=opencpn
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=OpenPlotter

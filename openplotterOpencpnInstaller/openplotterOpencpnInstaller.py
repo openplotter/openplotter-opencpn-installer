@@ -20,10 +20,12 @@ import wx.richtext as rt
 
 from openplotterSettings import conf
 from openplotterSettings import language
+from openplotterSettings import platform
 
 class MyFrame(wx.Frame):
 	def __init__(self):
 		self.conf = conf.Conf()
+		self.platform = platform.Platform()
 		self.currentdir = os.path.dirname(__file__)
 		currentLanguage = self.conf.get('GENERAL', 'lang')
 		self.language = language.Language(self.currentdir,'openplotter-opencpn-installer',currentLanguage)
@@ -36,6 +38,7 @@ class MyFrame(wx.Frame):
 		self.toolbar1 = wx.ToolBar(self, style=wx.TB_TEXT)
 		toolHelp = self.toolbar1.AddTool(101, _('Help'), wx.Bitmap(self.currentdir+"/data/help.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolHelp, toolHelp)
+		if not self.platform.isInstalled('openplotter-doc'): self.toolbar1.EnableTool(101,False)
 		toolSettings = self.toolbar1.AddTool(106, _('Settings'), wx.Bitmap(self.currentdir+"/data/settings.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolSettings, toolSettings)
 		self.toolbar1.AddSeparator()
@@ -48,10 +51,7 @@ class MyFrame(wx.Frame):
 		if self.toolbar1.GetToolState(102): self.toolbar1.EnableTool(103,True)
 		else: self.toolbar1.EnableTool(103,False)
 		self.toolbar1.AddSeparator()
-		toolTranslate = self.toolbar1.AddTool(104, _('Translate'), wx.Bitmap(self.currentdir+"/data/crowdin.png"))
-		self.Bind(wx.EVT_TOOL, self.OnToolTranslate, toolTranslate)
-		self.toolbar1.AddSeparator()
-		toolUpdate = self.toolbar1.AddTool(105, _('Update Packages Data'), wx.Bitmap(self.currentdir+"/data/package.png"))
+		toolUpdate = self.toolbar1.AddTool(105, _('Update Data'), wx.Bitmap(self.currentdir+"/data/update.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolUpdate, toolUpdate)
 		
 		self.notebook = wx.Notebook(self)
@@ -106,10 +106,6 @@ class MyFrame(wx.Frame):
 		subprocess.call(['pkill', '-f', 'openplotter-settings'])
 		subprocess.Popen('openplotter-settings')
 
-	def OnToolTranslate(self, event): 
-		url = "https://crowdin.com/project/opencpn"
-		webbrowser.open(url, new=2)
-
 	def OnToolStartup(self, e):
 		if self.toolbar1.GetToolState(102):
 			self.conf.set('OPENCPN', 'autostart', '1')
@@ -130,13 +126,13 @@ class MyFrame(wx.Frame):
 
 	def OnToolUpdate(self, event):
 		self.logger.Clear()
+		self.notebook.ChangeSelection(1)
 		command = 'sudo apt update'
 		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 		for line in popen.stdout:
 			self.logger.WriteText(line)
 			self.ShowStatusBarYELLOW(_('Updating packages data, please wait... ')+line)
-		self.notebook.ChangeSelection(1)
-		self.logger.ShowPosition(self.logger.GetLastPosition())
+			self.logger.ShowPosition(self.logger.GetLastPosition())
 		self.ShowStatusBarGREEN(_('Done. Now you can check if there are available updates'))
 		self.readApps()
 
@@ -150,9 +146,9 @@ class MyFrame(wx.Frame):
 		self.listApps.Bind(wx.EVT_LIST_ITEM_DESELECTED, self.onListAppsDeselected)
 
 		self.toolbar2 = wx.ToolBar(self.apps, style=wx.TB_TEXT | wx.TB_VERTICAL)
-		self.installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/add.png"))
+		self.installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/install.png"))
 		self.Bind(wx.EVT_TOOL, self.OnInstallButton, self.installButton)
-		self.uninstallButton = self.toolbar2.AddTool(202, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/remove.png"))
+		self.uninstallButton = self.toolbar2.AddTool(202, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
 		self.Bind(wx.EVT_TOOL, self.OnUninstallButton, self.uninstallButton)
 		self.toolbar2.AddSeparator()
 		self.openButton = self.toolbar2.AddTool(203, _('Info'), wx.Bitmap(self.currentdir+"/data/open.png"))
@@ -184,19 +180,20 @@ class MyFrame(wx.Frame):
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
+			self.notebook.ChangeSelection(1)
 			command = 'sudo apt -y install '+package
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				self.logger.WriteText(line)
 				self.ShowStatusBarYELLOW(_('Installing package, please wait... ')+line)
-			self.notebook.ChangeSelection(1)
+				self.logger.ShowPosition(self.logger.GetLastPosition())
 			postInstallation = apps[index]['postInstallation']
 			if postInstallation:
 				popen = subprocess.Popen(postInstallation, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 				for line in popen.stdout:
 					self.logger.WriteText(line)
 					self.ShowStatusBarYELLOW(_('Running post-installation scripts, please wait... ')+line)
-			self.logger.ShowPosition(self.logger.GetLastPosition())
+					self.logger.ShowPosition(self.logger.GetLastPosition())
 			self.ShowStatusBarGREEN(_('Done'))
 			dlg.Destroy()
 			self.readApps()
@@ -211,13 +208,13 @@ class MyFrame(wx.Frame):
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
+			self.notebook.ChangeSelection(1)
 			command = 'sudo apt -y autoremove '+package
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				self.logger.WriteText(line)
 				self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
-			self.notebook.ChangeSelection(1)
-			self.logger.ShowPosition(self.logger.GetLastPosition())
+				self.logger.ShowPosition(self.logger.GetLastPosition())
 			self.ShowStatusBarGREEN(_('Done'))
 			dlg.Destroy()
 			self.readApps()
@@ -228,12 +225,12 @@ class MyFrame(wx.Frame):
 		if index == -1: return
 		apps = list(reversed(self.apps))
 		self.logger.Clear()
+		self.notebook.ChangeSelection(1)
 		command = 'apt changelog '+apps[index]['package']
 		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 		for line in popen.stdout:
 			self.logger.WriteText(line)
 			self.ShowStatusBarYELLOW(_('Reading changelog, please wait... ')+line)
-		self.notebook.ChangeSelection(1)
 		self.ShowStatusBarGREEN(_('Done'))
 
 	def OnOpenButton(self,e):
@@ -318,7 +315,9 @@ class MyFrame(wx.Frame):
 				for line in popen.stdout:
 					if ii in line: exists = True
 				if not exists: missing = ii
-			if missing: candidate = _('missing source: ')+missing
+			if missing: 
+				candidate = _('missing source: ')+missing
+				self.listApps.SetItemBackgroundColour(item,(200,200,200))
 
 			if i['dev'] == 'yes': 
 				candidate = _('coming soon')

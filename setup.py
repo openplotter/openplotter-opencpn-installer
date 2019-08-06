@@ -33,4 +33,5 @@ setup (
 	include_package_data=True,
 	entry_points={'console_scripts': ['openplotter-opencpn-installer=openplotterOpencpnInstaller.openplotterOpencpnInstaller:main',
 	'opencpnPostInstallation=openplotterOpencpnInstaller.opencpnPostInstallation:main']},
+	data_files=[('share/applications', ['openplotterOpencpnInstaller/data/openplotter-opencpn-installer.desktop']),],
 	)
