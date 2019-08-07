@@ -15,14 +15,17 @@
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
 import time, subprocess, configparser
+from openplotterSettings import platform
 
 class Start():
 	def __init__(self, conf):
 		self.conf = conf
+		self.platform = platform.Platform()
 		self.initialMessage = ''
-		subprocess.call(['pkill', '-15', 'opencpn'])
-		if self.conf.get('OPENCPN', 'autostart') == '1':
-			self.initialMessage = _('Starting OpenCPN...')
+		if self.platform.isInstalled('opencpn'):
+			subprocess.call(['pkill', '-15', 'opencpn'])
+			if self.conf.get('OPENCPN', 'autostart') == '1':
+				self.initialMessage = _('Starting OpenCPN...')
 		
 	def start(self):
 		green = ''
@@ -40,7 +43,10 @@ class Start():
 class Check():
 	def __init__(self, conf):
 		self.conf = conf
-		self.initialMessage = _('Checking OpenCPN...')
+		self.platform = platform.Platform()
+		self.initialMessage = ''
+		if self.platform.isInstalled('opencpn'):
+			self.initialMessage = _('Checking OpenCPN...')
 
 	def check(self):
 		green = ''

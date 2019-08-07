@@ -32,7 +32,7 @@ class MyFrame(wx.Frame):
 
 		wx.Frame.__init__(self, None, title=_('OpenCPN Installer'), size=(800,444))
 		self.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))
-		icon = wx.Icon(self.currentdir+"/data/opencpn.png", wx.BITMAP_TYPE_PNG)
+		icon = wx.Icon(self.currentdir+"/data/opencpn-installer.png", wx.BITMAP_TYPE_PNG)
 		self.SetIcon(icon)
 
 		self.toolbar1 = wx.ToolBar(self, style=wx.TB_TEXT)
@@ -99,7 +99,7 @@ class MyFrame(wx.Frame):
 		self.ShowStatusBar(w_msg,(255,140,0)) 
 
 	def OnToolHelp(self, event): 
-		url = "/usr/share/openplotter-doc/xxx/xxx.html"
+		url = "/usr/share/openplotter-doc/opencpn/opencpn_app.html"
 		webbrowser.open(url, new=2)
 
 	def OnToolSettings(self, event): 
