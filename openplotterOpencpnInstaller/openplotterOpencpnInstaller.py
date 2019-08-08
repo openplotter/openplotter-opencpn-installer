@@ -32,7 +32,7 @@ class MyFrame(wx.Frame):
 
 		wx.Frame.__init__(self, None, title=_('OpenCPN Installer'), size=(800,444))
 		self.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))
-		icon = wx.Icon(self.currentdir+"/data/opencpn-installer.png", wx.BITMAP_TYPE_PNG)
+		icon = wx.Icon(self.currentdir+"/data/openplotter-opencpn-installer.png", wx.BITMAP_TYPE_PNG)
 		self.SetIcon(icon)
 
 		self.toolbar1 = wx.ToolBar(self, style=wx.TB_TEXT)
@@ -42,7 +42,7 @@ class MyFrame(wx.Frame):
 		toolSettings = self.toolbar1.AddTool(106, _('Settings'), wx.Bitmap(self.currentdir+"/data/settings.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolSettings, toolSettings)
 		self.toolbar1.AddSeparator()
-		toolStartup = self.toolbar1.AddCheckTool(102, _('Autostart'), wx.Bitmap(self.currentdir+"/data/autostart.png"))
+		toolStartup = self.toolbar1.AddCheckTool(102, _('Autostart OpenCPN'), wx.Bitmap(self.currentdir+"/data/autostart.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolStartup, toolStartup)
 		if self.conf.get('OPENCPN', 'autostart') == '1': self.toolbar1.ToggleTool(102,True)
 		toolFull = self.toolbar1.AddCheckTool(103, _('Full Screen'), wx.Bitmap(self.currentdir+"/data/fullscreen.png"))
@@ -133,7 +133,7 @@ class MyFrame(wx.Frame):
 			self.logger.WriteText(line)
 			self.ShowStatusBarYELLOW(_('Updating packages data, please wait... ')+line)
 			self.logger.ShowPosition(self.logger.GetLastPosition())
-		self.ShowStatusBarGREEN(_('Done. Now you can check if there are available updates'))
+		self.ShowStatusBarYELLOW(_('Checking packages, please wait... '))
 		self.readApps()
 
 	def pageApps(self):
@@ -160,7 +160,7 @@ class MyFrame(wx.Frame):
 		sizer.Add(self.listApps, 1, wx.EXPAND, 0)
 		sizer.Add(self.toolbar2, 0)
 		self.apps.SetSizer(sizer)
-
+		self.ShowStatusBarYELLOW(_('Checking packages, please wait... '))
 		self.readApps()
 
 	def pageOutput(self):
@@ -196,6 +196,7 @@ class MyFrame(wx.Frame):
 					self.logger.ShowPosition(self.logger.GetLastPosition())
 			self.ShowStatusBarGREEN(_('Done'))
 			dlg.Destroy()
+			self.ShowStatusBarYELLOW(_('Checking packages, please wait... '))
 			self.readApps()
 		else: dlg.Destroy()
 
@@ -217,6 +218,7 @@ class MyFrame(wx.Frame):
 				self.logger.ShowPosition(self.logger.GetLastPosition())
 			self.ShowStatusBarGREEN(_('Done'))
 			dlg.Destroy()
+			self.ShowStatusBarYELLOW(_('Checking packages, please wait... '))
 			self.readApps()
 		else: dlg.Destroy()
 
@@ -245,7 +247,95 @@ class MyFrame(wx.Frame):
 		self.apps = []
 
 		app = {
-		'name': _('Weather Routing Plugin'),
+		'name': 'Pypilot Plugin',
+		'category': _('Others'),
+		'package': 'opencpn-plugin-pypilot',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/pypilot.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Debugger Plugin',
+		'category': _('Others'),
+		'package': 'opencpn-plugin-ocpndebugger',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/debugger.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Launcher Plugin',
+		'category': _('Others'),
+		'package': 'opencpn-plugin-launcher',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/launcher.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Calculator Plugin',
+		'category': _('Others'),
+		'package': 'opencpn-plugin-calculator',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/calculator.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Status Bar Plugin',
+		'category': _('Others'),
+		'package': 'opencpn-plugin-statusbar',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/statusbar.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'IAC Fleet Code Plugin',
+		'category': _('Weather'),
+		'package': 'opencpn-plugin-iacfleet',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/iacfleet.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Climatology Plugin',
+		'category': _('Weather'),
+		'package': 'opencpn-plugin-climatology',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/climatology.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Weather Fax Plugin',
+		'category': _('Weather'),
+		'package': 'opencpn-plugin-weatherfax',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/weatherfax.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Weather Routing Plugin',
 		'category': _('Weather'),
 		'package': 'opencpn-plugin-weatherrouting',
 		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
@@ -256,7 +346,227 @@ class MyFrame(wx.Frame):
 		self.apps.append(app)
 
 		app = {
-		'name': _('S-63 Charts Plugin'),
+		'name': 'Tactics Plugin',
+		'category': _('Sailing Interests'),
+		'package': 'opencpn-plugin-tactics',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/tactics.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Plots Plugin',
+		'category': _('Sailing Interests'),
+		'package': 'opencpn-plugin-plots',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/sweepplot.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Polar Plugin',
+		'category': _('Sailing Interests'),
+		'package': 'opencpn-plugin-polar',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/polar.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'SAR Plugin',
+		'category': _('Safety'),
+		'package': 'opencpn-plugin-sar',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/sar.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Ocpn Draw Plugin',
+		'category': _('Safety'),
+		'package': 'opencpn-plugin-draw',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/draw.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Watchdog Plugin',
+		'category': _('Safety'),
+		'package': 'opencpn-plugin-watchdog',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/watchdog.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'oTCurrent Plugin',
+		'category': _('Navigation'),
+		'package': 'opencpn-plugin-otcurrent',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/otcurrent.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Dead Reckoning Positions Plugin',
+		'category': _('Navigation'),
+		'package': 'opencpn-plugin-dr',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/dreckoning.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Route Plugin',
+		'category': _('Navigation'),
+		'package': 'opencpn-plugin-route',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/route.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Celestial Navigation Plugin',
+		'category': _('Navigation'),
+		'package': 'opencpn-plugin-celestial',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/celestialnav.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'sQuiddio Plugin',
+		'category': _('Navigation'),
+		'package': 'opencpn-plugin-squiddio',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/sQuiddio.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'NmeaConverter Plugin',
+		'category': _('Logs'),
+		'package': 'opencpn-plugin-nmeaconverter',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/nmeaconvert.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Voyage Data Recorder Plugin',
+		'category': _('Logs'),
+		'package': 'opencpn-plugin-vdr',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/vdr.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Find-It Plugin',
+		'category': _('Logs'),
+		'package': 'opencpn-plugin-findit',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/findit.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Logbook Konni Plugin',
+		'category': _('Logs'),
+		'package': 'opencpn-plugin-logbookkonni',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/logbookkonni.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Projections Plugin',
+		'category': _('Chart Support'),
+		'package': 'opencpn-plugin-projections',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/projections.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Chart Object Search Plugin',
+		'category': _('Chart Support'),
+		'package': 'opencpn-plugin-objsearch',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/chartobject.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Chart Scale Plugin',
+		'category': _('Chart Support'),
+		'package': 'opencpn-plugin-chartscale',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/chartscale.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Chart Rotation Control Plugin',
+		'category': _('Chart Support'),
+		'package': 'opencpn-plugin-rotationctrl',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/chartrotation.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'VFkaps Plugin',
+		'category': _('Chart Support'),
+		'package': 'opencpn-plugin-vfkaps',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/vfkaps.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'S-63 Charts Plugin',
 		'category': _('Chart Support'),
 		'package': 'opencpn-plugin-s63',
 		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
@@ -267,7 +577,7 @@ class MyFrame(wx.Frame):
 		self.apps.append(app)
 
 		app = {
-		'name': _('oeSENC Charts Plugin'),
+		'name': 'oeSENC Charts Plugin',
 		'category': _('Chart Support'),
 		'package': 'oesenc-pi',
 		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
@@ -278,8 +588,41 @@ class MyFrame(wx.Frame):
 		self.apps.append(app)
 
 		app = {
-		'name': _('OpenCPN'),
-		'category': '',
+		'name': 'RTL-SDR Plugin',
+		'category': _('AIS/Radar'),
+		'package': 'opencpn-plugin-rtlsdr',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/rtlsdr.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'Radar PI Plugin',
+		'category': _('AIS/Radar'),
+		'package': 'opencpn-plugin-radar',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/radarPI.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'AIS Radar View Plugin',
+		'category': _('AIS/Radar'),
+		'package': 'opencpn-plugin-aisradar',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/aisradarview.html',
+		'postInstallation': 'opencpnPostInstallation',
+		}
+		self.apps.append(app)
+
+		app = {
+		'name': 'OpenCPN',
+		'category': _('Main Program'),
 		'package': 'opencpn',
 		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
 		'dev': 'no',
@@ -288,6 +631,7 @@ class MyFrame(wx.Frame):
 		}
 		self.apps.append(app)
 
+		sources = subprocess.check_output(['apt-cache', 'policy']).decode()
 		for i in self.apps:
 			item = self.listApps.InsertItem(0, i['name'])
 			self.listApps.SetItem(item, 1, i['category'])
@@ -309,12 +653,7 @@ class MyFrame(wx.Frame):
 
 			missing = False
 			for ii in i['sources']:
-				command = 'apt-cache policy'
-				popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
-				exists = False
-				for line in popen.stdout:
-					if ii in line: exists = True
-				if not exists: missing = ii
+				if not ii in sources:  missing = ii
 			if missing: 
 				candidate = _('missing source: ')+missing
 				self.listApps.SetItemBackgroundColour(item,(200,200,200))
@@ -323,8 +662,13 @@ class MyFrame(wx.Frame):
 				candidate = _('coming soon')
 				self.listApps.SetItemBackgroundColour(item,(200,200,200))
 
+			if not candidate:
+				self.listApps.SetItemBackgroundColour(item,(200,200,200))
+
 			self.listApps.SetItem(item, 2, installed)
 			self.listApps.SetItem(item, 3, candidate)
+
+		self.ShowStatusBarGREEN(_('Done'))
 
 	def onListAppsSelected(self, e):
 		i = e.GetIndex()
