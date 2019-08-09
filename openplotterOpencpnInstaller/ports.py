@@ -14,12 +14,15 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
-import configparser
+import configparser, os
 from openplotterSettings import platform
+from openplotterSettings import language
 
 class Ports:
 	def __init__(self,conf):
 		self.platform = platform.Platform()
+		currentdir = os.path.dirname(__file__)
+		language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
 		self.usedPorts=[]
 		if self.platform.isInstalled('opencpn'):
 			try:
