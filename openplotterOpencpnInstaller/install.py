@@ -14,12 +14,14 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
-import os
+import os, sys
 
 def main():
+	os.system('apt install -y '+sys.argv[1])
+	
 	currentdir = os.path.dirname(__file__)
 	source = currentdir+'/data/opencpn.desktop'
-	os.system('sudo cp -f '+source+' /usr/share/applications')
+	os.system('cp -f '+source+' /usr/share/applications')
 
 if __name__ == '__main__':
 	main()

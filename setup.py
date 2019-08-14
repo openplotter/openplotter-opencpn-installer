@@ -31,7 +31,6 @@ setup (
 	'Operating System :: POSIX :: Linux',
 	'Programming Language :: Python :: 3'],
 	include_package_data=True,
-	entry_points={'console_scripts': ['openplotter-opencpn-installer=openplotterOpencpnInstaller.openplotterOpencpnInstaller:main',
-	'opencpnPostInstallation=openplotterOpencpnInstaller.opencpnPostInstallation:main']},
+	entry_points={'console_scripts': ['openplotter-opencpn-installer=openplotterOpencpnInstaller.openplotterOpencpnInstaller:main']},
 	data_files=[('share/applications', ['openplotterOpencpnInstaller/data/openplotter-opencpn-installer.desktop']),('share/pixmaps', ['openplotterOpencpnInstaller/data/openplotter-opencpn-installer.png']),],
 	)

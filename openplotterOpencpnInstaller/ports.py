@@ -19,7 +19,7 @@ from openplotterSettings import platform
 from openplotterSettings import language
 
 class Ports:
-	def __init__(self,conf):
+	def __init__(self,conf, currentLanguage):
 		self.platform = platform.Platform()
 		currentdir = os.path.dirname(__file__)
 		language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
