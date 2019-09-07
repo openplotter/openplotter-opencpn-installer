@@ -442,6 +442,7 @@ class MyFrame(wx.Frame):
 		self.Bind(wx.EVT_TOOL, self.OnToolUpdate, toolUpdate)
 		
 		self.notebook = wx.Notebook(self)
+		self.notebook.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.onTabChange)
 		self.apps = wx.Panel(self.notebook)
 		self.output = wx.Panel(self.notebook)
 		self.notebook.AddPage(self.apps, _('OpenCPN packages'))
@@ -483,7 +484,10 @@ class MyFrame(wx.Frame):
 		self.ShowStatusBar(w_msg, wx.BLACK) 
 
 	def ShowStatusBarYELLOW(self, w_msg):
-		self.ShowStatusBar(w_msg,(255,140,0)) 
+		self.ShowStatusBar(w_msg,(255,140,0))
+
+	def onTabChange(self, event):
+		self.SetStatusText('')
 
 	def OnToolHelp(self, event): 
 		url = "/usr/share/openplotter-doc/opencpn/opencpn_app.html"

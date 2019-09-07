@@ -20,41 +20,47 @@ from openplotterSettings import language
 
 class Ports:
 	def __init__(self,conf, currentLanguage):
+		self.conf = conf
 		self.platform = platform.Platform()
 		currentdir = os.path.dirname(__file__)
 		language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
-		self.usedPorts=[]
+		self.connections = []
+
+	def usedPorts(self):
+		usedPorts = []
 		if self.platform.isInstalled('opencpn'):
 			try:
-				confFile = conf.home+'/.opencpn/opencpn.conf'
+				confFile = self.conf.home+'/.opencpn/opencpn.conf'
 				confData = configparser.SafeConfigParser()
 				confData.read(confFile)
 				tmp = confData.get('Settings/NMEADataSource', 'DataConnections')
 				connections = tmp.split('|')
+				c = 1
 				for connection in connections:
 					result = False
 					#0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18
 					#serial/network;TCP/UDP/GPSD;address;port;?;serialport;bauds;?;0=input/1=input+output/2=output;?;?;?;?;?;?;?;?;enabled/disabled;comments
 					items = connection.split(';')
-					if items[0] == '1':
-						if items[17] == '1':
-							if items[1] == '0':
-								if items[2] == '0.0.0.0': 
+					if items[0] == '1': # network
+						if items[17] == '1': # enabled
+							if items[1] == '0': # TCP
+								if items[2] == 'localhost' or items[2] == '127.0.0.1' or items[2] == '0.0.0.0' or not items[2]:
+									if items[2] == '0.0.0.0': mode = 'server'
+									else: mode = 'client'
 									ctype = 'TCP'
 									address = 'localhost'
 									port = items[3]
-									direction = ''
-									if items[8] == '2': direction = 'out'
-									if items[8] == '1': direction = 'both'
-									result = {'description':_('OpenCPN connection'), 'type':ctype, 'address':address, 'port':port, 'direction':direction}
-							elif items[1] == '1':
-								if items[8] == '2' or items[8] == '1':
-									if items[2] == 'localhost' or items[2] == '127.0.0.1' or not items[2]: 
-										if items[8] == '2': direction = 'out'
-										if items[8] == '1': direction = 'both'
-										ctype = 'UDP'
-										address = 'localhost'
-										port = items[3]
-										result = {'description':_('OpenCPN connection'), 'type':ctype, 'address':address, 'port':port, 'direction':direction}
-					if result: self.usedPorts.append(result)
+									result = {'id':'opencpnConn'+str(c),'description':_('OpenCPN connection'), 'data':[], 'type':ctype, 'mode':mode, 'address':address, 'port':port, 'editable':'0'}
+							elif items[1] == '1': # UDP
+								if items[2] == 'localhost' or items[2] == '127.0.0.1' or items[2] == '0.0.0.0' or not items[2]:
+									if items[8] == '0' or items[8] == '1': mode = 'server'
+									else: mode = 'client'
+									ctype = 'UDP'
+									address = 'localhost'
+									port = items[3]
+									result = {'id':'opencpnConn'+str(c),'description':_('OpenCPN connection'), 'data':[], 'type':ctype, 'mode':mode, 'address':address, 'port':port, 'editable':'0'}
+					if result: 
+						usedPorts.append(result)
+						c = c +1
 			except:pass
+		if usedPorts: return usedPorts
