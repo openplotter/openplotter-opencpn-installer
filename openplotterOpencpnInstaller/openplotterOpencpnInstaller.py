@@ -88,6 +88,17 @@ class MyFrame(wx.Frame):
 		self.appsDict.append(app)
 
 		app = {
+		'name': 'ShipDriver Plugin',
+		'category': _('Others'),
+		'package': 'opencpn-plugin-shipdriver',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/shipdriver.html',
+		'install': 'install.py',
+		}
+		self.appsDict.append(app)
+
+		app = {
 		'name': 'IAC Fleet Code Plugin',
 		'category': _('Weather'),
 		'package': 'opencpn-plugin-iacfleet',
@@ -363,6 +374,17 @@ class MyFrame(wx.Frame):
 		self.appsDict.append(app)
 
 		app = {
+		'name': 'oeRNC Charts Plugin',
+		'category': _('Chart Support'),
+		'package': 'oernc-pi',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/oernc.html',
+		'install': 'install.py',
+		}
+		self.appsDict.append(app)
+
+		app = {
 		'name': 'oeSENC Charts Plugin',
 		'category': _('Chart Support'),
 		'package': 'oesenc-pi',
@@ -421,6 +443,10 @@ class MyFrame(wx.Frame):
 		self.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))
 		icon = wx.Icon(self.currentdir+"/data/openplotter-opencpn-installer.png", wx.BITMAP_TYPE_PNG)
 		self.SetIcon(icon)
+		self.CreateStatusBar()
+		font_statusBar = self.GetStatusBar().GetFont()
+		font_statusBar.SetWeight(wx.BOLD)
+		self.GetStatusBar().SetFont(font_statusBar)
 
 		self.toolbar1 = wx.ToolBar(self, style=wx.TB_TEXT)
 		toolHelp = self.toolbar1.AddTool(101, _('Help'), wx.Bitmap(self.currentdir+"/data/help.png"))
@@ -446,7 +472,7 @@ class MyFrame(wx.Frame):
 		self.apps = wx.Panel(self.notebook)
 		self.output = wx.Panel(self.notebook)
 		self.notebook.AddPage(self.apps, _('OpenCPN packages'))
-		self.notebook.AddPage(self.output, _('Output'))
+		self.notebook.AddPage(self.output, '')
 		self.il = wx.ImageList(24, 24)
 		img0 = self.il.Add(wx.Bitmap(self.currentdir+"/data/opencpn24.png", wx.BITMAP_TYPE_PNG))
 		img1 = self.il.Add(wx.Bitmap(self.currentdir+"/data/output.png", wx.BITMAP_TYPE_PNG))
@@ -459,15 +485,13 @@ class MyFrame(wx.Frame):
 		vbox.Add(self.notebook, 1, wx.EXPAND)
 		self.SetSizer(vbox)
 
-		self.CreateStatusBar()
-		font_statusBar = self.GetStatusBar().GetFont()
-		font_statusBar.SetWeight(wx.BOLD)
-		self.GetStatusBar().SetFont(font_statusBar)
-
 		self.pageApps()
 		self.onListAppsDeselected()
 		self.pageOutput()
 
+		maxi = self.conf.get('GENERAL', 'maximize')
+		if maxi == '1': self.Maximize()
+		
 		self.Centre() 
 
 	def ShowStatusBar(self, w_msg, colour):
@@ -544,7 +568,7 @@ class MyFrame(wx.Frame):
 		self.Bind(wx.EVT_TOOL, self.OnInstallButton, self.installButton)
 		self.uninstallButton = self.toolbar2.AddTool(202, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
 		self.Bind(wx.EVT_TOOL, self.OnUninstallButton, self.uninstallButton)
-		self.openButton = self.toolbar2.AddTool(203, _('Info'), wx.Bitmap(self.currentdir+"/data/open.png"))
+		self.openButton = self.toolbar2.AddTool(203, 'www', wx.Bitmap(self.currentdir+"/data/info.png"))
 		self.Bind(wx.EVT_TOOL, self.OnOpenButton, self.openButton)
 
 		sizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -674,6 +698,9 @@ class MyFrame(wx.Frame):
 
 			self.listApps.SetItem(item, 2, installed)
 			self.listApps.SetItem(item, 3, candidate)
+		self.toolbar2.EnableTool(201,False)
+		self.toolbar2.EnableTool(202,False)
+		self.toolbar2.EnableTool(203,False)
 		self.ShowStatusBarGREEN(_('Done'))
 
 	def onListAppsSelected(self, e):
