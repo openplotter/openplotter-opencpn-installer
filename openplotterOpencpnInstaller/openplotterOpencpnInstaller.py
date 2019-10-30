@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
 
-import wx, os, webbrowser, subprocess
+import wx, os, webbrowser, subprocess, sys
 import wx.richtext as rt
 
 from openplotterSettings import conf
@@ -576,7 +576,7 @@ class MyFrame(wx.Frame):
 		sizer.Add(self.toolbar2, 0)
 		self.apps.SetSizer(sizer)
 
-		sources = subprocess.check_output(['apt-cache', 'policy']).decode()
+		sources = subprocess.check_output(['apt-cache', 'policy']).decode(sys.stdin.encoding)
 		for i in self.appsDict:
 			item = self.listApps.InsertItem(0, i['name'])
 			self.listApps.SetItem(item, 1, i['category'])
@@ -659,7 +659,7 @@ class MyFrame(wx.Frame):
 		self.notebook.ChangeSelection(0)
 		self.listApps.DeleteAllItems()
 		self.ShowStatusBarYELLOW(_('Checking plugins list, please wait... '))
-		sources = subprocess.check_output(['apt-cache', 'policy']).decode()
+		sources = subprocess.check_output(['apt-cache', 'policy']).decode(sys.stdin.encoding)
 		for i in self.appsDict:
 			item = self.listApps.InsertItem(0, i['name'])
 			self.listApps.SetItem(item, 1, i['category'])

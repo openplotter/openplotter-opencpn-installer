@@ -14,7 +14,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
-import time, subprocess, configparser, os
+import time, subprocess, configparser, os, sys
 from openplotterSettings import platform
 from openplotterSettings import language
 
@@ -57,7 +57,7 @@ class Check():
 		green = ''
 		black = ''
 		red = ''
-		test = subprocess.check_output(['ps','aux']).decode()
+		test = subprocess.check_output(['ps','aux']).decode(sys.stdin.encoding)
 		test2 = test.replace('openplotter-opencpn', '')
 		if 'opencpn' in test2: green = _('running')
 		else: black = _('not running | ')

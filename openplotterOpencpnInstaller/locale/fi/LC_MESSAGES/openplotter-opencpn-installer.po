@@ -1,145 +1,253 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: openplotter-opencpn-installer\n"
-"POT-Creation-Date: 2019-08-01 11:07+0200\n"
-"PO-Revision-Date: 2019-08-01 11:07+0200\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: en\n"
+"Project-Id-Version: openplotter\n"
+"POT-Creation-Date: 2019-10-28 19:20+0100\n"
+"PO-Revision-Date: 2019-10-30 10:07+0100\n"
+"Last-Translator: Sailoog (sailoog)\n"
+"Language-Team: Finnish\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SourceCharset: iso-8859-7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Crowdin-Project: openplotter\n"
+"X-Crowdin-Language: fi\n"
+"X-Crowdin-File: openplotter-opencpn-installer.po\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: openplotterOpencpnInstaller.py:37
-msgid "Help"
-msgstr ""
+#: openplotterOpencpnInstaller.py:37 openplotterOpencpnInstaller.py:48
+#: openplotterOpencpnInstaller.py:59 openplotterOpencpnInstaller.py:70
+#: openplotterOpencpnInstaller.py:81 openplotterOpencpnInstaller.py:92
+msgid "Others"
+msgstr "Muut"
 
-#: openplotterOpencpnInstaller.py:40
-msgid "Translate"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:43
-msgid "Update Packages Data"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:49
-msgid "OpenCPN packages"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:50
-msgid "Output"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:104
-msgid "Updating packages data, please wait... "
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:106
-msgid "Done. Now you can check if there are available updates"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:111
-msgid "Name"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:112
-msgid "Category"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:113
-msgid "Installed"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:114
-msgid "Candidate"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:119
-msgid "Install"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:121
-msgid "Uninstall"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:124
-msgid "Open"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:126
-msgid "Changelog"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:141
-msgid "Are you sure you want to install "
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:141 openplotterOpencpnInstaller.py:169
-msgid " and its dependencies?"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:142 openplotterOpencpnInstaller.py:170
-msgid "Question"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:149
-msgid "Installing package, please wait... "
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:157
-msgid "Running post-installation scripts, please wait... "
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:159 openplotterOpencpnInstaller.py:179
-#: openplotterOpencpnInstaller.py:195
-msgid "Done"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:169
-msgid "Are you sure you want to uninstall "
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:177
-msgid "Uninstalling packages, please wait... "
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:193
-msgid "Reading changelog, please wait... "
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:209
-msgid "Weather Routing Plugin"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:210
+#: openplotterOpencpnInstaller.py:103 openplotterOpencpnInstaller.py:114
+#: openplotterOpencpnInstaller.py:125 openplotterOpencpnInstaller.py:136
 msgid "Weather"
-msgstr ""
+msgstr "Sää"
 
-#: openplotterOpencpnInstaller.py:220
-msgid "S-63 Charts Plugin"
-msgstr ""
+#: openplotterOpencpnInstaller.py:147 openplotterOpencpnInstaller.py:158
+#: openplotterOpencpnInstaller.py:169
+msgid "Sailing Interests"
+msgstr "Purjehduksen näkökohdat"
 
-#: openplotterOpencpnInstaller.py:221 openplotterOpencpnInstaller.py:232
+#: openplotterOpencpnInstaller.py:180 openplotterOpencpnInstaller.py:191
+#: openplotterOpencpnInstaller.py:202
+msgid "Safety"
+msgstr "Turvallisuus"
+
+#: openplotterOpencpnInstaller.py:213 openplotterOpencpnInstaller.py:224
+#: openplotterOpencpnInstaller.py:235 openplotterOpencpnInstaller.py:246
+#: openplotterOpencpnInstaller.py:257
+msgid "Navigation"
+msgstr "Navigointi"
+
+#: openplotterOpencpnInstaller.py:268 openplotterOpencpnInstaller.py:279
+#: openplotterOpencpnInstaller.py:290 openplotterOpencpnInstaller.py:301
+msgid "Logs"
+msgstr "Lokit"
+
+#: openplotterOpencpnInstaller.py:312 openplotterOpencpnInstaller.py:323
+#: openplotterOpencpnInstaller.py:334 openplotterOpencpnInstaller.py:345
+#: openplotterOpencpnInstaller.py:356 openplotterOpencpnInstaller.py:367
+#: openplotterOpencpnInstaller.py:378 openplotterOpencpnInstaller.py:389
 msgid "Chart Support"
-msgstr ""
+msgstr "Kartta tuki"
 
-#: openplotterOpencpnInstaller.py:231
-msgid "oeSENC Charts Plugin"
-msgstr ""
+#: openplotterOpencpnInstaller.py:400 openplotterOpencpnInstaller.py:411
+#: openplotterOpencpnInstaller.py:422
+msgid "AIS/Radar"
+msgstr "AIS/tutka"
 
-#: openplotterOpencpnInstaller.py:242
-msgid "OpenCPN"
-msgstr ""
+#: openplotterOpencpnInstaller.py:433
+msgid "Main Program"
+msgstr "Pää Ohjelma"
 
-#: openplotterOpencpnInstaller.py:279
+#: openplotterOpencpnInstaller.py:442
+msgid "OpenCPN Installer"
+msgstr "OpenCPN Asennin"
+
+#: openplotterOpencpnInstaller.py:452
+msgid "Help"
+msgstr "Ohje"
+
+#: openplotterOpencpnInstaller.py:455
+msgid "Settings"
+msgstr "Asetukset"
+
+#: openplotterOpencpnInstaller.py:458
+msgid "Autostart OpenCPN"
+msgstr "OpenCPN autokäynnistys"
+
+#: openplotterOpencpnInstaller.py:461
+msgid "Full Screen"
+msgstr "Koko näyttö"
+
+#: openplotterOpencpnInstaller.py:467
+msgid "Update Data"
+msgstr "Päivitä tiedot"
+
+#: openplotterOpencpnInstaller.py:474
+msgid "OpenCPN packages"
+msgstr "OpenCPN paketit"
+
+#: openplotterOpencpnInstaller.py:527
+msgid "OpenCPN autostart enabled"
+msgstr "OpenCPN autokäynnistys sallittu"
+
+#: openplotterOpencpnInstaller.py:531
+msgid "OpenCPN autostart disabled"
+msgstr "OpenCPN autokäynnistys estetty"
+
+#: openplotterOpencpnInstaller.py:537
+msgid "OpenCPN fullscreen autostart enabled"
+msgstr "OpenCPN autokäynnistys koko näyttöön sallittu"
+
+#: openplotterOpencpnInstaller.py:540
+msgid "OpenCPN fullscreen autostart disabled"
+msgstr "OpenCPN autokäynnistys koko näyttöön estetty"
+
+#: openplotterOpencpnInstaller.py:550
+msgid "Updating packages data, please wait... "
+msgstr "Pakettien dataa päivitetään, odottele... "
+
+#: openplotterOpencpnInstaller.py:556
+msgid "Name"
+msgstr "Nimi"
+
+#: openplotterOpencpnInstaller.py:557
+msgid "Category"
+msgstr "Kategoria"
+
+#: openplotterOpencpnInstaller.py:558
+msgid "Installed"
+msgstr "Asennettu"
+
+#: openplotterOpencpnInstaller.py:559
+msgid "Candidate"
+msgstr "Ehdokas"
+
+#: openplotterOpencpnInstaller.py:564
+msgid "Refresh"
+msgstr "Päivitä"
+
+#: openplotterOpencpnInstaller.py:567
+msgid "Install"
+msgstr "Asenna"
+
+#: openplotterOpencpnInstaller.py:569
+msgid "Uninstall"
+msgstr "Poista asennus"
+
+#: openplotterOpencpnInstaller.py:588 openplotterOpencpnInstaller.py:686
 msgid "missing source: "
-msgstr ""
+msgstr "puuttuva sorsa: "
 
-#: openplotterOpencpnInstaller.py:282
+#: openplotterOpencpnInstaller.py:590 openplotterOpencpnInstaller.py:690
 msgid "coming soon"
+msgstr "tulossa pian"
+
+#: openplotterOpencpnInstaller.py:594
+msgid "Press Refresh"
+msgstr "Paina Virkistä"
+
+#: openplotterOpencpnInstaller.py:611
+msgid "Are you sure you want to install "
+msgstr "Haluatko varmasti asentaa "
+
+#: openplotterOpencpnInstaller.py:611 openplotterOpencpnInstaller.py:632
+msgid " and its dependencies?"
+msgstr " ja sen riippuvuudet?"
+
+#: openplotterOpencpnInstaller.py:612 openplotterOpencpnInstaller.py:633
+msgid "Question"
+msgstr "Kysymys"
+
+#: openplotterOpencpnInstaller.py:621
+msgid "Installing package, please wait... "
+msgstr "Paketti asennetaan, odottele... "
+
+#: openplotterOpencpnInstaller.py:632
+msgid "Are you sure you want to uninstall "
+msgstr "Haluatko varmasti poistaa "
+
+#: openplotterOpencpnInstaller.py:641
+msgid "Uninstalling packages, please wait... "
+msgstr "Paketteja poistetaan, odottele... "
+
+#: openplotterOpencpnInstaller.py:643 openplotterOpencpnInstaller.py:704
+msgid "Done"
+msgstr "Tehty"
+
+#: openplotterOpencpnInstaller.py:661
+msgid "Checking plugins list, please wait... "
+msgstr "Tarkistetaan sovelmaluetteloita, odota... "
+
+#: ports.py:53 ports.py:61
+msgid "OpenCPN connection"
+msgstr "OpenCPN liitos"
+
+#: startup.py:31
+msgid "Starting OpenCPN..."
+msgstr "Käynnistetään OpenCPN..."
+
+#: startup.py:38
+msgid "fullscreen"
+msgstr "koko näyttö"
+
+#: startup.py:41
+msgid "non fullscreen"
+msgstr "osa näyttö"
+
+#: startup.py:54
+msgid "Checking OpenCPN..."
+msgstr "Tarkistetaan OpenCPN..."
+
+#: startup.py:62
+msgid "running"
+msgstr "käynnissä"
+
+#: startup.py:63
+msgid "not running | "
+msgstr "pysähtynyt | "
+
+#: startup.py:67
+msgid "fullscreen autostart enabled"
+msgstr "autokäynnistys koko näyttöön sallittu"
+
+#: startup.py:68
+msgid "autostart enabled"
+msgstr "autokäynnistys sallittu"
+
+#: startup.py:69
+msgid "autostart disabled"
+msgstr "autokäynnistys estetty"
+
+#: startup.py:91
+msgid ""
+"The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
+"Network\n"
+"Protocol: TCP\n"
+"Address: localhost\n"
+"Data Port: 10110"
 msgstr ""
+"Vakio OpenCPN kytkentä puuttuu, eikä saa dataa Signal K: sta. Muodosta kytkentä kohdassa OpenCPN: Network\n"
+"Protcol: TCP\n"
+"Adress: localhost\n"
+"Data Port: 10110"
+
+#: startup.py:93
+msgid ""
+"The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable this connection in OpenCPN:\n"
+"Network\n"
+"Protocol: TCP\n"
+"Address: localhost\n"
+"Data Port: 10110"
+msgstr ""
+"Vakio OpenCPN kytkentä on estetty, eikä saa dataa Signal K: sta. Salli tämä kytkentä kohdassa OpenCPN: Network\n"
+"Protcol: TCP\n"
+"Adress: localhost\n"
+"Data Port: 10110"
