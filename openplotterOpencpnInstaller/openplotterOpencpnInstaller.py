@@ -466,6 +466,8 @@ class MyFrame(wx.Frame):
 		self.toolbar1.AddSeparator()
 		toolUpdate = self.toolbar1.AddTool(105, _('Update Data'), wx.Bitmap(self.currentdir+"/data/update.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolUpdate, toolUpdate)
+		self.refreshButton = self.toolbar1.AddTool(104, _('Refresh'), wx.Bitmap(self.currentdir+"/data/refresh.png"))
+		self.Bind(wx.EVT_TOOL, self.OnRefreshButton, self.refreshButton)
 		
 		self.notebook = wx.Notebook(self)
 		self.notebook.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.onTabChange)
@@ -511,7 +513,9 @@ class MyFrame(wx.Frame):
 		self.ShowStatusBar(w_msg,(255,140,0))
 
 	def onTabChange(self, event):
-		self.SetStatusText('')
+		try:
+			self.SetStatusText('')
+		except:pass
 
 	def OnToolHelp(self, event): 
 		url = "/usr/share/openplotter-doc/opencpn/opencpn_app.html"
@@ -561,9 +565,6 @@ class MyFrame(wx.Frame):
 		self.listApps.Bind(wx.EVT_LIST_ITEM_DESELECTED, self.onListAppsDeselected)
 
 		self.toolbar2 = wx.ToolBar(self.apps, style=wx.TB_TEXT | wx.TB_VERTICAL)
-		self.refreshButton = self.toolbar2.AddTool(204, _('Refresh'), wx.Bitmap(self.currentdir+"/data/refresh.png"))
-		self.Bind(wx.EVT_TOOL, self.OnRefreshButton, self.refreshButton)
-		self.toolbar2.AddSeparator()
 		self.installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/install.png"))
 		self.Bind(wx.EVT_TOOL, self.OnInstallButton, self.installButton)
 		self.uninstallButton = self.toolbar2.AddTool(202, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
