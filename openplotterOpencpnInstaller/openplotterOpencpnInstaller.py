@@ -569,6 +569,7 @@ class MyFrame(wx.Frame):
 		self.Bind(wx.EVT_TOOL, self.OnInstallButton, self.installButton)
 		self.uninstallButton = self.toolbar2.AddTool(202, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
 		self.Bind(wx.EVT_TOOL, self.OnUninstallButton, self.uninstallButton)
+		self.toolbar2.AddSeparator()
 		self.openButton = self.toolbar2.AddTool(203, 'www', wx.Bitmap(self.currentdir+"/data/info.png"))
 		self.Bind(wx.EVT_TOOL, self.OnOpenButton, self.openButton)
 
