@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
 "POT-Creation-Date: 2019-10-28 19:20+0100\n"
-"PO-Revision-Date: 2019-10-30 10:07+0100\n"
-"Last-Translator: Sailoog (sailoog)\n"
+"PO-Revision-Date: 2019-12-16 12:56+0100\n"
+"Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -22,209 +22,209 @@ msgstr ""
 #: openplotterOpencpnInstaller.py:59 openplotterOpencpnInstaller.py:70
 #: openplotterOpencpnInstaller.py:81 openplotterOpencpnInstaller.py:92
 msgid "Others"
-msgstr ""
+msgstr "Altri"
 
 #: openplotterOpencpnInstaller.py:103 openplotterOpencpnInstaller.py:114
 #: openplotterOpencpnInstaller.py:125 openplotterOpencpnInstaller.py:136
 msgid "Weather"
-msgstr ""
+msgstr "Meteo"
 
 #: openplotterOpencpnInstaller.py:147 openplotterOpencpnInstaller.py:158
 #: openplotterOpencpnInstaller.py:169
 msgid "Sailing Interests"
-msgstr ""
+msgstr "Punti d'interesse per navigazione"
 
 #: openplotterOpencpnInstaller.py:180 openplotterOpencpnInstaller.py:191
 #: openplotterOpencpnInstaller.py:202
 msgid "Safety"
-msgstr ""
+msgstr "Sicurezza"
 
 #: openplotterOpencpnInstaller.py:213 openplotterOpencpnInstaller.py:224
 #: openplotterOpencpnInstaller.py:235 openplotterOpencpnInstaller.py:246
 #: openplotterOpencpnInstaller.py:257
 msgid "Navigation"
-msgstr ""
+msgstr "Navigazione"
 
 #: openplotterOpencpnInstaller.py:268 openplotterOpencpnInstaller.py:279
 #: openplotterOpencpnInstaller.py:290 openplotterOpencpnInstaller.py:301
 msgid "Logs"
-msgstr ""
+msgstr "Log"
 
 #: openplotterOpencpnInstaller.py:312 openplotterOpencpnInstaller.py:323
 #: openplotterOpencpnInstaller.py:334 openplotterOpencpnInstaller.py:345
 #: openplotterOpencpnInstaller.py:356 openplotterOpencpnInstaller.py:367
 #: openplotterOpencpnInstaller.py:378 openplotterOpencpnInstaller.py:389
 msgid "Chart Support"
-msgstr ""
+msgstr "Supporto Carte"
 
 #: openplotterOpencpnInstaller.py:400 openplotterOpencpnInstaller.py:411
 #: openplotterOpencpnInstaller.py:422
 msgid "AIS/Radar"
-msgstr ""
+msgstr "AIS/Radar"
 
 #: openplotterOpencpnInstaller.py:433
 msgid "Main Program"
-msgstr ""
+msgstr "Programma principale"
 
 #: openplotterOpencpnInstaller.py:442
 msgid "OpenCPN Installer"
-msgstr ""
+msgstr "Installlazione OpenCPN"
 
 #: openplotterOpencpnInstaller.py:452
 msgid "Help"
-msgstr ""
+msgstr "Guida"
 
 #: openplotterOpencpnInstaller.py:455
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 #: openplotterOpencpnInstaller.py:458
 msgid "Autostart OpenCPN"
-msgstr ""
+msgstr "Auto Avvio OpenCPN"
 
 #: openplotterOpencpnInstaller.py:461
 msgid "Full Screen"
-msgstr ""
+msgstr "Schermo intero"
 
 #: openplotterOpencpnInstaller.py:467
 msgid "Update Data"
-msgstr ""
+msgstr "Aggiorna Dati"
 
 #: openplotterOpencpnInstaller.py:474
 msgid "OpenCPN packages"
-msgstr ""
+msgstr "Pacchetti OpenCPN"
 
 #: openplotterOpencpnInstaller.py:527
 msgid "OpenCPN autostart enabled"
-msgstr ""
+msgstr "Auto Avvio OpenCPN attivato"
 
 #: openplotterOpencpnInstaller.py:531
 msgid "OpenCPN autostart disabled"
-msgstr ""
+msgstr "Auto Avvio OpenCPN disattivato"
 
 #: openplotterOpencpnInstaller.py:537
 msgid "OpenCPN fullscreen autostart enabled"
-msgstr ""
+msgstr "Auto Avvio di OpenCPN a schermo intero abilitato"
 
 #: openplotterOpencpnInstaller.py:540
 msgid "OpenCPN fullscreen autostart disabled"
-msgstr ""
+msgstr "Auto Avvio di OpenCPN a schermo intero disattivato"
 
 #: openplotterOpencpnInstaller.py:550
 msgid "Updating packages data, please wait... "
-msgstr ""
+msgstr "Aggiornamento pacchetti dati, attendere prego... "
 
 #: openplotterOpencpnInstaller.py:556
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: openplotterOpencpnInstaller.py:557
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #: openplotterOpencpnInstaller.py:558
 msgid "Installed"
-msgstr ""
+msgstr "Installato"
 
 #: openplotterOpencpnInstaller.py:559
 msgid "Candidate"
-msgstr ""
+msgstr "Suggerimento"
 
 #: openplotterOpencpnInstaller.py:564
 msgid "Refresh"
-msgstr ""
+msgstr "Aggiorna"
 
 #: openplotterOpencpnInstaller.py:567
 msgid "Install"
-msgstr ""
+msgstr "Installa"
 
 #: openplotterOpencpnInstaller.py:569
 msgid "Uninstall"
-msgstr ""
+msgstr "Disinstalla"
 
 #: openplotterOpencpnInstaller.py:588 openplotterOpencpnInstaller.py:686
 msgid "missing source: "
-msgstr ""
+msgstr "fonte mancante: "
 
 #: openplotterOpencpnInstaller.py:590 openplotterOpencpnInstaller.py:690
 msgid "coming soon"
-msgstr ""
+msgstr "disponibile a breve"
 
 #: openplotterOpencpnInstaller.py:594
 msgid "Press Refresh"
-msgstr ""
+msgstr "Premi Aggiorna"
 
 #: openplotterOpencpnInstaller.py:611
 msgid "Are you sure you want to install "
-msgstr ""
+msgstr "Sei sicuro di voler installare "
 
 #: openplotterOpencpnInstaller.py:611 openplotterOpencpnInstaller.py:632
 msgid " and its dependencies?"
-msgstr ""
+msgstr " e le sue dipendenze?"
 
 #: openplotterOpencpnInstaller.py:612 openplotterOpencpnInstaller.py:633
 msgid "Question"
-msgstr ""
+msgstr "Domanda"
 
 #: openplotterOpencpnInstaller.py:621
 msgid "Installing package, please wait... "
-msgstr ""
+msgstr "Installazione pacchetto, attendere prego... "
 
 #: openplotterOpencpnInstaller.py:632
 msgid "Are you sure you want to uninstall "
-msgstr ""
+msgstr "Sei sicuro di voler disinstallare "
 
 #: openplotterOpencpnInstaller.py:641
 msgid "Uninstalling packages, please wait... "
-msgstr ""
+msgstr "Disinstallazione pacchetti, attendere prego... "
 
 #: openplotterOpencpnInstaller.py:643 openplotterOpencpnInstaller.py:704
 msgid "Done"
-msgstr ""
+msgstr "Fatto"
 
 #: openplotterOpencpnInstaller.py:661
 msgid "Checking plugins list, please wait... "
-msgstr ""
+msgstr "Controllo lista dei plugin, attendere prego... "
 
 #: ports.py:53 ports.py:61
 msgid "OpenCPN connection"
-msgstr ""
+msgstr "Connessione OpenCPN"
 
 #: startup.py:31
 msgid "Starting OpenCPN..."
-msgstr ""
+msgstr "Avvio di OpenCPN..."
 
 #: startup.py:38
 msgid "fullscreen"
-msgstr ""
+msgstr "schermo intero"
 
 #: startup.py:41
 msgid "non fullscreen"
-msgstr ""
+msgstr "non a schermo intero"
 
 #: startup.py:54
 msgid "Checking OpenCPN..."
-msgstr ""
+msgstr "Controllo OpenCPN..."
 
 #: startup.py:62
 msgid "running"
-msgstr ""
+msgstr "in esecuzione"
 
 #: startup.py:63
 msgid "not running | "
-msgstr ""
+msgstr "non in esecuzione "
 
 #: startup.py:67
 msgid "fullscreen autostart enabled"
-msgstr ""
+msgstr "auto Avvio a schermo intero abilitato"
 
 #: startup.py:68
 msgid "autostart enabled"
-msgstr ""
+msgstr "avvio automatico attivato"
 
 #: startup.py:69
 msgid "autostart disabled"
-msgstr ""
+msgstr "avvio automatico disattivato"
 
 #: startup.py:91
 msgid ""
@@ -234,6 +234,11 @@ msgid ""
 "Address: localhost\n"
 "Data Port: 10110"
 msgstr ""
+"La connessione predefinita OpenCPN è mancante e non riceve dati da Signal K. Si prega di creare questa connessione in OpenCPN:\n"
+"Network\n"
+"Protocollo: TCP\n"
+"Indirizzo: localhost\n"
+"Data Port: 10110"
 
 #: startup.py:93
 msgid ""
@@ -243,3 +248,8 @@ msgid ""
 "Address: localhost\n"
 "Data Port: 10110"
 msgstr ""
+"La connessione predefinita OpenCPN è disabilitata e non riceve dati da Signal K. Si prega di abilitare questa connessione in OpenCPN:\n"
+"Network\n"
+"Protocollo: TCP\n"
+"Indirizzo: localhost\n"
+"Data Port: 10110"

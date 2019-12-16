@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
 "POT-Creation-Date: 2019-10-28 19:20+0100\n"
-"PO-Revision-Date: 2019-10-30 10:07+0100\n"
-"Last-Translator: Sailoog (sailoog)\n"
+"PO-Revision-Date: 2019-12-16 12:53+0100\n"
+"Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "Kartensupport"
 #: openplotterOpencpnInstaller.py:400 openplotterOpencpnInstaller.py:411
 #: openplotterOpencpnInstaller.py:422
 msgid "AIS/Radar"
-msgstr "AIS Radar"
+msgstr "AIS/Radar"
 
 #: openplotterOpencpnInstaller.py:433
 msgid "Main Program"
@@ -196,7 +196,7 @@ msgstr "OpenCPN starten..."
 
 #: startup.py:38
 msgid "fullscreen"
-msgstr "vollbild"
+msgstr "Vollbild"
 
 #: startup.py:41
 msgid "non fullscreen"
@@ -220,11 +220,11 @@ msgstr "openCPN Vollbild-Autostart aktiviert"
 
 #: startup.py:68
 msgid "autostart enabled"
-msgstr "autostart aktiviert"
+msgstr "Autostart aktiviert"
 
 #: startup.py:69
 msgid "autostart disabled"
-msgstr "autostart deaktiviert"
+msgstr "Autostart deaktiviert"
 
 #: startup.py:91
 msgid ""
