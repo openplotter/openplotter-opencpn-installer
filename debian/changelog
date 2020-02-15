@@ -1,5 +1,5 @@
-openplotter-opencpn-installer (2.0.10-beta) bionic; urgency=medium
+openplotter-opencpn-installer (2.0.11-stable) buster; urgency=medium
 
   * Release candidate
 
- -- Sailoog <info@sailoog.com>  Mon, 16 Dec 2019 14:52:12 +0100
+ -- Sailoog <info@sailoog.com>  Sat, 15 Feb 2020 13:41:02 +0100
