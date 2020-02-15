@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
 
-import wx, os, webbrowser, subprocess, sys
+import wx, os, webbrowser, subprocess, sys, time
 import wx.richtext as rt
 
 from openplotterSettings import conf
@@ -723,6 +723,7 @@ class MyFrame(wx.Frame):
 def main():
 	app = wx.App()
 	MyFrame().Show()
+	time.sleep(1)
 	app.MainLoop()
 
 if __name__ == '__main__':
