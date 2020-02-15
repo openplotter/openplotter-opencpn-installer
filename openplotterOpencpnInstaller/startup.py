@@ -22,7 +22,7 @@ class Start():
 	def __init__(self, conf, currentLanguage):
 		self.conf = conf
 		self.platform = platform.Platform()
-		currentdir = os.path.dirname(__file__)
+		currentdir = os.path.dirname(os.path.abspath(__file__))
 		language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
 		self.initialMessage = ''
 		if self.platform.isInstalled('opencpn'):
@@ -47,7 +47,7 @@ class Check():
 	def __init__(self, conf, currentLanguage):
 		self.conf = conf
 		self.platform = platform.Platform()
-		currentdir = os.path.dirname(__file__)
+		currentdir = os.path.dirname(os.path.abspath(__file__))
 		language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
 		self.initialMessage = ''
 		if self.platform.isInstalled('opencpn'):

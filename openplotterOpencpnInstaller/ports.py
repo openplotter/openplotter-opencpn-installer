@@ -22,7 +22,7 @@ class Ports:
 	def __init__(self,conf, currentLanguage):
 		self.conf = conf
 		self.platform = platform.Platform()
-		currentdir = os.path.dirname(__file__)
+		currentdir = os.path.dirname(os.path.abspath(__file__))
 		language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
 		self.connections = []
 
