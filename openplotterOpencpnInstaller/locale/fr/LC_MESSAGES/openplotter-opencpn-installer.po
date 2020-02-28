@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
 "POT-Creation-Date: 2019-10-28 19:20+0100\n"
-"PO-Revision-Date: 2019-12-16 12:48+0100\n"
+"PO-Revision-Date: 2020-02-28 15:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -32,7 +32,7 @@ msgstr "Météo"
 #: openplotterOpencpnInstaller.py:147 openplotterOpencpnInstaller.py:158
 #: openplotterOpencpnInstaller.py:169
 msgid "Sailing Interests"
-msgstr ""
+msgstr "Intérêts pour la voile"
 
 #: openplotterOpencpnInstaller.py:180 openplotterOpencpnInstaller.py:191
 #: openplotterOpencpnInstaller.py:202
@@ -108,7 +108,7 @@ msgstr "Démarrage auto plein écran OpenCPN activé"
 
 #: openplotterOpencpnInstaller.py:540
 msgid "OpenCPN fullscreen autostart disabled"
-msgstr "Démarrage auto plein écran OpenCPN activé"
+msgstr "Démarrage automatique plein écran d'OpenCPN désactivé"
 
 #: openplotterOpencpnInstaller.py:550
 msgid "Updating packages data, please wait... "
@@ -148,7 +148,7 @@ msgstr "source manquante: "
 
 #: openplotterOpencpnInstaller.py:590 openplotterOpencpnInstaller.py:690
 msgid "coming soon"
-msgstr "bientôt en ligne"
+msgstr "à venir bientôt"
 
 #: openplotterOpencpnInstaller.py:594
 msgid "Press Refresh"
@@ -172,7 +172,7 @@ msgstr "Installation du paquet, veuillez patienter... "
 
 #: openplotterOpencpnInstaller.py:632
 msgid "Are you sure you want to uninstall "
-msgstr "Êtes-vous sûr de vouloir désinstaller {0} "
+msgstr "Êtes-vous sûr de vouloir désinstaller "
 
 #: openplotterOpencpnInstaller.py:641
 msgid "Uninstalling packages, please wait... "
@@ -180,7 +180,7 @@ msgstr "Désinstallation des paquets, veuillez patienter... "
 
 #: openplotterOpencpnInstaller.py:643 openplotterOpencpnInstaller.py:704
 msgid "Done"
-msgstr "Fait"
+msgstr "Terminé"
 
 #: openplotterOpencpnInstaller.py:661
 msgid "Checking plugins list, please wait... "
@@ -212,19 +212,19 @@ msgstr "en cours"
 
 #: startup.py:63
 msgid "not running | "
-msgstr "non démarré "
+msgstr "ne s'exécute pas | "
 
 #: startup.py:67
 msgid "fullscreen autostart enabled"
-msgstr "démarrage auto plein écran activé"
+msgstr "démarrage automatique plein écran activé"
 
 #: startup.py:68
 msgid "autostart enabled"
-msgstr "démarrage auto activé"
+msgstr "démarrage automatique activé"
 
 #: startup.py:69
 msgid "autostart disabled"
-msgstr "démarrage auto non activé"
+msgstr "démarrage automatique désactivé"
 
 #: startup.py:91
 msgid ""
@@ -234,7 +234,7 @@ msgid ""
 "Address: localhost\n"
 "Data Port: 10110"
 msgstr ""
-"Connection OpenCPN par défaut absente, aucune donnée reçue de Signal K. Créer la connection suivante dans OpenCPN:\n"
+"Connection OpenCPN par défaut absente, aucune donnée reçue de Signal K. Veuillez activer cette connection dans OpenCPN:\n"
 "Network\n"
 "Protocol: TCP\n"
 "Address: localhost\n"
@@ -248,7 +248,7 @@ msgid ""
 "Address: localhost\n"
 "Data Port: 10110"
 msgstr ""
-"Connection OpenCPN par défaut absente, aucune donnée reçue de Signal K. Créer la connection suivante dans OpenCPN:\n"
+"Connection OpenCPN par défaut absente, aucune donnée reçue de Signal K. Veuillez activer cette connection dans OpenCPN:\n"
 "Network\n"
 "Protocol: TCP\n"
 "Address: localhost\n"

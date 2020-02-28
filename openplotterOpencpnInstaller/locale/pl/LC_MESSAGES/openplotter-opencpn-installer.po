@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
 "POT-Creation-Date: 2019-10-28 19:20+0100\n"
-"PO-Revision-Date: 2019-12-16 12:59+0100\n"
+"PO-Revision-Date: 2020-02-28 15:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl\n"
@@ -64,7 +64,7 @@ msgstr "AIS Radar"
 
 #: openplotterOpencpnInstaller.py:433
 msgid "Main Program"
-msgstr "Główny program"
+msgstr "Program główny"
 
 #: openplotterOpencpnInstaller.py:442
 msgid "OpenCPN Installer"
@@ -208,11 +208,11 @@ msgstr "Sprawdzanie OpenCPN..."
 
 #: startup.py:62
 msgid "running"
-msgstr ""
+msgstr "uruchomiony"
 
 #: startup.py:63
 msgid "not running | "
-msgstr ""
+msgstr "nie jest uruchomiony "
 
 #: startup.py:67
 msgid "fullscreen autostart enabled"
@@ -248,8 +248,7 @@ msgid ""
 "Address: localhost\n"
 "Data Port: 10110"
 msgstr ""
-"Nie skonfigurowano domyślnego połączenia OpenCPN i nie jest możliwy transfer danych z Signal K. Proszę utworzyć to połączenie w OpenCPN:\n"
-"Protokół\n"
-"sieciowy: TCP\n"
+"Nie skonfigurowano domyślnego połączenia OpenCPN i nie jest możliwe pobieranie danych z Signal K. Proszę utworzyć to połączenie w OpenCPN:\n"
+"Protokół sieciowy: TCP\n"
 "Adres: localhost\n"
 "Port komunikacyjny: 10110"
