@@ -265,6 +265,17 @@ class MyFrame(wx.Frame):
 		self.appsDict.append(app)
 
 		app = {
+		'name': 'Dashboard-Tactics Plugin',
+		'category': _('Logs'),
+		'package': 'opencpn-plugin-dashboardtactics',
+		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
+		'dev': 'no',
+		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/dashboardtactics.html',
+		'install': 'install.py',
+		}
+		self.appsDict.append(app)
+		
+		app = {
 		'name': 'NmeaConverter Plugin',
 		'category': _('Logs'),
 		'package': 'opencpn-plugin-nmeaconverter',
