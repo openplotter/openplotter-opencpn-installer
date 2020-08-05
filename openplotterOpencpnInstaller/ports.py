@@ -38,8 +38,8 @@ class Ports:
 				c = 1
 				for connection in connections:
 					result = False
-					#0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18
-					#serial/network;TCP/UDP/GPSD;address;port;?;serialport;bauds;?;0=input/1=input+output/2=output;?;?;?;?;?;?;?;?;enabled/disabled;comments
+					#0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18:19
+					#serial/network;TCP/UDP/GPSD;address;port;?;serialport;bauds;?;0=input/1=input+output/2=output;?;?;?;?;?;?;?;?;enabled/disabled;comments;0=not autodiscover sk/0=autodiscover sk
 					items = connection.split(';')
 					if items[0] == '1': # network
 						if items[17] == '1': # enabled
