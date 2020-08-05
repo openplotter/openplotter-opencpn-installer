@@ -34,6 +34,17 @@ class MyFrame(wx.Frame):
 		self.appsDict = []
 
 		app = {
+		'name': 'Test Plugin',
+		'category': _('Others'),
+		'package': '',
+		'sources': [],
+		'dev': '',
+		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:safety:odraw1.6_pi',
+		'install': '',
+		}
+		self.appsDict.append(app)
+
+		app = {
 		'name': 'Pypilot Plugin',
 		'category': _('Others'),
 		'package': 'opencpn-plugin-pypilot',
@@ -113,33 +124,44 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'Climatology Plugin',
 		'category': _('Weather'),
-		'package': 'opencpn-plugin-climatology',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/climatology.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'Weather Fax Plugin',
 		'category': _('Weather'),
-		'package': 'opencpn-plugin-weatherfax',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/weatherfax.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'Weather Routing Plugin',
 		'category': _('Weather'),
-		'package': 'opencpn-plugin-weatherrouting',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/weatherroute.html',
-		'install': 'install.py',
+		'install': '',
+		}
+		self.appsDict.append(app)
+
+		app = {
+		'name': 'Windvane Autopilot',
+		'category': _('Sailing Interests'),
+		'package': '',
+		'sources': [],
+		'dev': '',
+		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:sailing:windvane',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -179,55 +201,55 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'SAR Plugin',
 		'category': _('Safety'),
-		'package': 'opencpn-plugin-sar',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/sar.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'Ocpn Draw Plugin',
 		'category': _('Safety'),
-		'package': 'opencpn-plugin-draw',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/draw.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'Watchdog Plugin',
 		'category': _('Safety'),
-		'package': 'opencpn-plugin-watchdog',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/watchdog.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'oTCurrent Plugin',
 		'category': _('Navigation'),
-		'package': 'opencpn-plugin-otcurrent',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/otcurrent.html',
-		'install': 'install.py',
+		'package': '',
+		'sources': [],
+		'dev': '',
+		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:navigation:otcurrent',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'Dead Reckoning Positions Plugin',
 		'category': _('Navigation'),
-		'package': 'opencpn-plugin-dr',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/dreckoning.html',
-		'install': 'install.py',
+		'package': '',
+		'sources': [],
+		'dev': '',
+		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:navigation:dead_reckoning',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -256,11 +278,11 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'sQuiddio Plugin',
 		'category': _('Navigation'),
-		'package': 'opencpn-plugin-squiddio',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/sQuiddio.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -278,22 +300,22 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'NmeaConverter Plugin',
 		'category': _('Logs'),
-		'package': 'opencpn-plugin-nmeaconverter',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/nmeaconvert.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'Voyage Data Recorder Plugin',
 		'category': _('Logs'),
-		'package': 'opencpn-plugin-vdr',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/vdr.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -316,6 +338,39 @@ class MyFrame(wx.Frame):
 		'dev': 'no',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/logbookkonni.html',
 		'install': 'install.py',
+		}
+		self.appsDict.append(app)
+
+		app = {
+		'name': 'Race Start Display Plugin',
+		'category': _('Logs'),
+		'package': '',
+		'sources': [],
+		'dev': '',
+		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:developer_manual:plugins:beta_plugins:race-start',
+		'install': '',
+		}
+		self.appsDict.append(app)
+
+		app = {
+		'name': 'Engine Dashboard Plugin',
+		'category': _('Logs'),
+		'package': '',
+		'sources': [],
+		'dev': '',
+		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:developer_manual:plugins:beta_plugins:engine-dash',
+		'install': '',
+		}
+		self.appsDict.append(app)
+
+		app = {
+		'name': 'PhotoLayer Plugin',
+		'category': _('Chart Support'),
+		'package': '',
+		'sources': [],
+		'dev': '',
+		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:developer_manual:plugins:beta_plugins:photolayer',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -366,44 +421,44 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'VFkaps Plugin',
 		'category': _('Chart Support'),
-		'package': 'opencpn-plugin-vfkaps',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/vfkaps.html',
-		'install': 'install.py',
+		'package': '',
+		'sources': [],
+		'dev': '',
+		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:charts:vfkaps',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'S-63 Charts Plugin',
 		'category': _('Chart Support'),
-		'package': 'opencpn-plugin-s63',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/s63.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'oeRNC Charts Plugin',
 		'category': _('Chart Support'),
-		'package': 'oernc-pi',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/oernc.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'oeSENC Charts Plugin',
 		'category': _('Chart Support'),
-		'package': 'oesenc-pi',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/oesenc.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -421,11 +476,11 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'Radar PI Plugin',
 		'category': _('AIS/Radar'),
-		'package': 'opencpn-plugin-radar',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/radarPI.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -575,6 +630,7 @@ class MyFrame(wx.Frame):
 		self.listApps.InsertColumn(3, _('Candidate'), width=170)
 		self.listApps.Bind(wx.EVT_LIST_ITEM_SELECTED, self.onListAppsSelected)
 		self.listApps.Bind(wx.EVT_LIST_ITEM_DESELECTED, self.onListAppsDeselected)
+		self.listApps.SetTextColour(wx.BLACK)
 
 		self.toolbar2 = wx.ToolBar(self.apps, style=wx.TB_TEXT | wx.TB_VERTICAL)
 		self.installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/install.png"))
@@ -680,36 +736,36 @@ class MyFrame(wx.Frame):
 
 			installed = ''
 			candidate = ''
-			command = 'LC_ALL=C apt-cache policy '+i['package']
-			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
-			for line in popen.stdout:
-				if 'Installed:' in line: installed = line
-				if 'Candidate:' in line: candidate = line
-			if installed:
-				installedL = installed.split(':')
-				installed = installedL[1]
-			if candidate:
-				candidateL = candidate.split(':')
-				candidate = candidateL[1]
-			if '(none)' in installed: installed = ''
+			if not i['package']: installed = _('managed by OpenCPN')
+			else:
+				command = 'LC_ALL=C apt-cache policy '+i['package']
+				popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+				for line in popen.stdout:
+					if 'Installed:' in line: installed = line
+					if 'Candidate:' in line: candidate = line
+				if installed:
+					installedL = installed.split(':')
+					installed = installedL[1]
+				if candidate:
+					candidateL = candidate.split(':')
+					candidate = candidateL[1]
+				if '(none)' in installed: installed = ''
 
-			missing = False
-			for ii in i['sources']:
-				if not ii in sources:  missing = ii
-			if missing: 
-				candidate = _('missing source: ')+missing
-				self.listApps.SetItemBackgroundColour(item,(200,200,200))
+				missing = False
+				for ii in i['sources']:
+					if not ii in sources:  missing = ii
+				if missing: 
+					candidate = _('missing source: ')+missing
+					self.listApps.SetItemBackgroundColour(item,(200,200,200))
 
-			if i['dev'] == 'yes': 
-				candidate = _('coming soon')
-				self.listApps.SetItemBackgroundColour(item,(200,200,200))
+				if i['dev'] == 'yes': 
+					candidate = _('coming soon')
+					self.listApps.SetItemBackgroundColour(item,(200,200,200))
 
-			if not candidate:
-				self.listApps.SetItemBackgroundColour(item,(200,200,200))
+				if installed and candidate:
+					if installed != candidate: self.listApps.SetItemBackgroundColour(item,(220,255,220))
 
-			if installed and candidate:
-				if installed != candidate: self.listApps.SetItemBackgroundColour(item,(220,255,220))
-
+			if not candidate: self.listApps.SetItemBackgroundColour(item,(200,200,200))
 			self.listApps.SetItem(item, 2, installed)
 			self.listApps.SetItem(item, 3, candidate)
 		self.toolbar2.EnableTool(201,False)
