@@ -1,3 +1,11 @@
+openplotter-opencpn-installer (2.2.0-stable) bionic; urgency=medium
+
+  * Make Signal k the default connection
+  * Remove plugins managed by opencpn from the apps list
+  * Update translations
+
+ -- Sailoog <info@sailoog.com>  Fri, 07 Aug 2020 19:29:35 +0200
+
 openplotter-opencpn-installer (2.1.0-stable) bionic; urgency=medium
 
   * Initial release
