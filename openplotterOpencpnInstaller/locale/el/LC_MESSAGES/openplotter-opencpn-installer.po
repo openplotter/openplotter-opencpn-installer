@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2019-10-28 19:20+0100\n"
-"PO-Revision-Date: 2020-02-28 15:49+0100\n"
-"Last-Translator: Sailoog (sailoog)\n"
+"POT-Creation-Date: 2020-08-05 22:45+0200\n"
+"PO-Revision-Date: 2020-08-07 19:27+0200\n"
+"Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -14,176 +14,186 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Crowdin-Project: openplotter\n"
+"X-Crowdin-Project-ID: 289888\n"
 "X-Crowdin-Language: el\n"
 "X-Crowdin-File: openplotter-opencpn-installer.po\n"
+"X-Crowdin-File-ID: 6\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: openplotterOpencpnInstaller.py:37 openplotterOpencpnInstaller.py:48
-#: openplotterOpencpnInstaller.py:59 openplotterOpencpnInstaller.py:70
-#: openplotterOpencpnInstaller.py:81 openplotterOpencpnInstaller.py:92
+#: openplotterOpencpnInstaller.py:38 openplotterOpencpnInstaller.py:49
+#: openplotterOpencpnInstaller.py:60 openplotterOpencpnInstaller.py:71
+#: openplotterOpencpnInstaller.py:82 openplotterOpencpnInstaller.py:93
+#: openplotterOpencpnInstaller.py:104
 msgid "Others"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:103 openplotterOpencpnInstaller.py:114
-#: openplotterOpencpnInstaller.py:125 openplotterOpencpnInstaller.py:136
+#: openplotterOpencpnInstaller.py:115 openplotterOpencpnInstaller.py:126
+#: openplotterOpencpnInstaller.py:137 openplotterOpencpnInstaller.py:148
 msgid "Weather"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:147 openplotterOpencpnInstaller.py:158
-#: openplotterOpencpnInstaller.py:169
+#: openplotterOpencpnInstaller.py:159 openplotterOpencpnInstaller.py:170
+#: openplotterOpencpnInstaller.py:181 openplotterOpencpnInstaller.py:192
 msgid "Sailing Interests"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:180 openplotterOpencpnInstaller.py:191
-#: openplotterOpencpnInstaller.py:202
+#: openplotterOpencpnInstaller.py:203 openplotterOpencpnInstaller.py:214
+#: openplotterOpencpnInstaller.py:225
 msgid "Safety"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:213 openplotterOpencpnInstaller.py:224
-#: openplotterOpencpnInstaller.py:235 openplotterOpencpnInstaller.py:246
-#: openplotterOpencpnInstaller.py:257
+#: openplotterOpencpnInstaller.py:236 openplotterOpencpnInstaller.py:247
+#: openplotterOpencpnInstaller.py:258 openplotterOpencpnInstaller.py:269
+#: openplotterOpencpnInstaller.py:280
 msgid "Navigation"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:268 openplotterOpencpnInstaller.py:279
-#: openplotterOpencpnInstaller.py:290 openplotterOpencpnInstaller.py:301
+#: openplotterOpencpnInstaller.py:291 openplotterOpencpnInstaller.py:302
+#: openplotterOpencpnInstaller.py:313 openplotterOpencpnInstaller.py:324
+#: openplotterOpencpnInstaller.py:335 openplotterOpencpnInstaller.py:346
+#: openplotterOpencpnInstaller.py:357
 msgid "Logs"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:312 openplotterOpencpnInstaller.py:323
-#: openplotterOpencpnInstaller.py:334 openplotterOpencpnInstaller.py:345
-#: openplotterOpencpnInstaller.py:356 openplotterOpencpnInstaller.py:367
-#: openplotterOpencpnInstaller.py:378 openplotterOpencpnInstaller.py:389
+#: openplotterOpencpnInstaller.py:368 openplotterOpencpnInstaller.py:379
+#: openplotterOpencpnInstaller.py:390 openplotterOpencpnInstaller.py:401
+#: openplotterOpencpnInstaller.py:412 openplotterOpencpnInstaller.py:423
+#: openplotterOpencpnInstaller.py:434 openplotterOpencpnInstaller.py:445
+#: openplotterOpencpnInstaller.py:456
 msgid "Chart Support"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:400 openplotterOpencpnInstaller.py:411
-#: openplotterOpencpnInstaller.py:422
+#: openplotterOpencpnInstaller.py:467 openplotterOpencpnInstaller.py:478
+#: openplotterOpencpnInstaller.py:489
 msgid "AIS/Radar"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:433
+#: openplotterOpencpnInstaller.py:500
 msgid "Main Program"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:442
+#: openplotterOpencpnInstaller.py:509
 msgid "OpenCPN Installer"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:452
+#: openplotterOpencpnInstaller.py:519
 msgid "Help"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:455
+#: openplotterOpencpnInstaller.py:522
 msgid "Settings"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:458
+#: openplotterOpencpnInstaller.py:525
 msgid "Autostart OpenCPN"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:461
+#: openplotterOpencpnInstaller.py:528
 msgid "Full Screen"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:467
+#: openplotterOpencpnInstaller.py:534
 msgid "Update Data"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:474
-msgid "OpenCPN packages"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:527
-msgid "OpenCPN autostart enabled"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:531
-msgid "OpenCPN autostart disabled"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:537
-msgid "OpenCPN fullscreen autostart enabled"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:540
-msgid "OpenCPN fullscreen autostart disabled"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:550
-msgid "Updating packages data, please wait... "
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:556
-msgid "Name"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:557
-msgid "Category"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:558
-msgid "Installed"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:559
-msgid "Candidate"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:564
+#: openplotterOpencpnInstaller.py:536
 msgid "Refresh"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:567
-msgid "Install"
+#: openplotterOpencpnInstaller.py:543
+msgid "OpenCPN packages"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:569
-msgid "Uninstall"
+#: openplotterOpencpnInstaller.py:598
+msgid "OpenCPN autostart enabled"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:588 openplotterOpencpnInstaller.py:686
-msgid "missing source: "
+#: openplotterOpencpnInstaller.py:602
+msgid "OpenCPN autostart disabled"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:590 openplotterOpencpnInstaller.py:690
-msgid "coming soon"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:594
-msgid "Press Refresh"
+#: openplotterOpencpnInstaller.py:608
+msgid "OpenCPN fullscreen autostart enabled"
 msgstr ""
 
 #: openplotterOpencpnInstaller.py:611
-msgid "Are you sure you want to install "
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:611 openplotterOpencpnInstaller.py:632
-msgid " and its dependencies?"
-msgstr ""
-
-#: openplotterOpencpnInstaller.py:612 openplotterOpencpnInstaller.py:633
-msgid "Question"
+msgid "OpenCPN fullscreen autostart disabled"
 msgstr ""
 
 #: openplotterOpencpnInstaller.py:621
+msgid "Updating packages data, please wait... "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:627
+msgid "Name"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:628
+msgid "Category"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:629
+msgid "Installed"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:630
+msgid "Candidate"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:636
+msgid "Install"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:638
+msgid "Uninstall"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:658 openplotterOpencpnInstaller.py:758
+msgid "missing source: "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:762
+msgid "coming soon"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:664
+msgid "Press Refresh"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:681
+msgid "Are you sure you want to install "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:681 openplotterOpencpnInstaller.py:702
+msgid " and its dependencies?"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:682 openplotterOpencpnInstaller.py:703
+msgid "Question"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:691
 msgid "Installing package, please wait... "
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:632
+#: openplotterOpencpnInstaller.py:702
 msgid "Are you sure you want to uninstall "
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:641
+#: openplotterOpencpnInstaller.py:711
 msgid "Uninstalling packages, please wait... "
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:643 openplotterOpencpnInstaller.py:704
+#: openplotterOpencpnInstaller.py:713 openplotterOpencpnInstaller.py:774
 msgid "Done"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:661
+#: openplotterOpencpnInstaller.py:731
 msgid "Checking plugins list, please wait... "
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:739
+msgid "managed by OpenCPN"
 msgstr ""
 
 #: ports.py:53 ports.py:61
@@ -226,20 +236,20 @@ msgstr ""
 msgid "autostart disabled"
 msgstr ""
 
-#: startup.py:91
+#: startup.py:90
 msgid ""
 "The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
 "Network\n"
-"Protocol: TCP\n"
+"Protocol: Signal K\n"
 "Address: localhost\n"
-"Data Port: 10110"
+"DataPort: "
 msgstr ""
 
-#: startup.py:93
+#: startup.py:92
 msgid ""
 "The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable this connection in OpenCPN:\n"
 "Network\n"
-"Protocol: TCP\n"
+"Protocol: Signal K\n"
 "Address: localhost\n"
-"Data Port: 10110"
+"DataPort: "
 msgstr ""
