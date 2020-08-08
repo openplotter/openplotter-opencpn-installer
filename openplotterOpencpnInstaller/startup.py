@@ -72,25 +72,43 @@ class Check():
 			try:
 				confFile = self.conf.home+'/.opencpn/opencpn.conf'
 				confData = configparser.SafeConfigParser()
-				result = False
+				resultSK = False
+				resultNMEA = False
 				confData.read(confFile)
 				tmp = confData.get('Settings/NMEADataSource', 'DataConnections')
 				connections = tmp.split('|')
+				#0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18,19
+				#serial/network;TCP/UDP/GPSD/SK;address;port;?;serialport;bauds;?;0=input/1=input+output/2=output;?;?;?;?;?;?;?;?;enabled/disabled;comments;0=not autodiscover sk/0=autodiscover sk
 				for connection in connections:
-					#0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18,19
-					#serial/network;TCP/UDP/GPSD/SK;address;port;?;serialport;bauds;?;0=input/1=input+output/2=output;?;?;?;?;?;?;?;?;enabled/disabled;comments;0=not autodiscover sk/0=autodiscover sk
+					items = connection.split(';')
+					if items[0] == '1':
+						if items[1] == '0':
+							if items[2] == 'localhost':
+								if items[3] == '10110':
+									if items[8] == '0' or items[8] == '1':
+										if items[17] == '1': resultNMEA = 'enabled'
+										else: resultNMEA = 'disabled'
+
+				for connection in connections:
 					items = connection.split(';')
 					if items[0] == '1':
 						if items[1] == '3':
 							if items[2] == 'localhost' and items[19] == '0':
 								if items[3] == self.platform.skPort:
-									if items[17] == '1': result = 'enabled'
-									else: result = 'disabled'
-				if not result:
+									if items[17] == '1': resultSK = 'enabled'
+									else: resultSK = 'disabled'
+
+				if resultSK != 'enabled' and resultNMEA == 'enabled': 
+					black += _('\nTIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection "TCP localhost 10110" by a Signal K connection.')	
+				elif resultSK == 'enabled' and resultNMEA == 'enabled':
+					black += _('\nWARNING: You have enabled the old NMEA 0183 connection "TCP localhost 10110" and a Signal K connection in openCPN. Be sure you do not have duplicated data.')	
+
+				if resultNMEA != 'enabled' and not resultSK:
 					red = _('The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\nNetwork\nProtocol: Signal K\nAddress: localhost\nDataPort: '+self.platform.skPort+'\nAutomatic server discovery: not')
-				elif result == 'disabled':
-					red = _('The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable this connection in OpenCPN:\nNetwork\nProtocol: Signal K\nAddress: localhost\nDataPort: '+self.platform.skPort+'\nAutomatic server discovery: not')
-			except:pass
+				elif resultNMEA != 'enabled' and resultSK == 'disabled':
+					red = _('The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN')
+			except:
+				red = _('Unable to read OpenCPN configuration')
 
 		return {'green': green,'black': black,'red': red}
 
