@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2020-08-05 22:45+0200\n"
-"PO-Revision-Date: 2020-08-07 19:27+0200\n"
+"POT-Creation-Date: 2020-08-08 15:12+0200\n"
+"PO-Revision-Date: 2020-08-08 18:23+0200\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -236,7 +236,23 @@ msgstr "Autostart aktiviert"
 msgid "autostart disabled"
 msgstr "Autostart deaktiviert"
 
-#: startup.py:90
+#: startup.py:102
+msgid ""
+"\n"
+"TIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
+msgstr ""
+"\n"
+"TIPP: Seit OpenCPN 5.0 und höher können Signal K Daten verwaltet werden. Sie sollten Sie die NMEA 0183 Verbindung \"TCP localhost 10110\" durch eine Signal K Verbindung ersetzen."
+
+#: startup.py:104
+msgid ""
+"\n"
+"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in openCPN. Be sure you do not have duplicated data."
+msgstr ""
+"\n"
+"WARNUNG: Sie haben die alte NMEA 0183 Verbindung \"TCP localhost 10110\" und eine Signal K Verbindung in openCPN aktiviert. Vergewissern Sie sich, dass Sie keine doppelten Daten haben."
+
+#: startup.py:107
 msgid ""
 "The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
 "Network\n"
@@ -250,16 +266,10 @@ msgstr ""
 "Adresse: localhost\n"
 "Datenport: 10110"
 
-#: startup.py:92
-msgid ""
-"The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable this connection in OpenCPN:\n"
-"Network\n"
-"Protocol: Signal K\n"
-"Address: localhost\n"
-"DataPort: "
-msgstr ""
-"Die standardmäßige OpenCPN-Verbindung ist deaktiviert und es werden keine Daten von Signal K übertragen. Bitte aktiviere diese Verbindung in OpenCPN:\n"
-"Netzwerk\n"
-"Protokoll: Signal K\n"
-"Adresse: localhost\n"
-"Datenport: 10110"
+#: startup.py:109
+msgid "The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN"
+msgstr "Die Standard OpenCPN Verbindung ist deaktiviert und wird nicht von Signal K abgerufen. Bitte aktivieren Sie die Signal K Verbindung in OpenCPN"
+
+#: startup.py:111
+msgid "Unable to read OpenCPN configuration"
+msgstr "OpenCPN Konfiguration konnte nicht gelesen werden"
