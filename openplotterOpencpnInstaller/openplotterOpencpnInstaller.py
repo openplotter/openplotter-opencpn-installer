@@ -638,8 +638,10 @@ class MyFrame(wx.Frame):
 		self.uninstallButton = self.toolbar2.AddTool(202, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
 		self.Bind(wx.EVT_TOOL, self.OnUninstallButton, self.uninstallButton)
 		self.toolbar2.AddSeparator()
-		self.openButton = self.toolbar2.AddTool(203, 'www', wx.Bitmap(self.currentdir+"/data/info.png"))
+		self.openButton = self.toolbar2.AddTool(204, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
 		self.Bind(wx.EVT_TOOL, self.OnOpenButton, self.openButton)
+		self.siteButton = self.toolbar2.AddTool(203, 'www', wx.Bitmap(self.currentdir+"/data/info.png"))
+		self.Bind(wx.EVT_TOOL, self.OnSiteButton, self.siteButton)
 
 		sizer = wx.BoxSizer(wx.HORIZONTAL)
 		sizer.Add(self.listApps, 1, wx.EXPAND, 0)
@@ -707,9 +709,10 @@ class MyFrame(wx.Frame):
 			command = self.platform.admin+' apt -y autoremove '+package
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
-				self.logger.WriteText(line)
-				self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
-				self.logger.ShowPosition(self.logger.GetLastPosition())
+				if not 'Warning' in line and not 'WARNING' in line:
+					self.logger.WriteText(line)
+					self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
+					self.logger.ShowPosition(self.logger.GetLastPosition())
 			self.ShowStatusBarGREEN(_('Done'))
 			dlg.Destroy()
 			self.readApps()
@@ -718,7 +721,7 @@ class MyFrame(wx.Frame):
 	def OnRefreshButton(self,e):
 		self.readApps()
 
-	def OnOpenButton(self,e):
+	def OnSiteButton(self,e):
 		index = self.listApps.GetFirstSelected()
 		if index == -1: return
 		apps = list(reversed(self.appsDict))
@@ -765,9 +768,10 @@ class MyFrame(wx.Frame):
 				if installed and candidate:
 					if installed != candidate: self.listApps.SetItemBackgroundColour(item,(220,255,220))
 
-			if not candidate: self.listApps.SetItemBackgroundColour(item,(200,200,200))
+				if not candidate: self.listApps.SetItemBackgroundColour(item,(200,200,200))
+				self.listApps.SetItem(item, 3, candidate)
+
 			self.listApps.SetItem(item, 2, installed)
-			self.listApps.SetItem(item, 3, candidate)
 		self.toolbar2.EnableTool(201,False)
 		self.toolbar2.EnableTool(202,False)
 		self.toolbar2.EnableTool(203,False)
@@ -778,15 +782,32 @@ class MyFrame(wx.Frame):
 		valid = e and i >= 0
 		if not valid: return
 		self.onListAppsDeselected()
+		opencpnInstalled = self.listApps.GetItemText(0, 2)
+		installed = self.listApps.GetItemText(i, 2)
 		self.toolbar2.EnableTool(203,True)
 		if self.listApps.GetItemBackgroundColour(i) != (200,200,200):
-			self.toolbar2.EnableTool(201,True)
-			self.toolbar2.EnableTool(202,True)
+			if not installed: self.toolbar2.EnableTool(201,True)
+			elif installed == _('managed by OpenCPN') and opencpnInstalled: self.toolbar2.EnableTool(204,True)
+			else:
+				if installed and opencpnInstalled:
+					self.toolbar2.EnableTool(201,True)
+					self.toolbar2.EnableTool(202,True)
+					self.toolbar2.EnableTool(204,True)
 
 	def onListAppsDeselected(self, event=0):
 		self.toolbar2.EnableTool(201,False)
 		self.toolbar2.EnableTool(202,False)
 		self.toolbar2.EnableTool(203,False)
+		self.toolbar2.EnableTool(204,False)
+
+	def OnOpenButton(self,e):
+		index = self.listApps.GetFirstSelected()
+		if index == -1: return
+		installed = self.listApps.GetItemText(index, 2)
+		opencpnInstalled = self.listApps.GetItemText(0, 2)
+		if installed and opencpnInstalled:
+			subprocess.call(['pkill', '-15', 'opencpn'])
+			subprocess.Popen('opencpn')
 
 def main():
 	app = wx.App()
