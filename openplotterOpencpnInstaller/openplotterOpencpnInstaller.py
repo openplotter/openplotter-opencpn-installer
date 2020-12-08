@@ -47,11 +47,11 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'Pypilot Plugin',
 		'category': _('Others'),
-		'package': 'opencpn-plugin-pypilot',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/pypilot.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -78,6 +78,17 @@ class MyFrame(wx.Frame):
 		self.appsDict.append(app)
 
 		app = {
+		'name': 'GPS Odometer',
+		'category': _('Others'),
+		'package': '',
+		'sources': [],
+		'dev': '',
+		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:other:odometer',
+		'install': '',
+		}
+		self.appsDict.append(app)
+
+		app = {
 		'name': 'Calculator Plugin',
 		'category': _('Others'),
 		'package': 'opencpn-plugin-calculator',
@@ -91,22 +102,22 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'Status Bar Plugin',
 		'category': _('Others'),
-		'package': 'opencpn-plugin-statusbar',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/statusbar.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'ShipDriver Plugin',
 		'category': _('Others'),
-		'package': 'opencpn-plugin-shipdriver',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/shipdriver.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -168,33 +179,33 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'Tactics Plugin',
 		'category': _('Sailing Interests'),
-		'package': 'opencpn-plugin-tactics',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/tactics.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'Plots Plugin',
 		'category': _('Sailing Interests'),
-		'package': 'opencpn-plugin-plots',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/sweepplot.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'Polar Plugin',
 		'category': _('Sailing Interests'),
-		'package': 'opencpn-plugin-polar',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/polar.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -267,11 +278,11 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'Celestial Navigation Plugin',
 		'category': _('Navigation'),
-		'package': 'opencpn-plugin-celestial',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/celestialnav.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -289,11 +300,11 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'Dashboard-Tactics Plugin',
 		'category': _('Logs'),
-		'package': 'opencpn-plugin-dashboardtactics',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/dashboardtactics.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 		
@@ -322,22 +333,22 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'Find-It Plugin',
 		'category': _('Logs'),
-		'package': 'opencpn-plugin-findit',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/findit.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
 		app = {
 		'name': 'Logbook Konni Plugin',
 		'category': _('Logs'),
-		'package': 'opencpn-plugin-logbookkonni',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/logbookkonni.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
@@ -487,11 +498,11 @@ class MyFrame(wx.Frame):
 		app = {
 		'name': 'AIS Radar View Plugin',
 		'category': _('AIS/Radar'),
-		'package': 'opencpn-plugin-aisradar',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
+		'package': '',
+		'sources': [],
+		'dev': '',
 		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/aisradarview.html',
-		'install': 'install.py',
+		'install': '',
 		}
 		self.appsDict.append(app)
 
