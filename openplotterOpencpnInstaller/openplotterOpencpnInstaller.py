@@ -706,7 +706,7 @@ class MyFrame(wx.Frame):
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
 			self.notebook.ChangeSelection(1)
-			command = self.platform.admin+' apt -y autoremove '+package
+			command = self.platform.admin+' apt autoremove -y '+package
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				if not 'Warning' in line and not 'WARNING' in line:
