@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2020-08-08 15:12+0200\n"
-"PO-Revision-Date: 2020-08-08 18:23+0200\n"
+"POT-Creation-Date: 2020-12-08 12:08+0100\n"
+"PO-Revision-Date: 2020-12-10 18:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da\n"
@@ -148,51 +148,55 @@ msgstr "Installér"
 msgid "Uninstall"
 msgstr "Afinstaller"
 
-#: openplotterOpencpnInstaller.py:658 openplotterOpencpnInstaller.py:758
+#: openplotterOpencpnInstaller.py:641
+msgid "Open"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:761
 msgid "missing source: "
 msgstr "manglende kilde: "
 
-#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:762
+#: openplotterOpencpnInstaller.py:662 openplotterOpencpnInstaller.py:765
 msgid "coming soon"
 msgstr "kommer snart"
 
-#: openplotterOpencpnInstaller.py:664
+#: openplotterOpencpnInstaller.py:666
 msgid "Press Refresh"
 msgstr "Tryk på Opdater"
 
-#: openplotterOpencpnInstaller.py:681
+#: openplotterOpencpnInstaller.py:683
 msgid "Are you sure you want to install "
 msgstr "Er du sikker på, at du vil installere "
 
-#: openplotterOpencpnInstaller.py:681 openplotterOpencpnInstaller.py:702
+#: openplotterOpencpnInstaller.py:683 openplotterOpencpnInstaller.py:704
 msgid " and its dependencies?"
 msgstr " og de nødvendige filer?"
 
-#: openplotterOpencpnInstaller.py:682 openplotterOpencpnInstaller.py:703
+#: openplotterOpencpnInstaller.py:684 openplotterOpencpnInstaller.py:705
 msgid "Question"
 msgstr "Spørgsmål"
 
-#: openplotterOpencpnInstaller.py:691
+#: openplotterOpencpnInstaller.py:693
 msgid "Installing package, please wait... "
 msgstr "Installerer pakkedata, vent venligst... "
 
-#: openplotterOpencpnInstaller.py:702
+#: openplotterOpencpnInstaller.py:704
 msgid "Are you sure you want to uninstall "
 msgstr "Er du sikker på, at du vil afinstallere "
 
-#: openplotterOpencpnInstaller.py:711
+#: openplotterOpencpnInstaller.py:714
 msgid "Uninstalling packages, please wait... "
 msgstr "Afinstallerer pakkedata, vent venligst... "
 
-#: openplotterOpencpnInstaller.py:713 openplotterOpencpnInstaller.py:774
+#: openplotterOpencpnInstaller.py:716 openplotterOpencpnInstaller.py:778
 msgid "Done"
 msgstr "Udført"
 
-#: openplotterOpencpnInstaller.py:731
+#: openplotterOpencpnInstaller.py:734
 msgid "Checking plugins list, please wait... "
 msgstr "Kontrollerer plugin-listen, vent venligst... "
 
-#: openplotterOpencpnInstaller.py:739
+#: openplotterOpencpnInstaller.py:742 openplotterOpencpnInstaller.py:790
 msgid "managed by OpenCPN"
 msgstr "administreret af OpenCPN"
 
@@ -241,12 +245,16 @@ msgid ""
 "\n"
 "TIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
 msgstr ""
+"\n"
+"TIP: Siden OpenCPN 5.2 og derover kan administrere Signal K data, skal du erstatte NMEA 0183 forbindelsen \"TCP localhost 10110\" med en Signal K forbindelse."
 
 #: startup.py:104
 msgid ""
 "\n"
-"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in openCPN. Be sure you do not have duplicated data."
+"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data."
 msgstr ""
+"\n"
+"ADVARSEL: Du har aktiveret den gamle NMEA 0183-forbindelse \"TCP localhost 10110\" og en signal K-forbindelse i OpenCPN. Sørg for, at du ikke har duplikerede data."
 
 #: startup.py:107
 msgid ""
@@ -264,8 +272,8 @@ msgstr ""
 
 #: startup.py:109
 msgid "The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN"
-msgstr ""
+msgstr "Standard OpenCPN-forbindelsen er deaktiveret og modtager ikke data fra signal K. Aktiver venligst signal K-forbindelsen i OpenCPN"
 
 #: startup.py:111
 msgid "Unable to read OpenCPN configuration"
-msgstr ""
+msgstr "Kan ikke læse OpenCPN-konfiguration"

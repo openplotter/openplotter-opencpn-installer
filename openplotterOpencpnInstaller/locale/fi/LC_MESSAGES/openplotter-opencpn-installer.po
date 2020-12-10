@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2020-08-08 15:12+0200\n"
-"PO-Revision-Date: 2020-08-08 18:23+0200\n"
+"POT-Creation-Date: 2020-12-08 12:08+0100\n"
+"PO-Revision-Date: 2020-12-10 18:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi\n"
@@ -148,51 +148,55 @@ msgstr "Asenna"
 msgid "Uninstall"
 msgstr "Poista asennus"
 
-#: openplotterOpencpnInstaller.py:658 openplotterOpencpnInstaller.py:758
+#: openplotterOpencpnInstaller.py:641
+msgid "Open"
+msgstr "Avaa"
+
+#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:761
 msgid "missing source: "
 msgstr "puuttuva sorsa: "
 
-#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:762
+#: openplotterOpencpnInstaller.py:662 openplotterOpencpnInstaller.py:765
 msgid "coming soon"
 msgstr "tulossa pian"
 
-#: openplotterOpencpnInstaller.py:664
+#: openplotterOpencpnInstaller.py:666
 msgid "Press Refresh"
 msgstr "Paina Virkistä"
 
-#: openplotterOpencpnInstaller.py:681
+#: openplotterOpencpnInstaller.py:683
 msgid "Are you sure you want to install "
 msgstr "Haluatko varmasti asentaa "
 
-#: openplotterOpencpnInstaller.py:681 openplotterOpencpnInstaller.py:702
+#: openplotterOpencpnInstaller.py:683 openplotterOpencpnInstaller.py:704
 msgid " and its dependencies?"
 msgstr " ja sen riippuvuudet?"
 
-#: openplotterOpencpnInstaller.py:682 openplotterOpencpnInstaller.py:703
+#: openplotterOpencpnInstaller.py:684 openplotterOpencpnInstaller.py:705
 msgid "Question"
 msgstr "Kysymys"
 
-#: openplotterOpencpnInstaller.py:691
+#: openplotterOpencpnInstaller.py:693
 msgid "Installing package, please wait... "
 msgstr "Paketti asennetaan, odottele... "
 
-#: openplotterOpencpnInstaller.py:702
+#: openplotterOpencpnInstaller.py:704
 msgid "Are you sure you want to uninstall "
 msgstr "Haluatko varmasti poistaa "
 
-#: openplotterOpencpnInstaller.py:711
+#: openplotterOpencpnInstaller.py:714
 msgid "Uninstalling packages, please wait... "
 msgstr "Paketteja poistetaan, odottele... "
 
-#: openplotterOpencpnInstaller.py:713 openplotterOpencpnInstaller.py:774
+#: openplotterOpencpnInstaller.py:716 openplotterOpencpnInstaller.py:778
 msgid "Done"
 msgstr "Tehty"
 
-#: openplotterOpencpnInstaller.py:731
+#: openplotterOpencpnInstaller.py:734
 msgid "Checking plugins list, please wait... "
 msgstr "Tarkistetaan sovelmaluetteloita, odota... "
 
-#: openplotterOpencpnInstaller.py:739
+#: openplotterOpencpnInstaller.py:742 openplotterOpencpnInstaller.py:790
 msgid "managed by OpenCPN"
 msgstr "OpenCPNn hallitsema"
 
@@ -242,12 +246,12 @@ msgid ""
 "TIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
 msgstr ""
 "\n"
-"VIHJE: OpenCPN 5.2 alkaen ja eteenpäin voi hallita Signal K dataa, on NMEA 0183 yhteys \"TCP yhteys localhost 10110\" korvattava Signal K yhteydellä."
+"VIHJE: Että OpenCPN voi 5.2 alkaen ja siitä eteenpäin hallita Signal K dataa, on NMEA 0183 yhteys \"TCP yhteys localhost 10110\" korvattava Signal K yhteydellä."
 
 #: startup.py:104
 msgid ""
 "\n"
-"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in openCPN. Be sure you do not have duplicated data."
+"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data."
 msgstr ""
 "\n"
 "VAROITUS: Käytät vanhaa NMEA 0183 yhteyttä \"TCP localhost 10110\" ja Signal K yhteyttä OpenCPN:ssä. Vältä tuplattua dataa."

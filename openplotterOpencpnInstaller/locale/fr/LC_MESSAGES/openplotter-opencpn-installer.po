@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2020-08-08 15:12+0200\n"
-"PO-Revision-Date: 2020-08-08 18:23+0200\n"
+"POT-Creation-Date: 2020-12-08 12:08+0100\n"
+"PO-Revision-Date: 2020-12-10 18:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -148,53 +148,57 @@ msgstr "Installer"
 msgid "Uninstall"
 msgstr "Désinstaller"
 
-#: openplotterOpencpnInstaller.py:658 openplotterOpencpnInstaller.py:758
+#: openplotterOpencpnInstaller.py:641
+msgid "Open"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:761
 msgid "missing source: "
 msgstr "source manquante: "
 
-#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:762
+#: openplotterOpencpnInstaller.py:662 openplotterOpencpnInstaller.py:765
 msgid "coming soon"
 msgstr "à venir bientôt"
 
-#: openplotterOpencpnInstaller.py:664
+#: openplotterOpencpnInstaller.py:666
 msgid "Press Refresh"
 msgstr "Actualiser"
 
-#: openplotterOpencpnInstaller.py:681
+#: openplotterOpencpnInstaller.py:683
 msgid "Are you sure you want to install "
 msgstr "Êtes-vous sûr de vouloir installer "
 
-#: openplotterOpencpnInstaller.py:681 openplotterOpencpnInstaller.py:702
+#: openplotterOpencpnInstaller.py:683 openplotterOpencpnInstaller.py:704
 msgid " and its dependencies?"
 msgstr " et ses dépendances?"
 
-#: openplotterOpencpnInstaller.py:682 openplotterOpencpnInstaller.py:703
+#: openplotterOpencpnInstaller.py:684 openplotterOpencpnInstaller.py:705
 msgid "Question"
 msgstr "Question"
 
-#: openplotterOpencpnInstaller.py:691
+#: openplotterOpencpnInstaller.py:693
 msgid "Installing package, please wait... "
 msgstr "Installation du paquet, veuillez patienter... "
 
-#: openplotterOpencpnInstaller.py:702
+#: openplotterOpencpnInstaller.py:704
 msgid "Are you sure you want to uninstall "
 msgstr "Êtes-vous sûr de vouloir désinstaller "
 
-#: openplotterOpencpnInstaller.py:711
+#: openplotterOpencpnInstaller.py:714
 msgid "Uninstalling packages, please wait... "
 msgstr "Désinstallation des paquets, veuillez patienter... "
 
-#: openplotterOpencpnInstaller.py:713 openplotterOpencpnInstaller.py:774
+#: openplotterOpencpnInstaller.py:716 openplotterOpencpnInstaller.py:778
 msgid "Done"
 msgstr "Terminé"
 
-#: openplotterOpencpnInstaller.py:731
+#: openplotterOpencpnInstaller.py:734
 msgid "Checking plugins list, please wait... "
 msgstr "Vérification de la liste des plugins, veuillez patienter... "
 
-#: openplotterOpencpnInstaller.py:739
+#: openplotterOpencpnInstaller.py:742 openplotterOpencpnInstaller.py:790
 msgid "managed by OpenCPN"
-msgstr ""
+msgstr "géré par OpenCPN"
 
 #: ports.py:53 ports.py:61
 msgid "OpenCPN connection"
@@ -241,12 +245,16 @@ msgid ""
 "\n"
 "TIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
 msgstr ""
+"\n"
+"ASTUCE : Depuis sa version 5.2, OpenCPN gère directement les données Signal K. Dans ce cas, il pourrait être judicieux de remplacer la connexion NMEA 0183 \"TCP localhost 10110\" par une connexion Signal K."
 
 #: startup.py:104
 msgid ""
 "\n"
-"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in openCPN. Be sure you do not have duplicated data."
+"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data."
 msgstr ""
+"\n"
+"AVERTISSEMENT : Vous avez activé l'ancienne connexion NMEA 0183 \"TCP localhost 10110\" ainsi qu'une connexion Signal K dans OpenCPN. Assurez-vous que vous n'avez pas de données dupliquées."
 
 #: startup.py:107
 msgid ""
@@ -256,11 +264,16 @@ msgid ""
 "Address: localhost\n"
 "DataPort: "
 msgstr ""
+"La connexion par défaut d'OpenCPN est manquante, aucune donnée Signal K n'est reçue. Veuillez créer la connexion ci-dessous dans OpenCPN:\n"
+"Réseau\n"
+"Protocole : Signal K\n"
+"Adresse : localhost\n"
+"Port de données : "
 
 #: startup.py:109
 msgid "The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN"
-msgstr ""
+msgstr "La connexion OpenCPN par défaut est désactivée et aucune donnée Signal K ne lui parvient. Veuillez activer la connexion Signal K dans OpenCPN"
 
 #: startup.py:111
 msgid "Unable to read OpenCPN configuration"
-msgstr ""
+msgstr "Impossible de lire la configuration d'OpenCPN"

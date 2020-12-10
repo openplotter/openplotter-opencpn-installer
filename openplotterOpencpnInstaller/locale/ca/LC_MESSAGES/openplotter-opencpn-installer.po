@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2020-08-08 15:12+0200\n"
-"PO-Revision-Date: 2020-08-08 18:23+0200\n"
+"POT-Creation-Date: 2020-12-08 12:08+0100\n"
+"PO-Revision-Date: 2020-12-10 18:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
@@ -148,51 +148,55 @@ msgstr "Instal·la"
 msgid "Uninstall"
 msgstr "Desinstal·la"
 
-#: openplotterOpencpnInstaller.py:658 openplotterOpencpnInstaller.py:758
+#: openplotterOpencpnInstaller.py:641
+msgid "Open"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:761
 msgid "missing source: "
 msgstr "font absent: "
 
-#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:762
+#: openplotterOpencpnInstaller.py:662 openplotterOpencpnInstaller.py:765
 msgid "coming soon"
 msgstr "properament"
 
-#: openplotterOpencpnInstaller.py:664
+#: openplotterOpencpnInstaller.py:666
 msgid "Press Refresh"
 msgstr "Clica Refrescar"
 
-#: openplotterOpencpnInstaller.py:681
+#: openplotterOpencpnInstaller.py:683
 msgid "Are you sure you want to install "
 msgstr "Estàs segur que vols instal·lar "
 
-#: openplotterOpencpnInstaller.py:681 openplotterOpencpnInstaller.py:702
+#: openplotterOpencpnInstaller.py:683 openplotterOpencpnInstaller.py:704
 msgid " and its dependencies?"
 msgstr " i les seves dependencies?"
 
-#: openplotterOpencpnInstaller.py:682 openplotterOpencpnInstaller.py:703
+#: openplotterOpencpnInstaller.py:684 openplotterOpencpnInstaller.py:705
 msgid "Question"
 msgstr "Pregunta"
 
-#: openplotterOpencpnInstaller.py:691
+#: openplotterOpencpnInstaller.py:693
 msgid "Installing package, please wait... "
 msgstr "Instal·lant paquet, esperi si us plau... "
 
-#: openplotterOpencpnInstaller.py:702
+#: openplotterOpencpnInstaller.py:704
 msgid "Are you sure you want to uninstall "
 msgstr "Estàs segur que vols desinstal·lar "
 
-#: openplotterOpencpnInstaller.py:711
+#: openplotterOpencpnInstaller.py:714
 msgid "Uninstalling packages, please wait... "
 msgstr "Desinstal·lant paquets, esperi si us plau... "
 
-#: openplotterOpencpnInstaller.py:713 openplotterOpencpnInstaller.py:774
+#: openplotterOpencpnInstaller.py:716 openplotterOpencpnInstaller.py:778
 msgid "Done"
 msgstr "Fet"
 
-#: openplotterOpencpnInstaller.py:731
+#: openplotterOpencpnInstaller.py:734
 msgid "Checking plugins list, please wait... "
 msgstr "Revisant llista de plugins, espera si us plau... "
 
-#: openplotterOpencpnInstaller.py:739
+#: openplotterOpencpnInstaller.py:742 openplotterOpencpnInstaller.py:790
 msgid "managed by OpenCPN"
 msgstr ""
 
@@ -245,7 +249,7 @@ msgstr ""
 #: startup.py:104
 msgid ""
 "\n"
-"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in openCPN. Be sure you do not have duplicated data."
+"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data."
 msgstr ""
 
 #: startup.py:107

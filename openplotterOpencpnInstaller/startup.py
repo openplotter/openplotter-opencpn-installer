@@ -101,7 +101,7 @@ class Check():
 				if resultSK != 'enabled' and resultNMEA == 'enabled': 
 					black += _('\nTIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection "TCP localhost 10110" by a Signal K connection.')	
 				elif resultSK == 'enabled' and resultNMEA == 'enabled':
-					black += _('\nWARNING: You have enabled the old NMEA 0183 connection "TCP localhost 10110" and a Signal K connection in openCPN. Be sure you do not have duplicated data.')	
+					black += _('\nWARNING: You have enabled the old NMEA 0183 connection "TCP localhost 10110" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data.')	
 
 				if resultNMEA != 'enabled' and not resultSK:
 					red = _('The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\nNetwork\nProtocol: Signal K\nAddress: localhost\nDataPort: '+self.platform.skPort+'\nAutomatic server discovery: not')
