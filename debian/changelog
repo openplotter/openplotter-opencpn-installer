@@ -1,9 +1,9 @@
-openplotter-opencpn-installer (2.2.2-stable) bionic; urgency=medium
+openplotter-opencpn-installer (2.2.3-stable) bionic; urgency=medium
 
   * Improve plugins management
   * Fix error uninstalling plugins in linux mint
   * Update plugins list
-  * Update language
+  * Update translations
 
  -- Sailoog <info@sailoog.com>  Tue, 08 Dec 2020 13:01:45 +0100
 
