@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
 "POT-Creation-Date: 2020-12-08 12:08+0100\n"
-"PO-Revision-Date: 2020-12-10 18:33+0100\n"
+"PO-Revision-Date: 2021-03-04 18:52\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -13,12 +13,12 @@ msgstr ""
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
 "X-Crowdin-Project: openplotter\n"
 "X-Crowdin-Project-ID: 289888\n"
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: openplotter-opencpn-installer.po\n"
 "X-Crowdin-File-ID: 6\n"
-"X-Poedit-SearchPath-0: .\n"
 
 #: openplotterOpencpnInstaller.py:38 openplotterOpencpnInstaller.py:49
 #: openplotterOpencpnInstaller.py:60 openplotterOpencpnInstaller.py:71
@@ -241,20 +241,17 @@ msgid "autostart disabled"
 msgstr "avvio automatico disattivato"
 
 #: startup.py:102
-msgid ""
-"\n"
+msgid "\n"
 "TIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
 msgstr ""
 
 #: startup.py:104
-msgid ""
-"\n"
+msgid "\n"
 "WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data."
 msgstr ""
 
 #: startup.py:107
-msgid ""
-"The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
+msgid "The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
 "Network\n"
 "Protocol: Signal K\n"
 "Address: localhost\n"
@@ -268,3 +265,4 @@ msgstr ""
 #: startup.py:111
 msgid "Unable to read OpenCPN configuration"
 msgstr ""
+

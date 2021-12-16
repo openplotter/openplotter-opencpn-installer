@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
 "POT-Creation-Date: 2020-12-08 12:08+0100\n"
-"PO-Revision-Date: 2020-12-10 18:33+0100\n"
+"PO-Revision-Date: 2021-11-25 18:05\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
@@ -13,12 +13,12 @@ msgstr ""
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
 "X-Crowdin-Project: openplotter\n"
 "X-Crowdin-Project-ID: 289888\n"
 "X-Crowdin-Language: ca\n"
 "X-Crowdin-File: openplotter-opencpn-installer.po\n"
 "X-Crowdin-File-ID: 6\n"
-"X-Poedit-SearchPath-0: .\n"
 
 #: openplotterOpencpnInstaller.py:38 openplotterOpencpnInstaller.py:49
 #: openplotterOpencpnInstaller.py:60 openplotterOpencpnInstaller.py:71
@@ -35,7 +35,7 @@ msgstr "Clima"
 #: openplotterOpencpnInstaller.py:159 openplotterOpencpnInstaller.py:170
 #: openplotterOpencpnInstaller.py:181 openplotterOpencpnInstaller.py:192
 msgid "Sailing Interests"
-msgstr ""
+msgstr "Utilitats de navegació"
 
 #: openplotterOpencpnInstaller.py:203 openplotterOpencpnInstaller.py:214
 #: openplotterOpencpnInstaller.py:225
@@ -61,32 +61,32 @@ msgstr "Registre"
 #: openplotterOpencpnInstaller.py:434 openplotterOpencpnInstaller.py:445
 #: openplotterOpencpnInstaller.py:456
 msgid "Chart Support"
-msgstr ""
+msgstr "Suport cartogràfic"
 
 #: openplotterOpencpnInstaller.py:467 openplotterOpencpnInstaller.py:478
 #: openplotterOpencpnInstaller.py:489
 msgid "AIS/Radar"
-msgstr ""
+msgstr "AIS/Radar"
 
 #: openplotterOpencpnInstaller.py:500
 msgid "Main Program"
-msgstr ""
+msgstr "Programa principal"
 
 #: openplotterOpencpnInstaller.py:509
 msgid "OpenCPN Installer"
-msgstr ""
+msgstr "Instal·lador d'OpenCPN"
 
 #: openplotterOpencpnInstaller.py:519
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 #: openplotterOpencpnInstaller.py:522
 msgid "Settings"
-msgstr ""
+msgstr "Configuració"
 
 #: openplotterOpencpnInstaller.py:525
 msgid "Autostart OpenCPN"
-msgstr ""
+msgstr "Iniciar OpenCPN automàticament"
 
 #: openplotterOpencpnInstaller.py:528
 msgid "Full Screen"
@@ -150,7 +150,7 @@ msgstr "Desinstal·la"
 
 #: openplotterOpencpnInstaller.py:641
 msgid "Open"
-msgstr ""
+msgstr "Obre"
 
 #: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:761
 msgid "missing source: "
@@ -198,7 +198,7 @@ msgstr "Revisant llista de plugins, espera si us plau... "
 
 #: openplotterOpencpnInstaller.py:742 openplotterOpencpnInstaller.py:790
 msgid "managed by OpenCPN"
-msgstr ""
+msgstr "administrat per OpenCPN"
 
 #: ports.py:53 ports.py:61
 msgid "OpenCPN connection"
@@ -241,30 +241,34 @@ msgid "autostart disabled"
 msgstr "arrencada automàtica desactivada"
 
 #: startup.py:102
-msgid ""
-"\n"
+msgid "\n"
 "TIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
-msgstr ""
+msgstr "\n"
+"PISTA: Donat que OpenCPN 5.2 i posterior pot administrar les dades de Signal K, hauria de substituir la connexió NMEA 0183 \"TCP localhost 10110\" per una connexió de Signal K."
 
 #: startup.py:104
-msgid ""
-"\n"
+msgid "\n"
 "WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data."
-msgstr ""
+msgstr "\n"
+"ADVERTÈNCIA: Ha habilitat l'antiga connexió NMEA 0183 \"TCP localhost 10110\" i una connexió Signal K a OpenCPN. Assegura't de no tenir dades duplicades."
 
 #: startup.py:107
-msgid ""
-"The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
+msgid "The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
 "Network\n"
 "Protocol: Signal K\n"
 "Address: localhost\n"
 "DataPort: "
-msgstr ""
+msgstr "La connexió per defecte de OpenCPN no existeix i no s'està rebent dades de Signal K. Si us plau, crea aquesta connexió a OpenCPN:\n"
+"Xarxa\n"
+"Protocol: Signal K\n"
+"Adreça: localhost\n"
+"Port de dades: "
 
 #: startup.py:109
 msgid "The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN"
-msgstr ""
+msgstr "La connexió per defecte de OpenCPN està deshabilitada i no s'està rebent dades de Signal K. Si us plau, activa aquesta connexió a OpenCPN"
 
 #: startup.py:111
 msgid "Unable to read OpenCPN configuration"
-msgstr ""
+msgstr "Impossible llegit la configuració d'OpenCPN"
+

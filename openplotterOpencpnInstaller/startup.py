@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# This file is part of Openplotter.
-# Copyright (C) 2015 by sailoog <https://github.com/sailoog/openplotter>
+# This file is part of OpenPlotter.
+# Copyright (C) 2022 by Sailoog <https://github.com/openplotter/openplotter-opencpn-installer>
 #
 # Openplotter is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,6 +14,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
+
 import time, subprocess, configparser, os, sys
 from openplotterSettings import platform
 from openplotterSettings import language
@@ -104,7 +105,7 @@ class Check():
 					black += _('\nWARNING: You have enabled the old NMEA 0183 connection "TCP localhost 10110" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data.')	
 
 				if resultNMEA != 'enabled' and not resultSK:
-					red = _('The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\nNetwork\nProtocol: Signal K\nAddress: localhost\nDataPort: '+self.platform.skPort+'\nAutomatic server discovery: not')
+					red = _('The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n    Network\n    Protocol: Signal K\n    Address: localhost\n    DataPort: '+self.platform.skPort+'\n    Automatic server discovery: not')
 				elif resultNMEA != 'enabled' and resultSK == 'disabled':
 					red = _('The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN')
 			except:
