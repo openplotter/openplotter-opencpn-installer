@@ -29,10 +29,12 @@ def main():
 	print(_('Checking sources...'))
 	codename_debian = conf2.get('GENERAL', 'debianCodeName')
 	codename_ubuntu = 'focal'
+	if codename_debian == 'buster': codename_ubuntu = 'bionic'
 	if codename_debian == 'bullseye': codename_ubuntu = 'focal'
 	s = 'http://ppa.launchpad.net/opencpn/opencpn/ubuntu '+codename_ubuntu
 	deb = 'deb http://ppa.launchpad.net/opencpn/opencpn/ubuntu '+codename_ubuntu+' main'
 	try:
+		os.system('flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo')
 		sources = subprocess.check_output('apt-cache policy', shell=True).decode(sys.stdin.encoding)
 		if not s in sources:
 			fo = open('/etc/apt/sources.list.d/opencpn.list', "w")

@@ -47,7 +47,9 @@ class MyFrame(wx.Frame):
 		toolSettings = self.toolbar1.AddTool(106, _('Settings'), wx.Bitmap(self.currentdir+"/data/settings.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolSettings, toolSettings)
 		self.toolbar1.AddSeparator()
-		
+		toolCheck = self.toolbar1.AddTool(102, _('Check versions'), wx.Bitmap(self.currentdir+"/data/check.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolCheck, toolCheck)
+
 		self.notebook = wx.Notebook(self)
 		self.notebook.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.onTabChange)
 		self.apps = wx.Panel(self.notebook)
@@ -104,6 +106,13 @@ class MyFrame(wx.Frame):
 		subprocess.call(['pkill', '-f', 'openplotter-settings'])
 		subprocess.Popen('openplotter-settings')
 
+	def OnToolCheck(self, event): 
+		self.logger.Clear()
+		self.notebook.ChangeSelection(1)
+		data = subprocess.check_output('apt-cache policy opencpn', shell=True).decode(sys.stdin.encoding)
+		self.logger.WriteText(data)
+		self.read()
+
 	def pageApps(self):
 		self.text = wx.StaticText(self.apps, label=_('Installing from Debian/Ubuntu PPA (recommended for most cases)'))
 
@@ -124,7 +133,7 @@ class MyFrame(wx.Frame):
 		openButton = self.toolbar2.AddTool(204, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
 		self.Bind(wx.EVT_TOOL, self.OnOpenButton, openButton)
 
-		self.textFP = wx.StaticText(self.apps, label=_('Installing from Flatpak (recommended for 64-bit)'))
+		self.textFP = wx.StaticText(self.apps, label=_('Installing from Flatpak (only for 64-bit)'))
 
 		self.toolbar3 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
 		installButtonFP = self.toolbar3.AddTool(301, _('Install'), wx.Bitmap(self.currentdir+"/data/flatpak.png"))
@@ -249,6 +258,8 @@ class MyFrame(wx.Frame):
 			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart disabled'))
 
 	def read(self):
+		bits = subprocess.check_output('getconf LONG_BIT', shell=True).decode(sys.stdin.encoding)
+
 		command = 'LC_ALL=C apt-cache policy opencpn'
 		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 		for line in popen.stdout:
@@ -306,17 +317,19 @@ class MyFrame(wx.Frame):
 			if self.toolbar2.GetToolState(205): self.toolbar2.EnableTool(206,True)
 			else: self.toolbar2.EnableTool(206,False)
 
-		
-		self.toolbar3.EnableTool(301,False)
-		self.toolbar3.EnableTool(302,False)
-		self.toolbar3.EnableTool(303,False)
-		self.toolbar3.EnableTool(304,False)
-		self.toolbar3.EnableTool(305,False)
-		self.toolbar3.EnableTool(306,False)
-		if self.conf.get('OPENCPN', 'autostartFP') == '1': self.toolbar3.ToggleTool(305,True)
-		if self.conf.get('OPENCPN', 'fullscreenFP') == '1': self.toolbar3.ToggleTool(306,True)
-		if self.toolbar3.GetToolState(305): self.toolbar3.EnableTool(306,True)
-		else: self.toolbar3.EnableTool(306,False)
+		if '32' in bits:
+			self.toolbar3.EnableTool(301,False)
+			self.toolbar3.EnableTool(302,False)
+			self.toolbar3.EnableTool(303,False)
+			self.toolbar3.EnableTool(304,False)
+			self.toolbar3.EnableTool(305,False)
+			self.toolbar3.EnableTool(306,False)
+		else:
+			# TODO check installation
+			if self.conf.get('OPENCPN', 'autostartFP') == '1': self.toolbar3.ToggleTool(305,True)
+			if self.conf.get('OPENCPN', 'fullscreenFP') == '1': self.toolbar3.ToggleTool(306,True)
+			if self.toolbar3.GetToolState(305): self.toolbar3.EnableTool(306,True)
+			else: self.toolbar3.EnableTool(306,False)
 
 def main():
 	try:
