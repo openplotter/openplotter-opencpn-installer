@@ -25,11 +25,17 @@ def main():
 	currentLanguage = conf2.get('GENERAL', 'lang')
 	language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
 
-	print(_('Removing opencpn and sources...'))
+	print(_('Removing OpenCPN and sources...'))
 	try:
 		os.system('apt autoremove -y opencpn')
 		os.system('rm -f /etc/apt/sources.list.d/opencpn.list')
+		os.system('rm -rf '+conf2.home+'/.opencpn')
 		os.system('apt update')
+		command = 'flatpak uninstall -y org.opencpn.OpenCPN'
+		subprocess.call(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+		command = 'flatpak uninstall -y --unused'
+		subprocess.call(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+		os.system('rm -rf '+conf2.home+'/.var/app/org.opencpn.OpenCPN')
 		print(_('DONE'))
 	except Exception as e: print(_('FAILED: ')+str(e))
 
