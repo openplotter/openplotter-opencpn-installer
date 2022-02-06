@@ -16,15 +16,17 @@
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
 
 import configparser, subprocess, sys
+from openplotterSettings import platform
 
 class SerialPorts:
 	def __init__(self,conf):
 		self.conf = conf
+		self.platform2 = platform.Platform()
 		self.connections = []
 		# {'app':'xxx', 'id':'xxx', 'data':'NMEA0183/NMEA2000/SignalK', 'device': '/dev/xxx', "baudrate": nnnnnn, "enabled": True/False}
 
 	def usedSerialPorts(self):
-		if self.platform.isInstalled('opencpn'):
+		if self.platform2.isInstalled('opencpn'):
 			try:
 				confFile = self.conf.home+'/.opencpn/opencpn.conf'
 				confData = configparser.SafeConfigParser()
