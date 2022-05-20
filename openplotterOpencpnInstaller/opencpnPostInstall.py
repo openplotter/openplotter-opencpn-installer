@@ -27,12 +27,9 @@ def main():
 	language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
 
 	print(_('Checking sources...'))
-	codename_debian = conf2.get('GENERAL', 'debianCodeName')
-	codename_ubuntu = 'focal'
-	if codename_debian == 'buster': codename_ubuntu = 'bionic'
-	if codename_debian == 'bullseye': codename_ubuntu = 'focal'
-	s = 'http://ppa.launchpad.net/opencpn/opencpn/ubuntu '+codename_ubuntu
-	deb = 'deb http://ppa.launchpad.net/opencpn/opencpn/ubuntu '+codename_ubuntu+' main'
+	codeName = conf2.get('GENERAL', 'codeName')
+	s = 'http://ppa.launchpad.net/opencpn/opencpn/ubuntu '+codeName
+	deb = 'deb http://ppa.launchpad.net/opencpn/opencpn/ubuntu '+codeName+' main'
 	try:
 		os.system('flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo')
 		sources = subprocess.check_output('apt-cache policy', shell=True).decode(sys.stdin.encoding)
@@ -40,7 +37,7 @@ def main():
 			fo = open('/etc/apt/sources.list.d/opencpn.list', "w")
 			fo.write(deb)
 			fo.close()
-			os.system('apt-key add - < '+currentdir+'/data/source/opencpn.gpg.key' )
+			os.system('cat '+currentdir+'/data/source/opencpn.gpg.key | gpg --dearmor > "/etc/apt/trusted.gpg.d/opencpn.gpg"')
 			os.system('apt update')
 		print(_('DONE'))
 	except Exception as e: print(_('FAILED: ')+str(e))
