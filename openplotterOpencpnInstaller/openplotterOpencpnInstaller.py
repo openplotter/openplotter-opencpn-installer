@@ -190,7 +190,7 @@ class MyFrame(wx.Frame):
 		self.read()
 
 	def pageApps(self):
-		self.text = wx.StaticText(self.apps, label=_('Installing from Debian/Ubuntu PPA (recommended for most cases)'))
+		self.text = wx.StaticText(self.apps, label=_('Installing from Debian/Ubuntu PPA')+' '+_('(recommended for most cases)'))
 
 		self.toolbar2 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
 		installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/launchpad.png"))
@@ -209,7 +209,7 @@ class MyFrame(wx.Frame):
 		openButton = self.toolbar2.AddTool(204, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
 		self.Bind(wx.EVT_TOOL, self.OnOpenButton, openButton)
 
-		self.textFP = wx.StaticText(self.apps, label=_('Installing from Flatpak (only for 64-bit)'))
+		self.textFP = wx.StaticText(self.apps, label=_('Installing from Flatpak')+' '+_('(recommended for arm64/aarch64 processors)'))
 
 		self.toolbar3 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
 		installButtonFP = self.toolbar3.AddTool(301, _('Install'), wx.Bitmap(self.currentdir+"/data/flatpak.png"))

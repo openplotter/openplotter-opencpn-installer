@@ -121,11 +121,11 @@ class Check():
 										else: resultSK = 'disabled'
 
 					if resultSK != 'enabled' and resultNMEA == 'enabled': 
-						msg = _('TIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection "TCP localhost 10110" by a Signal K connection.')	
+						msg = _('TIP: Since version 5.2 and above OpenCPN can manage Signal K data, you should replace the NMEA 0183 connection "TCP localhost 10110" by a Signal K connection.')	
 						if black: black += '\n'+msg
 						else: black = msg				
 					elif resultSK == 'enabled' and resultNMEA == 'enabled':
-						msg = _('WARNING: You have enabled the old NMEA 0183 connection "TCP localhost 10110" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data.')	
+						msg = _('WARNING: You have enabled the old NMEA 0183 connection "TCP localhost 10110" and a Signal K connection in OpenCPN. Make sure you do not have duplicated data.')	
 						if black: black += '\n'+msg
 						else: black = msg
 					if resultNMEA != 'enabled' and not resultSK:
@@ -173,19 +173,19 @@ class Check():
 										else: resultSK = 'disabled'
 
 					if resultSK != 'enabled' and resultNMEA == 'enabled': 
-						msg = _('TIP for OpenCPN FP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection "TCP localhost 10110" by a Signal K connection.')	
+						msg = _('TIP: Since version 5.2 and above OpenCPN can manage Signal K data, you should replace the NMEA 0183 connection "TCP localhost 10110" by a Signal K connection.')
 						if black: black += '\n'+msg
 						else: black = msg
 					elif resultSK == 'enabled' and resultNMEA == 'enabled':
-						msg = _('WARNING for OpenCPN FP: You have enabled the old NMEA 0183 connection "TCP localhost 10110" and a Signal K connection in OpenCPN FP. Be sure you do not have duplicated data.')	
+						msg = _('WARNING: You have enabled the old NMEA 0183 connection "TCP localhost 10110" and a Signal K connection in OpenCPN. Make sure you do not have duplicated data.')
 						if black: black += '\n'+msg
 						else: black = msg
 					if resultNMEA != 'enabled' and not resultSK:
-						msg = _('The default OpenCPN FP connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN FP:\n    Network\n    Protocol: Signal K\n    Address: localhost\n    DataPort: '+self.platform.skPort+'\n    Automatic server discovery: not')
+						msg = _('The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n    Network\n    Protocol: Signal K\n    Address: localhost\n    DataPort: '+self.platform.skPort+'\n    Automatic server discovery: not')
 						if red: red += '\n'+msg
 						else: red = msg				
 					elif resultNMEA != 'enabled' and resultSK == 'disabled':
-						msg = _('The default OpenCPN FP connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN FP')
+						msg = _('The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN')
 						if red: red += '\n'+msg
 						else: red = msg
 				except:
