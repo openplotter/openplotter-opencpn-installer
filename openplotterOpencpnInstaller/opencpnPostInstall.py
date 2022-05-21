@@ -18,20 +18,16 @@
 import subprocess, os, sys
 from openplotterSettings import conf
 from openplotterSettings import language
-from openplotterSettings import platform
 from .version import version
 
 def main():
 	conf2 = conf.Conf()
-	platform2 = platform.Platform()
 	currentdir = os.path.dirname(os.path.abspath(__file__))
 	currentLanguage = conf2.get('GENERAL', 'lang')
 	language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
 
 	print(_('Checking sources...'))
-	RELEASE_DATA = platform2.RELEASE_DATA
-	if 'UBUNTU_CODENAME' in RELEASE_DATA: codeName = RELEASE_DATA['UBUNTU_CODENAME']
-	else: codeName = conf2.get('GENERAL', 'codeName')
+	codeName = conf2.get('GENERAL', 'codeName')
 	if codeName == 'buster': codeName = 'bionic'
 	elif codeName == 'bullseye': codeName = 'focal'
 	s = 'http://ppa.launchpad.net/opencpn/opencpn/ubuntu '+codeName

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter-opencpn-installer\n"
-"POT-Creation-Date: 2022-05-20 22:06+0200\n"
-"PO-Revision-Date: 2022-05-20 22:06+0200\n"
+"POT-Creation-Date: 2022-05-21 20:53+0200\n"
+"PO-Revision-Date: 2022-05-21 20:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -40,17 +40,17 @@ msgstr ""
 msgid "Checking sources..."
 msgstr ""
 
-#: opencpnPostInstall.py:42 opencpnPostInstall.py:48 opencpnPreUninstall.py:39
-#: opencpnPreUninstall.py:45
+#: opencpnPostInstall.py:44 opencpnPostInstall.py:50 opencpnPreUninstall.py:37
+#: opencpnPreUninstall.py:43
 msgid "DONE"
 msgstr ""
 
-#: opencpnPostInstall.py:43 opencpnPostInstall.py:49 opencpnPreUninstall.py:40
-#: opencpnPreUninstall.py:46
+#: opencpnPostInstall.py:45 opencpnPostInstall.py:51 opencpnPreUninstall.py:38
+#: opencpnPreUninstall.py:44
 msgid "FAILED: "
 msgstr ""
 
-#: opencpnPostInstall.py:45
+#: opencpnPostInstall.py:47
 msgid "Setting version..."
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Removing OpenCPN and sources..."
 msgstr ""
 
-#: opencpnPreUninstall.py:42
+#: opencpnPreUninstall.py:40
 msgid "Removing version..."
 msgstr ""
 

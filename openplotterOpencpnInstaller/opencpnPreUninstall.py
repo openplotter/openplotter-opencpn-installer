@@ -31,10 +31,8 @@ def main():
 		os.system('rm -f /etc/apt/sources.list.d/opencpn.list')
 		os.system('rm -rf '+conf2.home+'/.opencpn')
 		os.system('apt update')
-		command = 'flatpak uninstall -y org.opencpn.OpenCPN'
-		subprocess.call(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
-		command = 'flatpak uninstall -y --unused'
-		subprocess.call(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+		os.system('sudo -u '+conf2.user+' flatpak uninstall -y org.opencpn.OpenCPN')
+		os.system('sudo -u '+conf2.user+' flatpak uninstall -y --unused')
 		os.system('rm -rf '+conf2.home+'/.var/app/org.opencpn.OpenCPN')
 		print(_('DONE'))
 	except Exception as e: print(_('FAILED: ')+str(e))
