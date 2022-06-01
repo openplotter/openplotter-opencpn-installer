@@ -1,274 +1,288 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2020-12-08 12:08+0100\n"
-"PO-Revision-Date: 2021-11-25 18:05\n"
+"POT-Creation-Date: 2022-05-20 22:06+0200\n"
+"PO-Revision-Date: 2022-06-01 21:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: .\n"
 "X-Crowdin-Project: openplotter\n"
 "X-Crowdin-Project-ID: 289888\n"
 "X-Crowdin-Language: fi\n"
 "X-Crowdin-File: openplotter-opencpn-installer.po\n"
 "X-Crowdin-File-ID: 6\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: openplotterOpencpnInstaller.py:38 openplotterOpencpnInstaller.py:49
-#: openplotterOpencpnInstaller.py:60 openplotterOpencpnInstaller.py:71
-#: openplotterOpencpnInstaller.py:82 openplotterOpencpnInstaller.py:93
-#: openplotterOpencpnInstaller.py:104
-msgid "Others"
-msgstr "Muut"
+#: data/opencpn.desktop:4
+msgid "OpenCPN"
+msgstr "OpenCPN"
 
-#: openplotterOpencpnInstaller.py:115 openplotterOpencpnInstaller.py:126
-#: openplotterOpencpnInstaller.py:137 openplotterOpencpnInstaller.py:148
-msgid "Weather"
-msgstr "Sää"
+#: data/opencpn.desktop:5
+msgid "Open source chart plotter / navigator"
+msgstr "Avoimen lähdekoodin karttaplotteri/navigaattori"
 
-#: openplotterOpencpnInstaller.py:159 openplotterOpencpnInstaller.py:170
-#: openplotterOpencpnInstaller.py:181 openplotterOpencpnInstaller.py:192
-msgid "Sailing Interests"
-msgstr "Purjehduksen näkökohdat"
+#: data/opencpn.desktop:7
+msgid "opencpn"
+msgstr "opencpn"
 
-#: openplotterOpencpnInstaller.py:203 openplotterOpencpnInstaller.py:214
-#: openplotterOpencpnInstaller.py:225
-msgid "Safety"
-msgstr "Turvallisuus"
-
-#: openplotterOpencpnInstaller.py:236 openplotterOpencpnInstaller.py:247
-#: openplotterOpencpnInstaller.py:258 openplotterOpencpnInstaller.py:269
-#: openplotterOpencpnInstaller.py:280
-msgid "Navigation"
-msgstr "Navigointi"
-
-#: openplotterOpencpnInstaller.py:291 openplotterOpencpnInstaller.py:302
-#: openplotterOpencpnInstaller.py:313 openplotterOpencpnInstaller.py:324
-#: openplotterOpencpnInstaller.py:335 openplotterOpencpnInstaller.py:346
-#: openplotterOpencpnInstaller.py:357
-msgid "Logs"
-msgstr "Lokit"
-
-#: openplotterOpencpnInstaller.py:368 openplotterOpencpnInstaller.py:379
-#: openplotterOpencpnInstaller.py:390 openplotterOpencpnInstaller.py:401
-#: openplotterOpencpnInstaller.py:412 openplotterOpencpnInstaller.py:423
-#: openplotterOpencpnInstaller.py:434 openplotterOpencpnInstaller.py:445
-#: openplotterOpencpnInstaller.py:456
-msgid "Chart Support"
-msgstr "Kartta tuki"
-
-#: openplotterOpencpnInstaller.py:467 openplotterOpencpnInstaller.py:478
-#: openplotterOpencpnInstaller.py:489
-msgid "AIS/Radar"
-msgstr "AIS/tutka"
-
-#: openplotterOpencpnInstaller.py:500
-msgid "Main Program"
-msgstr "Pää Ohjelma"
-
-#: openplotterOpencpnInstaller.py:509
+#: data/openplotter-opencpn-installer.desktop:3
+#: openplotterOpencpnInstaller.py:34
 msgid "OpenCPN Installer"
 msgstr "OpenCPN Asennin"
 
-#: openplotterOpencpnInstaller.py:519
+#: data/openplotter-opencpn-installer.desktop:5
+msgid "openplotter-opencpn-installer"
+msgstr "openplotter-opencpn-asennin"
+
+#: opencpnPostInstall.py:29
+msgid "Checking sources..."
+msgstr "Tarkistetaan lähteitä..."
+
+#: opencpnPostInstall.py:42 opencpnPostInstall.py:48 opencpnPreUninstall.py:39
+#: opencpnPreUninstall.py:45
+msgid "DONE"
+msgstr "VALMIS"
+
+#: opencpnPostInstall.py:43 opencpnPostInstall.py:49 opencpnPreUninstall.py:40
+#: opencpnPreUninstall.py:46
+msgid "FAILED: "
+msgstr "EPÄONNISTUNUT: "
+
+#: opencpnPostInstall.py:45
+msgid "Setting version..."
+msgstr "Asetetaan versio..."
+
+#: opencpnPreUninstall.py:28
+msgid "Removing OpenCPN and sources..."
+msgstr "Poistetaan OpenCPN ja lähteet..."
+
+#: opencpnPreUninstall.py:42
+msgid "Removing version..."
+msgstr "Poistetaan versio..."
+
+#: openplotterOpencpnInstaller.py:44
 msgid "Help"
 msgstr "Ohje"
 
-#: openplotterOpencpnInstaller.py:522
+#: openplotterOpencpnInstaller.py:47
 msgid "Settings"
 msgstr "Asetukset"
 
-#: openplotterOpencpnInstaller.py:525
-msgid "Autostart OpenCPN"
-msgstr "OpenCPN autokäynnistys"
+#: openplotterOpencpnInstaller.py:50
+msgid "Check Versions"
+msgstr "Tarkista Versiot"
 
-#: openplotterOpencpnInstaller.py:528
-msgid "Full Screen"
-msgstr "Koko näyttö"
-
-#: openplotterOpencpnInstaller.py:534
-msgid "Update Data"
-msgstr "Päivitä tiedot"
-
-#: openplotterOpencpnInstaller.py:536
-msgid "Refresh"
-msgstr "Päivitä"
-
-#: openplotterOpencpnInstaller.py:543
-msgid "OpenCPN packages"
-msgstr "OpenCPN paketit"
-
-#: openplotterOpencpnInstaller.py:598
-msgid "OpenCPN autostart enabled"
-msgstr "OpenCPN autokäynnistys sallittu"
-
-#: openplotterOpencpnInstaller.py:602
-msgid "OpenCPN autostart disabled"
-msgstr "OpenCPN autokäynnistys estetty"
-
-#: openplotterOpencpnInstaller.py:608
-msgid "OpenCPN fullscreen autostart enabled"
-msgstr "OpenCPN autokäynnistys koko näyttöön sallittu"
-
-#: openplotterOpencpnInstaller.py:611
-msgid "OpenCPN fullscreen autostart disabled"
-msgstr "OpenCPN autokäynnistys koko näyttöön estetty"
-
-#: openplotterOpencpnInstaller.py:621
-msgid "Updating packages data, please wait... "
-msgstr "Pakettien dataa päivitetään, odottele... "
-
-#: openplotterOpencpnInstaller.py:627
-msgid "Name"
-msgstr "Nimi"
-
-#: openplotterOpencpnInstaller.py:628
-msgid "Category"
-msgstr "Kategoria"
-
-#: openplotterOpencpnInstaller.py:629
-msgid "Installed"
-msgstr "Asennettu"
-
-#: openplotterOpencpnInstaller.py:630
-msgid "Candidate"
-msgstr "Ehdokas"
-
-#: openplotterOpencpnInstaller.py:636
+#: openplotterOpencpnInstaller.py:57 openplotterOpencpnInstaller.py:196
+#: openplotterOpencpnInstaller.py:215
 msgid "Install"
 msgstr "Asenna"
 
-#: openplotterOpencpnInstaller.py:638
+#: openplotterOpencpnInstaller.py:90
+msgid "Check versions"
+msgstr "Tarkista versiot"
+
+#: openplotterOpencpnInstaller.py:123
+msgid "Checking versions please wait. The first time may take a while..."
+msgstr "Tarkistetaan versioita, odota hetki. Ensimmäinen kerta voi kestää..."
+
+#: openplotterOpencpnInstaller.py:172 openplotterOpencpnInstaller.py:185
+msgid "Installed:"
+msgstr "Asennettu:"
+
+#: openplotterOpencpnInstaller.py:173 openplotterOpencpnInstaller.py:186
+msgid "Installed: none"
+msgstr "Asennettu: ei"
+
+#: openplotterOpencpnInstaller.py:175 openplotterOpencpnInstaller.py:188
+msgid "Candidate:"
+msgstr "Ehdokas:"
+
+#: openplotterOpencpnInstaller.py:176 openplotterOpencpnInstaller.py:189
+msgid "Candidate: none"
+msgstr "Ehdokas: ei mitään"
+
+#: openplotterOpencpnInstaller.py:193
+msgid "Installing from Debian/Ubuntu PPA"
+msgstr "Asennetaan Debianista/Ubuntu PPA:sta"
+
+#: openplotterOpencpnInstaller.py:193
+msgid "(recommended for most cases)"
+msgstr "(suositeltu useimmissa tapauksissa)"
+
+#: openplotterOpencpnInstaller.py:198 openplotterOpencpnInstaller.py:217
+msgid "Update"
+msgstr "Päivitä"
+
+#: openplotterOpencpnInstaller.py:201 openplotterOpencpnInstaller.py:220
 msgid "Uninstall"
 msgstr "Poista asennus"
 
-#: openplotterOpencpnInstaller.py:641
+#: openplotterOpencpnInstaller.py:204 openplotterOpencpnInstaller.py:223
+msgid "Autostart"
+msgstr "Autostart"
+
+#: openplotterOpencpnInstaller.py:206 openplotterOpencpnInstaller.py:225
+msgid "Full Screen"
+msgstr "Koko näyttö"
+
+#: openplotterOpencpnInstaller.py:209 openplotterOpencpnInstaller.py:228
 msgid "Open"
 msgstr "Avaa"
 
-#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:761
-msgid "missing source: "
-msgstr "puuttuva sorsa: "
+#: openplotterOpencpnInstaller.py:212
+msgid "Installing from Flatpak"
+msgstr "Asennetaan Flatpakista"
 
-#: openplotterOpencpnInstaller.py:662 openplotterOpencpnInstaller.py:765
-msgid "coming soon"
-msgstr "tulossa pian"
+#: openplotterOpencpnInstaller.py:212
+msgid "(recommended for arm64/aarch64 processors)"
+msgstr "(suositeltu arm64/aarch64-prosessoreille)"
 
-#: openplotterOpencpnInstaller.py:666
-msgid "Press Refresh"
-msgstr "Paina Virkistä"
+#: openplotterOpencpnInstaller.py:249
+msgid "Are you sure you want to install OpenCPN from Debian/Ubuntu PPA and its dependencies?"
+msgstr "Oletko varma, että haluat asentaa OpenCPN Debian/Ubuntu PPA ja sen riippuvuudet?"
 
-#: openplotterOpencpnInstaller.py:683
-msgid "Are you sure you want to install "
-msgstr "Haluatko varmasti asentaa "
+#: openplotterOpencpnInstaller.py:249 openplotterOpencpnInstaller.py:310
+msgid "OpenCPN version: "
+msgstr "OpenCPN versio: "
 
-#: openplotterOpencpnInstaller.py:683 openplotterOpencpnInstaller.py:704
-msgid " and its dependencies?"
-msgstr " ja sen riippuvuudet?"
-
-#: openplotterOpencpnInstaller.py:684 openplotterOpencpnInstaller.py:705
+#: openplotterOpencpnInstaller.py:250 openplotterOpencpnInstaller.py:269
+#: openplotterOpencpnInstaller.py:311 openplotterOpencpnInstaller.py:359
 msgid "Question"
 msgstr "Kysymys"
 
-#: openplotterOpencpnInstaller.py:693
+#: openplotterOpencpnInstaller.py:259 openplotterOpencpnInstaller.py:320
+#: openplotterOpencpnInstaller.py:350
 msgid "Installing package, please wait... "
 msgstr "Paketti asennetaan, odottele... "
 
-#: openplotterOpencpnInstaller.py:704
-msgid "Are you sure you want to uninstall "
-msgstr "Haluatko varmasti poistaa "
+#: openplotterOpencpnInstaller.py:268 openplotterOpencpnInstaller.py:358
+msgid "Are you sure you want to uninstall OpenCPN and its dependencies?"
+msgstr "Oletko varma, että haluat poistaa OpenCPN:n ja sen riippuvuudet?"
 
-#: openplotterOpencpnInstaller.py:714
+#: openplotterOpencpnInstaller.py:278 openplotterOpencpnInstaller.py:368
+#: openplotterOpencpnInstaller.py:375
 msgid "Uninstalling packages, please wait... "
 msgstr "Paketteja poistetaan, odottele... "
 
-#: openplotterOpencpnInstaller.py:716 openplotterOpencpnInstaller.py:778
-msgid "Done"
-msgstr "Tehty"
+#: openplotterOpencpnInstaller.py:294 openplotterOpencpnInstaller.py:391
+msgid "OpenCPN autostart enabled"
+msgstr "OpenCPN autokäynnistys sallittu"
 
-#: openplotterOpencpnInstaller.py:734
-msgid "Checking plugins list, please wait... "
-msgstr "Tarkistetaan sovelmaluetteloita, odota... "
+#: openplotterOpencpnInstaller.py:298 openplotterOpencpnInstaller.py:395
+msgid "OpenCPN autostart disabled"
+msgstr "OpenCPN autokäynnistys estetty"
 
-#: openplotterOpencpnInstaller.py:742 openplotterOpencpnInstaller.py:790
-msgid "managed by OpenCPN"
-msgstr "OpenCPNn hallitsema"
+#: openplotterOpencpnInstaller.py:304 openplotterOpencpnInstaller.py:401
+msgid "OpenCPN fullscreen autostart enabled"
+msgstr "OpenCPN autokäynnistys koko näyttöön sallittu"
 
-#: ports.py:53 ports.py:61
+#: openplotterOpencpnInstaller.py:307 openplotterOpencpnInstaller.py:404
+msgid "OpenCPN fullscreen autostart disabled"
+msgstr "OpenCPN autokäynnistys koko näyttöön estetty"
+
+#: openplotterOpencpnInstaller.py:310
+msgid "Are you sure you want to install OpenCPN from Flatpak and its dependencies?"
+msgstr "Oletko varma, että haluat asentaa OpenCPN Flatpakista ja sen riippuvuudet?"
+
+#: openplotterOpencpnInstaller.py:440 openplotterOpencpnInstaller.py:444
+#: openplotterOpencpnInstaller.py:448 openplotterOpencpnInstaller.py:487
+#: openplotterOpencpnInstaller.py:491 openplotterOpencpnInstaller.py:495
+msgid "There is a new OpenCPN version: "
+msgstr "On olemassa uusi OpenCPN versio: "
+
+#: ports.py:54 ports.py:62
 msgid "OpenCPN connection"
 msgstr "OpenCPN liitos"
 
-#: startup.py:31
+#: ports.py:94 ports.py:102
+msgid "OpenCPN FP connection"
+msgstr "OpenCPN FP yhteys"
+
+#: startup.py:29
 msgid "Starting OpenCPN..."
 msgstr "Käynnistetään OpenCPN..."
 
-#: startup.py:38
+#: startup.py:38 startup.py:47
 msgid "fullscreen"
 msgstr "koko näyttö"
 
-#: startup.py:41
+#: startup.py:41 startup.py:50
 msgid "non fullscreen"
 msgstr "osa näyttö"
 
-#: startup.py:54
+#: startup.py:67
 msgid "Checking OpenCPN..."
 msgstr "Tarkistetaan OpenCPN..."
 
-#: startup.py:62
+#: startup.py:75
 msgid "running"
 msgstr "käynnissä"
 
-#: startup.py:63
-msgid "not running | "
-msgstr "pysähtynyt | "
+#: startup.py:76
+msgid "not running"
+msgstr "ei käynnissä"
 
-#: startup.py:67
-msgid "fullscreen autostart enabled"
-msgstr "autokäynnistys koko näyttöön sallittu"
+#: startup.py:81
+msgid " | fullscreen autostart enabled"
+msgstr " | koko näytön automaattinen käynnistys käytössä"
 
-#: startup.py:68
-msgid "autostart enabled"
-msgstr "autokäynnistys sallittu"
+#: startup.py:82
+msgid " | autostart enabled"
+msgstr " | automaattinen käynnistys käytössä"
 
-#: startup.py:69
-msgid "autostart disabled"
-msgstr "autokäynnistys estetty"
+#: startup.py:83
+msgid " | autostart disabled"
+msgstr " | autokäynnistys estetty"
 
-#: startup.py:102
-msgid "\n"
-"TIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
-msgstr "\n"
-"VIHJE: Että OpenCPN voi 5.2 alkaen ja siitä eteenpäin hallita Signal K dataa, on NMEA 0183 yhteys \"TCP yhteys localhost 10110\" korvattava Signal K yhteydellä."
+#: startup.py:88
+msgid " | FP fullscreen autostart enabled"
+msgstr " | Koko näytön FP-automaattikäynnistys käytössä"
 
-#: startup.py:104
-msgid "\n"
-"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data."
-msgstr "\n"
-"VAROITUS: Käytät vanhaa NMEA 0183 yhteyttä \"TCP localhost 10110\" ja Signal K yhteyttä OpenCPN:ssä. Vältä tuplattua dataa."
+#: startup.py:89
+msgid " | FP autostart enabled"
+msgstr " | FP automaattikäynnistys käytössä"
 
-#: startup.py:107
-msgid "The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
-"Network\n"
-"Protocol: Signal K\n"
-"Address: localhost\n"
-"DataPort: "
-msgstr "Vakio OpenCPN kytkentä puuttuu, eikä saa dataa Signal K: sta. Muodosta kytkentä kohdassa OpenCPN:\n"
-"Network \n"
-"Protcol: Signal K\n"
-"Adress: localhost\n"
-"Data Port: "
+#: startup.py:90
+msgid " | FP autostart disabled"
+msgstr " | FP-automaattikäynnistys estetty"
 
-#: startup.py:109
+#: startup.py:124 startup.py:176
+msgid "TIP: Since version 5.2 and above OpenCPN can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
+msgstr "VIHJE: Versiosta 5.2 alkaen. ja jälkeen OpenCPN voi hallita Signal K tietoja, sinun pitäisi korvata NMEA 0183 yhteys \"TCP localhost 10110\" Signal K yhteydellä."
+
+#: startup.py:128 startup.py:180
+msgid "WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Make sure you do not have duplicated data."
+msgstr "VAROITUS: Olet ottanut käyttöön vanhan NMEA 0183 yhteyden \"TCP localhost 10110\" ja Signal K yhteyden OpenCPN:ään. Varmista, että sinulla ei ole päällekkäisiä tietoja."
+
+#: startup.py:132 startup.py:184
+msgid ""
+"The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
+"    Network\n"
+"    Protocol: Signal K\n"
+"    Address: localhost\n"
+"    DataPort: "
+msgstr ""
+"Vakio OpenCPN-yhteys puuttuu eikä se saa tietoja Signal K:sta. Luo tämä yhteys OpenCPN:ään\n"
+"    Verkko\n"
+"    Protokolla: Signal K\n"
+"    Osoite: localhost\n"
+"    DataPort: "
+
+#: startup.py:136 startup.py:188
 msgid "The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN"
 msgstr "Vakio OpenCPN kytkentä on estetty, eikä saa dataa Signal K:sta. Salli Signal K kytkentä OpenCPN:ssä"
 
-#: startup.py:111
+#: startup.py:140
 msgid "Unable to read OpenCPN configuration"
 msgstr "OpenCPN kokoonpanon luku ei onnistu"
 
+#: startup.py:192
+msgid "Unable to read OpenCPN FP configuration"
+msgstr "OpenCPN FP konfiguraatiota ei voi lukea"

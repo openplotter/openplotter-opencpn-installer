@@ -1,274 +1,288 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2020-12-08 12:08+0100\n"
-"PO-Revision-Date: 2021-12-10 12:41\n"
+"POT-Creation-Date: 2022-05-20 22:06+0200\n"
+"PO-Revision-Date: 2022-06-01 21:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: .\n"
 "X-Crowdin-Project: openplotter\n"
 "X-Crowdin-Project-ID: 289888\n"
 "X-Crowdin-Language: de\n"
 "X-Crowdin-File: openplotter-opencpn-installer.po\n"
 "X-Crowdin-File-ID: 6\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: openplotterOpencpnInstaller.py:38 openplotterOpencpnInstaller.py:49
-#: openplotterOpencpnInstaller.py:60 openplotterOpencpnInstaller.py:71
-#: openplotterOpencpnInstaller.py:82 openplotterOpencpnInstaller.py:93
-#: openplotterOpencpnInstaller.py:104
-msgid "Others"
-msgstr "Weitere"
+#: data/opencpn.desktop:4
+msgid "OpenCPN"
+msgstr "OpenCPN"
 
-#: openplotterOpencpnInstaller.py:115 openplotterOpencpnInstaller.py:126
-#: openplotterOpencpnInstaller.py:137 openplotterOpencpnInstaller.py:148
-msgid "Weather"
-msgstr "Wetter"
+#: data/opencpn.desktop:5
+msgid "Open source chart plotter / navigator"
+msgstr "Open Source Kartenplotter / Navigator"
 
-#: openplotterOpencpnInstaller.py:159 openplotterOpencpnInstaller.py:170
-#: openplotterOpencpnInstaller.py:181 openplotterOpencpnInstaller.py:192
-msgid "Sailing Interests"
-msgstr "Segelinteressen"
+#: data/opencpn.desktop:7
+msgid "opencpn"
+msgstr "OpenCPN"
 
-#: openplotterOpencpnInstaller.py:203 openplotterOpencpnInstaller.py:214
-#: openplotterOpencpnInstaller.py:225
-msgid "Safety"
-msgstr "Sicherheit"
-
-#: openplotterOpencpnInstaller.py:236 openplotterOpencpnInstaller.py:247
-#: openplotterOpencpnInstaller.py:258 openplotterOpencpnInstaller.py:269
-#: openplotterOpencpnInstaller.py:280
-msgid "Navigation"
-msgstr "Navigation"
-
-#: openplotterOpencpnInstaller.py:291 openplotterOpencpnInstaller.py:302
-#: openplotterOpencpnInstaller.py:313 openplotterOpencpnInstaller.py:324
-#: openplotterOpencpnInstaller.py:335 openplotterOpencpnInstaller.py:346
-#: openplotterOpencpnInstaller.py:357
-msgid "Logs"
-msgstr "Logs"
-
-#: openplotterOpencpnInstaller.py:368 openplotterOpencpnInstaller.py:379
-#: openplotterOpencpnInstaller.py:390 openplotterOpencpnInstaller.py:401
-#: openplotterOpencpnInstaller.py:412 openplotterOpencpnInstaller.py:423
-#: openplotterOpencpnInstaller.py:434 openplotterOpencpnInstaller.py:445
-#: openplotterOpencpnInstaller.py:456
-msgid "Chart Support"
-msgstr "Kartensupport"
-
-#: openplotterOpencpnInstaller.py:467 openplotterOpencpnInstaller.py:478
-#: openplotterOpencpnInstaller.py:489
-msgid "AIS/Radar"
-msgstr "AIS/Radar"
-
-#: openplotterOpencpnInstaller.py:500
-msgid "Main Program"
-msgstr "Hauptprogramm"
-
-#: openplotterOpencpnInstaller.py:509
+#: data/openplotter-opencpn-installer.desktop:3
+#: openplotterOpencpnInstaller.py:34
 msgid "OpenCPN Installer"
 msgstr "OpenCPN Installer"
 
-#: openplotterOpencpnInstaller.py:519
+#: data/openplotter-opencpn-installer.desktop:5
+msgid "openplotter-opencpn-installer"
+msgstr "Openplotter-OpenCPN-Installer"
+
+#: opencpnPostInstall.py:29
+msgid "Checking sources..."
+msgstr "Prüfe Quellcode..."
+
+#: opencpnPostInstall.py:42 opencpnPostInstall.py:48 opencpnPreUninstall.py:39
+#: opencpnPreUninstall.py:45
+msgid "DONE"
+msgstr "Fertig"
+
+#: opencpnPostInstall.py:43 opencpnPostInstall.py:49 opencpnPreUninstall.py:40
+#: opencpnPreUninstall.py:46
+msgid "FAILED: "
+msgstr "FEHLGESCHLAGEN: "
+
+#: opencpnPostInstall.py:45
+msgid "Setting version..."
+msgstr "Setze Version..."
+
+#: opencpnPreUninstall.py:28
+msgid "Removing OpenCPN and sources..."
+msgstr "Entferne OpenCPN und Quellcode..."
+
+#: opencpnPreUninstall.py:42
+msgid "Removing version..."
+msgstr "Entferne Version..."
+
+#: openplotterOpencpnInstaller.py:44
 msgid "Help"
 msgstr "Hilfe"
 
-#: openplotterOpencpnInstaller.py:522
+#: openplotterOpencpnInstaller.py:47
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: openplotterOpencpnInstaller.py:525
-msgid "Autostart OpenCPN"
-msgstr "OpenCPN Autostart"
+#: openplotterOpencpnInstaller.py:50
+msgid "Check Versions"
+msgstr "Versionen prüfen"
 
-#: openplotterOpencpnInstaller.py:528
-msgid "Full Screen"
-msgstr "Vollbild"
-
-#: openplotterOpencpnInstaller.py:534
-msgid "Update Data"
-msgstr "Daten Aktualisieren"
-
-#: openplotterOpencpnInstaller.py:536
-msgid "Refresh"
-msgstr "Aktualisieren"
-
-#: openplotterOpencpnInstaller.py:543
-msgid "OpenCPN packages"
-msgstr "OpenCPN Pakete"
-
-#: openplotterOpencpnInstaller.py:598
-msgid "OpenCPN autostart enabled"
-msgstr "OpenCPN Autostart aktiviert"
-
-#: openplotterOpencpnInstaller.py:602
-msgid "OpenCPN autostart disabled"
-msgstr "OpenCPN Autostart deaktiviert"
-
-#: openplotterOpencpnInstaller.py:608
-msgid "OpenCPN fullscreen autostart enabled"
-msgstr "OpenCPN Vollbild-Autostart aktiviert"
-
-#: openplotterOpencpnInstaller.py:611
-msgid "OpenCPN fullscreen autostart disabled"
-msgstr "OpenCPN Vollbild-Autostart deaktiviert"
-
-#: openplotterOpencpnInstaller.py:621
-msgid "Updating packages data, please wait... "
-msgstr "Aktualisiere Paketdaten, bitte warten... "
-
-#: openplotterOpencpnInstaller.py:627
-msgid "Name"
-msgstr "Name"
-
-#: openplotterOpencpnInstaller.py:628
-msgid "Category"
-msgstr "Kategorie"
-
-#: openplotterOpencpnInstaller.py:629
-msgid "Installed"
-msgstr "Installiert"
-
-#: openplotterOpencpnInstaller.py:630
-msgid "Candidate"
-msgstr "Version"
-
-#: openplotterOpencpnInstaller.py:636
+#: openplotterOpencpnInstaller.py:57 openplotterOpencpnInstaller.py:196
+#: openplotterOpencpnInstaller.py:215
 msgid "Install"
 msgstr "Installieren"
 
-#: openplotterOpencpnInstaller.py:638
+#: openplotterOpencpnInstaller.py:90
+msgid "Check versions"
+msgstr "Versionen prüfen"
+
+#: openplotterOpencpnInstaller.py:123
+msgid "Checking versions please wait. The first time may take a while..."
+msgstr "Überprüfe Versionen, bitte warten. Das erste Mal kann eine Weile dauern..."
+
+#: openplotterOpencpnInstaller.py:172 openplotterOpencpnInstaller.py:185
+msgid "Installed:"
+msgstr "Installiert:"
+
+#: openplotterOpencpnInstaller.py:173 openplotterOpencpnInstaller.py:186
+msgid "Installed: none"
+msgstr "Installiert: keine"
+
+#: openplotterOpencpnInstaller.py:175 openplotterOpencpnInstaller.py:188
+msgid "Candidate:"
+msgstr "Kandidat:"
+
+#: openplotterOpencpnInstaller.py:176 openplotterOpencpnInstaller.py:189
+msgid "Candidate: none"
+msgstr "Kandidat: keine"
+
+#: openplotterOpencpnInstaller.py:193
+msgid "Installing from Debian/Ubuntu PPA"
+msgstr "Installiere von Debian/Ubuntu PPA"
+
+#: openplotterOpencpnInstaller.py:193
+msgid "(recommended for most cases)"
+msgstr "(für die meisten Fälle empfohlen)"
+
+#: openplotterOpencpnInstaller.py:198 openplotterOpencpnInstaller.py:217
+msgid "Update"
+msgstr "Aktualisierung"
+
+#: openplotterOpencpnInstaller.py:201 openplotterOpencpnInstaller.py:220
 msgid "Uninstall"
 msgstr "Deinstallieren"
 
-#: openplotterOpencpnInstaller.py:641
+#: openplotterOpencpnInstaller.py:204 openplotterOpencpnInstaller.py:223
+msgid "Autostart"
+msgstr "Autostart"
+
+#: openplotterOpencpnInstaller.py:206 openplotterOpencpnInstaller.py:225
+msgid "Full Screen"
+msgstr "Vollbild"
+
+#: openplotterOpencpnInstaller.py:209 openplotterOpencpnInstaller.py:228
 msgid "Open"
 msgstr "Öffnen"
 
-#: openplotterOpencpnInstaller.py:660 openplotterOpencpnInstaller.py:761
-msgid "missing source: "
-msgstr "fehlende Quelle: "
+#: openplotterOpencpnInstaller.py:212
+msgid "Installing from Flatpak"
+msgstr "Installiere von Flatpak"
 
-#: openplotterOpencpnInstaller.py:662 openplotterOpencpnInstaller.py:765
-msgid "coming soon"
-msgstr "in Kürze verfügbar"
+#: openplotterOpencpnInstaller.py:212
+msgid "(recommended for arm64/aarch64 processors)"
+msgstr "(empfohlen für arm64/aarch64 Prozessoren)"
 
-#: openplotterOpencpnInstaller.py:666
-msgid "Press Refresh"
-msgstr "Drücke Aktualisieren"
+#: openplotterOpencpnInstaller.py:249
+msgid "Are you sure you want to install OpenCPN from Debian/Ubuntu PPA and its dependencies?"
+msgstr "Sind Sie sicher, dass Sie OpenCPN von Debian/Ubuntu PPA und dessen Abhängigkeiten installieren möchten?"
 
-#: openplotterOpencpnInstaller.py:683
-msgid "Are you sure you want to install "
-msgstr "Bist Du sicher, dass Du die Installation starten möchten "
+#: openplotterOpencpnInstaller.py:249 openplotterOpencpnInstaller.py:310
+msgid "OpenCPN version: "
+msgstr "OpenCPN Version: "
 
-#: openplotterOpencpnInstaller.py:683 openplotterOpencpnInstaller.py:704
-msgid " and its dependencies?"
-msgstr " und seine Abhängigkeiten?"
-
-#: openplotterOpencpnInstaller.py:684 openplotterOpencpnInstaller.py:705
+#: openplotterOpencpnInstaller.py:250 openplotterOpencpnInstaller.py:269
+#: openplotterOpencpnInstaller.py:311 openplotterOpencpnInstaller.py:359
 msgid "Question"
 msgstr "Frage"
 
-#: openplotterOpencpnInstaller.py:693
+#: openplotterOpencpnInstaller.py:259 openplotterOpencpnInstaller.py:320
+#: openplotterOpencpnInstaller.py:350
 msgid "Installing package, please wait... "
 msgstr "Installiere Pakete, bitte warten... "
 
-#: openplotterOpencpnInstaller.py:704
-msgid "Are you sure you want to uninstall "
-msgstr "Bist Du sicher, dass Du deinstallieren möchten "
+#: openplotterOpencpnInstaller.py:268 openplotterOpencpnInstaller.py:358
+msgid "Are you sure you want to uninstall OpenCPN and its dependencies?"
+msgstr "Sind Sie sicher, dass Sie OpenCPN und seine Abhängigkeiten deinstallieren möchten?"
 
-#: openplotterOpencpnInstaller.py:714
+#: openplotterOpencpnInstaller.py:278 openplotterOpencpnInstaller.py:368
+#: openplotterOpencpnInstaller.py:375
 msgid "Uninstalling packages, please wait... "
 msgstr "Pakete deinstallieren, bitte warten... "
 
-#: openplotterOpencpnInstaller.py:716 openplotterOpencpnInstaller.py:778
-msgid "Done"
-msgstr "Fertig"
+#: openplotterOpencpnInstaller.py:294 openplotterOpencpnInstaller.py:391
+msgid "OpenCPN autostart enabled"
+msgstr "OpenCPN Autostart aktiviert"
 
-#: openplotterOpencpnInstaller.py:734
-msgid "Checking plugins list, please wait... "
-msgstr "Überprüfe die App-Liste, bitte warten... "
+#: openplotterOpencpnInstaller.py:298 openplotterOpencpnInstaller.py:395
+msgid "OpenCPN autostart disabled"
+msgstr "OpenCPN Autostart deaktiviert"
 
-#: openplotterOpencpnInstaller.py:742 openplotterOpencpnInstaller.py:790
-msgid "managed by OpenCPN"
-msgstr "von OpenCPN verwaltet"
+#: openplotterOpencpnInstaller.py:304 openplotterOpencpnInstaller.py:401
+msgid "OpenCPN fullscreen autostart enabled"
+msgstr "OpenCPN Vollbild-Autostart aktiviert"
 
-#: ports.py:53 ports.py:61
+#: openplotterOpencpnInstaller.py:307 openplotterOpencpnInstaller.py:404
+msgid "OpenCPN fullscreen autostart disabled"
+msgstr "OpenCPN Vollbild-Autostart deaktiviert"
+
+#: openplotterOpencpnInstaller.py:310
+msgid "Are you sure you want to install OpenCPN from Flatpak and its dependencies?"
+msgstr "Sind Sie sicher, dass Sie OpenCPN von Flatpak und seinen Abhängigkeiten installieren möchten?"
+
+#: openplotterOpencpnInstaller.py:440 openplotterOpencpnInstaller.py:444
+#: openplotterOpencpnInstaller.py:448 openplotterOpencpnInstaller.py:487
+#: openplotterOpencpnInstaller.py:491 openplotterOpencpnInstaller.py:495
+msgid "There is a new OpenCPN version: "
+msgstr "Es gibt eine neue OpenCPN Version: "
+
+#: ports.py:54 ports.py:62
 msgid "OpenCPN connection"
 msgstr "OpenCPN Verbindung"
 
-#: startup.py:31
+#: ports.py:94 ports.py:102
+msgid "OpenCPN FP connection"
+msgstr "OpenCPN FP Verbindung"
+
+#: startup.py:29
 msgid "Starting OpenCPN..."
 msgstr "OpenCPN starten..."
 
-#: startup.py:38
+#: startup.py:38 startup.py:47
 msgid "fullscreen"
 msgstr "Vollbild"
 
-#: startup.py:41
+#: startup.py:41 startup.py:50
 msgid "non fullscreen"
 msgstr "nicht im Vollbildmodus"
 
-#: startup.py:54
+#: startup.py:67
 msgid "Checking OpenCPN..."
 msgstr "Überprüfe OpenCPN..."
 
-#: startup.py:62
+#: startup.py:75
 msgid "running"
 msgstr "läuft"
 
-#: startup.py:63
-msgid "not running | "
-msgstr "läuft nicht | "
+#: startup.py:76
+msgid "not running"
+msgstr "läuft nicht"
 
-#: startup.py:67
-msgid "fullscreen autostart enabled"
-msgstr "openCPN Vollbild-Autostart aktiviert"
+#: startup.py:81
+msgid " | fullscreen autostart enabled"
+msgstr " | Vollbild-Autostart aktiviert"
 
-#: startup.py:68
-msgid "autostart enabled"
-msgstr "Autostart aktiviert"
+#: startup.py:82
+msgid " | autostart enabled"
+msgstr " | Autostart aktiviert"
 
-#: startup.py:69
-msgid "autostart disabled"
-msgstr "Autostart deaktiviert"
+#: startup.py:83
+msgid " | autostart disabled"
+msgstr " | Autostart deaktiviert"
 
-#: startup.py:102
-msgid "\n"
-"TIP: Since OpenCPN 5.2 and above can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
-msgstr "\n"
-"TIPP: Seit OpenCPN 5.0 und höher können Signal K Daten verwaltet werden. Sie sollten Sie die NMEA 0183 Verbindung \"TCP localhost 10110\" durch eine Signal K Verbindung ersetzen."
+#: startup.py:88
+msgid " | FP fullscreen autostart enabled"
+msgstr " | FP Vollbild-Autostart aktiviert"
 
-#: startup.py:104
-msgid "\n"
-"WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Be sure you do not have duplicated data."
-msgstr "\n"
-"WARNUNG: Sie haben die alte NMEA 0183 Verbindung \"TCP localhost 10110\" und eine Signal K Verbindung in OpenCPN aktiviert. Vergewissern Sie sich, dass Sie keine doppelten Daten haben."
+#: startup.py:89
+msgid " | FP autostart enabled"
+msgstr " | FP Autostart aktiviert"
 
-#: startup.py:107
-msgid "The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
-"Network\n"
-"Protocol: Signal K\n"
-"Address: localhost\n"
-"DataPort: "
-msgstr "Die standardmäßige OpenCPN-Verbindung fehlt und es werden keine Daten von Signal K übertragen. Bitte folgende Verbindung in OpenCPN erstellen:\n"
-"Netzwerk\n"
-"Protokoll: Signal K\n"
-"Adresse: localhost\n"
-"Datenport: 10110"
+#: startup.py:90
+msgid " | FP autostart disabled"
+msgstr " | FP Autostart deaktiviert"
 
-#: startup.py:109
+#: startup.py:124 startup.py:176
+msgid "TIP: Since version 5.2 and above OpenCPN can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
+msgstr "TIPP: Seit Version 5.2 und darüber, kann OpenCPN Signal-K Daten verwalten. Sie sollten die NMEA 0183-Verbindung \"TCP localhost 10110\" durch eine Signal-K Verbindung ersetzen."
+
+#: startup.py:128 startup.py:180
+msgid "WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Make sure you do not have duplicated data."
+msgstr "WARNUNG: Sie haben die alte NMEA 0183-Verbindung \"TCP localhost 10110\" und eine Signal-K Verbindung in OpenCPN aktiviert. Stellen Sie sicher, dass Sie keine doppelten Daten haben."
+
+#: startup.py:132 startup.py:184
+msgid ""
+"The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
+"    Network\n"
+"    Protocol: Signal K\n"
+"    Address: localhost\n"
+"    DataPort: "
+msgstr ""
+"Die Standard-OpenCPN-Verbindung fehlt und wird nicht von Signal K abgerufen. Bitte erstellen Sie diese Verbindung in OpenCPN:\n"
+"    Netzwerk\n"
+"    Protokoll: Signal K\n"
+"    Adresse: localhost\n"
+"    DataPort: "
+
+#: startup.py:136 startup.py:188
 msgid "The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN"
 msgstr "Die Standard OpenCPN Verbindung ist deaktiviert und wird nicht von Signal K abgerufen. Bitte aktivieren Sie die Signal K Verbindung in OpenCPN"
 
-#: startup.py:111
+#: startup.py:140
 msgid "Unable to read OpenCPN configuration"
 msgstr "OpenCPN Konfiguration konnte nicht gelesen werden"
 
+#: startup.py:192
+msgid "Unable to read OpenCPN FP configuration"
+msgstr "OpenCPN FP Konfiguration konnte nicht gelesen werden"
