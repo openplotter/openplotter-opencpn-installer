@@ -28,19 +28,21 @@ def main():
 
 	print(_('Checking sources...'))
 	codeName = conf2.get('GENERAL', 'codeName')
-	if codeName == 'buster': codeName = 'bionic'
-	elif codeName == 'bullseye': codeName = 'focal'
-	s = 'http://ppa.launchpad.net/opencpn/opencpn/ubuntu '+codeName
-	deb = 'deb http://ppa.launchpad.net/opencpn/opencpn/ubuntu '+codeName+' main'
+	hostID = conf2.get('GENERAL', 'hostID')
+	backports = codeName+'-backports'
+	if hostID == 'debian': deb = 'deb http://deb.debian.org/debian '+backports+' main contrib non-free'
+	elif hostID == 'ubuntu': deb = 'deb http://archive.ubuntu.com/ubuntu/ '+backports+' main restricted universe multiverse'
+	else: print(_('FAILED. Unknown host system'))
 	try:
 		os.system('flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo')
-		sources = subprocess.check_output('apt-cache policy', shell=True).decode(sys.stdin.encoding)
-		if not s in sources:
-			fo = open('/etc/apt/sources.list.d/opencpn.list', "w")
-			fo.write(deb)
-			fo.close()
-			os.system('cat '+currentdir+'/data/source/opencpn.gpg.key | gpg --dearmor > "/etc/apt/trusted.gpg.d/opencpn.gpg"')
-			os.system('apt update')
+		if codeName:
+			os.system('rm -f /etc/apt/sources.list.d/opencpn.list')
+			sources = subprocess.check_output('apt-cache policy', shell=True).decode(sys.stdin.encoding)
+			if not backports in sources:
+				fo = open('/etc/apt/sources.list.d/opencpn-backports.list', "w")
+				fo.write(deb)
+				fo.close()
+				os.system('apt update')
 		print(_('DONE'))
 	except Exception as e: print(_('FAILED: ')+str(e))
 

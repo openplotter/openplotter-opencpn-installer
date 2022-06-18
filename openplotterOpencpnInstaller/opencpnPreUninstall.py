@@ -28,7 +28,7 @@ def main():
 	print(_('Removing OpenCPN and sources...'))
 	try:
 		os.system('apt autoremove -y opencpn')
-		os.system('rm -f /etc/apt/sources.list.d/opencpn.list')
+		os.system('rm -f /etc/apt/sources.list.d/opencpn-backports.list')
 		os.system('rm -rf '+conf2.home+'/.opencpn')
 		os.system('apt update')
 		os.system('sudo -u '+conf2.user+' flatpak uninstall -y org.opencpn.OpenCPN')

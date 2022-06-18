@@ -121,30 +121,31 @@ class MyFrame(wx.Frame):
 
 	def checkVersions(self):
 		self.ShowStatusBarYELLOW(_('Checking versions please wait. The first time may take a while...'))
-		
+		codeName = self.conf.get('GENERAL', 'codeName')
+		backports = codeName+'-backports'
 		self.installed = False
 		self.candidate = False
 		self.table = ''
 		self.installedFP = False
 		self.candidateFP = False
-		installed = False
-		candidate = False
+		latest = ''
 
 		command = 'LC_ALL=C apt-cache policy opencpn'
 		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 		for line in popen.stdout:
 			if 'Installed:' in line: 
-				if not '(none)' in line: installed = line
-			elif 'Candidate:' in line: 
-				if not '(none)' in line: candidate = line
+				if not '(none)' in line: 
+					installed = line.split(':')
+					self.installed = installed[1].strip()
+			elif 'Candidate:' in line: pass
 			elif 'opencpn:' in line: pass
-			else: self.table += line
-		if installed: 
-			installed = installed.split(':')
-			self.installed = installed[1].strip()
-		if candidate: 
-			candidate = candidate.split(':')
-			self.candidate = candidate[1].strip()
+			else: 
+				self.table += line
+				if codeName:
+					if backports in line:
+						latest = latest.replace('*','')
+						self.candidate = latest.strip()
+				latest = line
 
 		command = 'flatpak list'
 		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
@@ -166,7 +167,7 @@ class MyFrame(wx.Frame):
 		self.logger.Clear()
 		self.notebook.ChangeSelection(1)
 		self.logger.BeginBold()
-		self.logger.WriteText('Debian/Ubuntu PPA')
+		self.logger.WriteText('Debian/Ubuntu Backports')
 		self.logger.EndBold()
 		self.logger.Newline()
 		if self.installed: self.logger.WriteText(_('Installed:')+' '+self.installed)
@@ -190,10 +191,10 @@ class MyFrame(wx.Frame):
 		self.read()
 
 	def pageApps(self):
-		self.text = wx.StaticText(self.apps, label=_('Installing from Debian/Ubuntu PPA')+' '+_('(recommended for most cases)'))
+		self.text = wx.StaticText(self.apps, label=_('Installing from Debian/Ubuntu Backports')+' '+_('(recommended for most cases)'))
 
 		self.toolbar2 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
-		installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/launchpad.png"))
+		installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/debian.png"))
 		self.Bind(wx.EVT_TOOL, self.OnInstallButton, installButton)
 		updateButton = self.toolbar2.AddTool(203, _('Update'), wx.Bitmap(self.currentdir+"/data/caution.png"))
 		self.Bind(wx.EVT_TOOL, self.OnInstallButton, updateButton)
@@ -209,7 +210,7 @@ class MyFrame(wx.Frame):
 		openButton = self.toolbar2.AddTool(204, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
 		self.Bind(wx.EVT_TOOL, self.OnOpenButton, openButton)
 
-		self.textFP = wx.StaticText(self.apps, label=_('Installing from Flatpak')+' '+_('(recommended for arm64/aarch64 processors)'))
+		self.textFP = wx.StaticText(self.apps, label=_('Installing from Flatpak')+' '+_('(when Debian/Ubuntu Backports fails)'))
 
 		self.toolbar3 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
 		installButtonFP = self.toolbar3.AddTool(301, _('Install'), wx.Bitmap(self.currentdir+"/data/flatpak.png"))
@@ -246,7 +247,7 @@ class MyFrame(wx.Frame):
 		self.output.SetSizer(sizer)
 
 	def OnInstallButton(self,e):
-		msg = _('Are you sure you want to install OpenCPN from Debian/Ubuntu PPA and its dependencies?')+'\n\n'+_('OpenCPN version: ')+self.candidate
+		msg = _('Are you sure you want to install OpenCPN from Debian/Ubuntu Backports and its dependencies?')+'\n\n'+_('OpenCPN version: ')+self.candidate
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()

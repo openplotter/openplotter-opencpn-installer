@@ -16,9 +16,12 @@
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
 
 import os, sys
+from openplotterSettings import conf
 
 def main():
-	os.system('apt install -y opencpn')
+	conf2 = conf.Conf()
+	codeName = conf2.get('GENERAL', 'codeName')
+	os.system('apt install -y opencpn -t '+codeName+'-backports')
 	
 	currentdir = os.path.dirname(os.path.abspath(__file__))
 	source = currentdir+'/data/opencpn.desktop'
