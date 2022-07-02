@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2022-05-20 22:06+0200\n"
-"PO-Revision-Date: 2022-06-01 21:17+0200\n"
+"POT-Creation-Date: 2022-06-18 12:40+0200\n"
+"PO-Revision-Date: 2022-07-02 18:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -45,17 +45,21 @@ msgstr ""
 msgid "Checking sources..."
 msgstr ""
 
-#: opencpnPostInstall.py:42 opencpnPostInstall.py:48 opencpnPreUninstall.py:39
-#: opencpnPreUninstall.py:45
+#: opencpnPostInstall.py:35
+msgid "FAILED. Unknown host system"
+msgstr ""
+
+#: opencpnPostInstall.py:46 opencpnPostInstall.py:52 opencpnPreUninstall.py:37
+#: opencpnPreUninstall.py:43
 msgid "DONE"
 msgstr ""
 
-#: opencpnPostInstall.py:43 opencpnPostInstall.py:49 opencpnPreUninstall.py:40
-#: opencpnPreUninstall.py:46
+#: opencpnPostInstall.py:47 opencpnPostInstall.py:53 opencpnPreUninstall.py:38
+#: opencpnPreUninstall.py:44
 msgid "FAILED: "
 msgstr ""
 
-#: opencpnPostInstall.py:45
+#: opencpnPostInstall.py:49
 msgid "Setting version..."
 msgstr ""
 
@@ -63,7 +67,7 @@ msgstr ""
 msgid "Removing OpenCPN and sources..."
 msgstr ""
 
-#: opencpnPreUninstall.py:42
+#: opencpnPreUninstall.py:40
 msgid "Removing version..."
 msgstr ""
 
@@ -79,8 +83,8 @@ msgstr ""
 msgid "Check Versions"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:57 openplotterOpencpnInstaller.py:196
-#: openplotterOpencpnInstaller.py:215
+#: openplotterOpencpnInstaller.py:57 openplotterOpencpnInstaller.py:197
+#: openplotterOpencpnInstaller.py:216
 msgid "Install"
 msgstr ""
 
@@ -92,108 +96,108 @@ msgstr ""
 msgid "Checking versions please wait. The first time may take a while..."
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:172 openplotterOpencpnInstaller.py:185
+#: openplotterOpencpnInstaller.py:173 openplotterOpencpnInstaller.py:186
 msgid "Installed:"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:173 openplotterOpencpnInstaller.py:186
+#: openplotterOpencpnInstaller.py:174 openplotterOpencpnInstaller.py:187
 msgid "Installed: none"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:175 openplotterOpencpnInstaller.py:188
+#: openplotterOpencpnInstaller.py:176 openplotterOpencpnInstaller.py:189
 msgid "Candidate:"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:176 openplotterOpencpnInstaller.py:189
+#: openplotterOpencpnInstaller.py:177 openplotterOpencpnInstaller.py:190
 msgid "Candidate: none"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:193
-msgid "Installing from Debian/Ubuntu PPA"
+#: openplotterOpencpnInstaller.py:194
+msgid "Installing from Debian/Ubuntu Backports"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:193
+#: openplotterOpencpnInstaller.py:194
 msgid "(recommended for most cases)"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:198 openplotterOpencpnInstaller.py:217
+#: openplotterOpencpnInstaller.py:199 openplotterOpencpnInstaller.py:218
 msgid "Update"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:201 openplotterOpencpnInstaller.py:220
+#: openplotterOpencpnInstaller.py:202 openplotterOpencpnInstaller.py:221
 msgid "Uninstall"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:204 openplotterOpencpnInstaller.py:223
+#: openplotterOpencpnInstaller.py:205 openplotterOpencpnInstaller.py:224
 msgid "Autostart"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:206 openplotterOpencpnInstaller.py:225
+#: openplotterOpencpnInstaller.py:207 openplotterOpencpnInstaller.py:226
 msgid "Full Screen"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:209 openplotterOpencpnInstaller.py:228
+#: openplotterOpencpnInstaller.py:210 openplotterOpencpnInstaller.py:229
 msgid "Open"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:212
+#: openplotterOpencpnInstaller.py:213
 msgid "Installing from Flatpak"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:212
-msgid "(recommended for arm64/aarch64 processors)"
+#: openplotterOpencpnInstaller.py:213
+msgid "(when Debian/Ubuntu Backports fails)"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:249
-msgid "Are you sure you want to install OpenCPN from Debian/Ubuntu PPA and its dependencies?"
+#: openplotterOpencpnInstaller.py:250
+msgid "Are you sure you want to install OpenCPN from Debian/Ubuntu Backports and its dependencies?"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:249 openplotterOpencpnInstaller.py:310
+#: openplotterOpencpnInstaller.py:250 openplotterOpencpnInstaller.py:311
 msgid "OpenCPN version: "
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:250 openplotterOpencpnInstaller.py:269
-#: openplotterOpencpnInstaller.py:311 openplotterOpencpnInstaller.py:359
+#: openplotterOpencpnInstaller.py:251 openplotterOpencpnInstaller.py:270
+#: openplotterOpencpnInstaller.py:312 openplotterOpencpnInstaller.py:360
 msgid "Question"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:259 openplotterOpencpnInstaller.py:320
-#: openplotterOpencpnInstaller.py:350
+#: openplotterOpencpnInstaller.py:260 openplotterOpencpnInstaller.py:321
+#: openplotterOpencpnInstaller.py:351
 msgid "Installing package, please wait... "
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:268 openplotterOpencpnInstaller.py:358
+#: openplotterOpencpnInstaller.py:269 openplotterOpencpnInstaller.py:359
 msgid "Are you sure you want to uninstall OpenCPN and its dependencies?"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:278 openplotterOpencpnInstaller.py:368
-#: openplotterOpencpnInstaller.py:375
+#: openplotterOpencpnInstaller.py:279 openplotterOpencpnInstaller.py:369
+#: openplotterOpencpnInstaller.py:376
 msgid "Uninstalling packages, please wait... "
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:294 openplotterOpencpnInstaller.py:391
+#: openplotterOpencpnInstaller.py:295 openplotterOpencpnInstaller.py:392
 msgid "OpenCPN autostart enabled"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:298 openplotterOpencpnInstaller.py:395
+#: openplotterOpencpnInstaller.py:299 openplotterOpencpnInstaller.py:396
 msgid "OpenCPN autostart disabled"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:304 openplotterOpencpnInstaller.py:401
+#: openplotterOpencpnInstaller.py:305 openplotterOpencpnInstaller.py:402
 msgid "OpenCPN fullscreen autostart enabled"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:307 openplotterOpencpnInstaller.py:404
+#: openplotterOpencpnInstaller.py:308 openplotterOpencpnInstaller.py:405
 msgid "OpenCPN fullscreen autostart disabled"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:310
+#: openplotterOpencpnInstaller.py:311
 msgid "Are you sure you want to install OpenCPN from Flatpak and its dependencies?"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:440 openplotterOpencpnInstaller.py:444
-#: openplotterOpencpnInstaller.py:448 openplotterOpencpnInstaller.py:487
-#: openplotterOpencpnInstaller.py:491 openplotterOpencpnInstaller.py:495
+#: openplotterOpencpnInstaller.py:441 openplotterOpencpnInstaller.py:445
+#: openplotterOpencpnInstaller.py:449 openplotterOpencpnInstaller.py:488
+#: openplotterOpencpnInstaller.py:492 openplotterOpencpnInstaller.py:496
 msgid "There is a new OpenCPN version: "
 msgstr ""
 
