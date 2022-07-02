@@ -1,3 +1,11 @@
+openplotter-opencpn-installer (3.2.1-stable) bullseye; urgency=medium
+
+  * Remove PPA source and add backports and Flatpak sources
+  * Install sources with this app, not with settings app
+  * Remove plugin list, now all plugins are installed from the OpenCPN plugin manager
+
+ -- Sailoog <info@sailoog.com>  Sat, 02 Jul 2022 19:00:40 +0200
+
 openplotter-opencpn-installer (3.2.0-beta) bullseye; urgency=medium
 
   * Beta
