@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# This file is part of Openplotter.
-# Copyright (C) 2019 by sailoog <https://github.com/sailoog/openplotter>
+# This file is part of OpenPlotter.
+# Copyright (C) 2022 by sailoog <https://github.com/sailoog/openplotter>
 #                     e-sailing <https://github.com/e-sailing/openplotter>
 # Openplotter is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,6 +31,6 @@ setup (
 	'Operating System :: POSIX :: Linux',
 	'Programming Language :: Python :: 3'],
 	include_package_data=True,
-	entry_points={'console_scripts': ['openplotter-opencpn-installer=openplotterOpencpnInstaller.openplotterOpencpnInstaller:main']},
+	entry_points={'console_scripts': ['openplotter-opencpn-installer=openplotterOpencpnInstaller.openplotterOpencpnInstaller:main','opencpnPostInstall=openplotterOpencpnInstaller.opencpnPostInstall:main','opencpnPreUninstall=openplotterOpencpnInstaller.opencpnPreUninstall:main']},
 	data_files=[('share/applications', ['openplotterOpencpnInstaller/data/openplotter-opencpn-installer.desktop']),('share/pixmaps', ['openplotterOpencpnInstaller/data/openplotter-opencpn-installer.png']),],
 	)

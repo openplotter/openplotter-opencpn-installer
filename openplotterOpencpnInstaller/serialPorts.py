@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-# This file is part of Openplotter.
-# Copyright (C) 2019 by Sailoog <https://github.com/openplotter/openplotter-opencpn-installer>
-#                  
+# This file is part of OpenPlotter.
+# Copyright (C) 2022 by Sailoog <https://github.com/openplotter/openplotter-opencpn-installer>
+#
 # Openplotter is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 2 of the License, or
@@ -15,31 +15,56 @@
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
 
-import configparser
+import configparser, subprocess, sys
+from openplotterSettings import platform
 
 class SerialPorts:
 	def __init__(self,conf):
 		self.conf = conf
+		self.platform2 = platform.Platform()
 		self.connections = []
 		# {'app':'xxx', 'id':'xxx', 'data':'NMEA0183/NMEA2000/SignalK', 'device': '/dev/xxx', "baudrate": nnnnnn, "enabled": True/False}
 
 	def usedSerialPorts(self):
-		try:
-			confFile = self.conf.home+'/.opencpn/opencpn.conf'
-			confData = configparser.SafeConfigParser()
-			confData.read(confFile)
-			tmp = confData.get('Settings/NMEADataSource', 'DataConnections')
-			connections = tmp.split('|')
-			c = 1
-			for connection in connections:
-				#0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18:19
-				#serial/network;TCP/UDP/GPSD;address;port;?;serialport;bauds;?;0=input/1=input+output/2=output;?;?;?;?;?;?;?;?;enabled/disabled;comments;0=not autodiscover sk/0=autodiscover sk
-				items = connection.split(';')
-				if items[0] == '0': # serial
-					enabled = False
-					if items[17] == '1': enabled = True
-					self.connections.append({'app':'OpenCPN','id':str(c), 'data':'NMEA0183', 'device': items[5], 'baudrate': items[6], "enabled": enabled})
-				c = c + 1
-		except:pass
+		if self.platform2.isInstalled('opencpn'):
+			try:
+				confFile = self.conf.home+'/.opencpn/opencpn.conf'
+				confData = configparser.SafeConfigParser()
+				confData.read(confFile)
+				tmp = confData.get('Settings/NMEADataSource', 'DataConnections')
+				connections = tmp.split('|')
+				c = 1
+				for connection in connections:
+					#0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18:19
+					#serial/network;TCP/UDP/GPSD;address;port;?;serialport;bauds;?;0=input/1=input+output/2=output;?;?;?;?;?;?;?;?;enabled/disabled;comments;0=not autodiscover sk/0=autodiscover sk
+					items = connection.split(';')
+					if items[0] == '0': # serial
+						enabled = False
+						if items[17] == '1': enabled = True
+						self.connections.append({'app':'OpenCPN','id':str(c), 'data':'NMEA0183', 'device': items[5], 'baudrate': items[6], "enabled": enabled})
+					c = c + 1
+			except:pass
+
+		installedFP = False
+		FP = subprocess.check_output(['flatpak','list']).decode(sys.stdin.encoding)
+		if 'OpenCPN' in FP: installedFP = True
+		if installedFP:
+			try:
+				confFile = self.conf.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn/opencpn.conf'
+				confData = configparser.SafeConfigParser()
+				confData.read(confFile)
+				tmp = confData.get('Settings/NMEADataSource', 'DataConnections')
+				connections = tmp.split('|')
+				c = 1
+				for connection in connections:
+					#0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18:19
+					#serial/network;TCP/UDP/GPSD;address;port;?;serialport;bauds;?;0=input/1=input+output/2=output;?;?;?;?;?;?;?;?;enabled/disabled;comments;0=not autodiscover sk/0=autodiscover sk
+					items = connection.split(';')
+					if items[0] == '0': # serial
+						enabled = False
+						if items[17] == '1': enabled = True
+						self.connections.append({'app':'OpenCPN FP','id':str(c), 'data':'NMEA0183', 'device': items[5], 'baudrate': items[6], "enabled": enabled})
+					c = c + 1
+			except:pass
 
 		return self.connections

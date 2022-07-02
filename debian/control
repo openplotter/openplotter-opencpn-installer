@@ -10,6 +10,6 @@ X-Python3-Version: >= 3.2
 Package: openplotter-opencpn-installer
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}, ${python3:Depends}, openplotter-settings, python3-wxgtk4.0
+Depends: ${misc:Depends}, ${python3:Depends}, openplotter-settings, flatpak
 Description: OpenPlotter app to manage OpenCPN installation
  OpenPlotter app to manage OpenCPN installation

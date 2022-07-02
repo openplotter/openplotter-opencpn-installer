@@ -15,17 +15,33 @@
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
 
-import os, sys
+import os, subprocess
 from openplotterSettings import conf
+from openplotterSettings import language
 
 def main():
 	conf2 = conf.Conf()
-	codeName = conf2.get('GENERAL', 'codeName')
-	os.system('apt install -y opencpn -t '+codeName+'-backports')
-	
 	currentdir = os.path.dirname(os.path.abspath(__file__))
-	source = currentdir+'/data/opencpn.desktop'
-	os.system('cp -f '+source+' /usr/share/applications')
+	currentLanguage = conf2.get('GENERAL', 'lang')
+	language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
 
+	print(_('Removing OpenCPN and sources...'))
+	try:
+		os.system('apt autoremove -y opencpn')
+		os.system('rm -f /etc/apt/sources.list.d/opencpn-backports.list')
+		os.system('rm -rf '+conf2.home+'/.opencpn')
+		os.system('apt update')
+		os.system('sudo -u '+conf2.user+' flatpak uninstall -y org.opencpn.OpenCPN')
+		os.system('sudo -u '+conf2.user+' flatpak uninstall -y --unused')
+		os.system('rm -rf '+conf2.home+'/.var/app/org.opencpn.OpenCPN')
+		print(_('DONE'))
+	except Exception as e: print(_('FAILED: ')+str(e))
+
+	print(_('Removing version...'))
+	try:
+		conf2.set('APPS', 'opencpn', '')
+		print(_('DONE'))
+	except Exception as e: print(_('FAILED: ')+str(e))
+	
 if __name__ == '__main__':
 	main()

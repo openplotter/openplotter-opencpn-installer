@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# This file is part of Openplotter.
-# Copyright (C) 2015 by sailoog <https://github.com/sailoog/openplotter>
+# This file is part of OpenPlotter.
+# Copyright (C) 2022 by Sailoog <https://github.com/openplotter/openplotter-opencpn-installer>
 #
 # Openplotter is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,492 +31,6 @@ class MyFrame(wx.Frame):
 		currentLanguage = self.conf.get('GENERAL', 'lang')
 		self.language = language.Language(self.currentdir,'openplotter-opencpn-installer',currentLanguage)
 
-		self.appsDict = []
-
-		app = {
-		'name': 'Test Plugin',
-		'category': _('Others'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:safety:odraw1.6_pi',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Pypilot Plugin',
-		'category': _('Others'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/pypilot.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Debugger Plugin',
-		'category': _('Others'),
-		'package': 'opencpn-plugin-ocpndebugger',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/debugger.html',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Launcher Plugin',
-		'category': _('Others'),
-		'package': 'opencpn-plugin-launcher',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/launcher.html',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'GPS Odometer',
-		'category': _('Others'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:other:odometer',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Calculator Plugin',
-		'category': _('Others'),
-		'package': 'opencpn-plugin-calculator',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/calculator.html',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Status Bar Plugin',
-		'category': _('Others'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/statusbar.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'ShipDriver Plugin',
-		'category': _('Others'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/shipdriver.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'IAC Fleet Code Plugin',
-		'category': _('Weather'),
-		'package': 'opencpn-plugin-iacfleet',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/iacfleet.html',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Climatology Plugin',
-		'category': _('Weather'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/climatology.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Weather Fax Plugin',
-		'category': _('Weather'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/weatherfax.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Weather Routing Plugin',
-		'category': _('Weather'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/weatherroute.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Windvane Autopilot',
-		'category': _('Sailing Interests'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:sailing:windvane',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Tactics Plugin',
-		'category': _('Sailing Interests'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/tactics.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Plots Plugin',
-		'category': _('Sailing Interests'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/sweepplot.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Polar Plugin',
-		'category': _('Sailing Interests'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/polar.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'SAR Plugin',
-		'category': _('Safety'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/sar.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Ocpn Draw Plugin',
-		'category': _('Safety'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/draw.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Watchdog Plugin',
-		'category': _('Safety'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/watchdog.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'oTCurrent Plugin',
-		'category': _('Navigation'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:navigation:otcurrent',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Dead Reckoning Positions Plugin',
-		'category': _('Navigation'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:navigation:dead_reckoning',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Route Plugin',
-		'category': _('Navigation'),
-		'package': 'opencpn-plugin-route',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/route.html',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Celestial Navigation Plugin',
-		'category': _('Navigation'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/celestialnav.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'sQuiddio Plugin',
-		'category': _('Navigation'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/sQuiddio.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Dashboard-Tactics Plugin',
-		'category': _('Logs'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/dashboardtactics.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-		
-		app = {
-		'name': 'NmeaConverter Plugin',
-		'category': _('Logs'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/nmeaconvert.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Voyage Data Recorder Plugin',
-		'category': _('Logs'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/vdr.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Find-It Plugin',
-		'category': _('Logs'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/findit.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Logbook Konni Plugin',
-		'category': _('Logs'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/logbookkonni.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Race Start Display Plugin',
-		'category': _('Logs'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:developer_manual:plugins:beta_plugins:race-start',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Engine Dashboard Plugin',
-		'category': _('Logs'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:developer_manual:plugins:beta_plugins:engine-dash',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'PhotoLayer Plugin',
-		'category': _('Chart Support'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:developer_manual:plugins:beta_plugins:photolayer',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Projections Plugin',
-		'category': _('Chart Support'),
-		'package': 'opencpn-plugin-projections',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/projections.html',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Chart Object Search Plugin',
-		'category': _('Chart Support'),
-		'package': 'opencpn-plugin-objsearch',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/chartobject.html',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Chart Scale Plugin',
-		'category': _('Chart Support'),
-		'package': 'opencpn-plugin-chartscale',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/chartscale.html',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Chart Rotation Control Plugin',
-		'category': _('Chart Support'),
-		'package': 'opencpn-plugin-rotationctrl',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/chartrotation.html',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'VFkaps Plugin',
-		'category': _('Chart Support'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/wiki/dokuwiki/doku.php?id=opencpn:opencpn_user_manual:plugins:charts:vfkaps',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'S-63 Charts Plugin',
-		'category': _('Chart Support'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/s63.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'oeRNC Charts Plugin',
-		'category': _('Chart Support'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/oernc.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'oeSENC Charts Plugin',
-		'category': _('Chart Support'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/oesenc.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'RTL-SDR Plugin',
-		'category': _('AIS/Radar'),
-		'package': 'opencpn-plugin-rtlsdr',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/rtlsdr.html',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'Radar PI Plugin',
-		'category': _('AIS/Radar'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/radarPI.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'AIS Radar View Plugin',
-		'category': _('AIS/Radar'),
-		'package': '',
-		'sources': [],
-		'dev': '',
-		'entryPoint': 'x-www-browser https://opencpn.org/OpenCPN/plugins/aisradarview.html',
-		'install': '',
-		}
-		self.appsDict.append(app)
-
-		app = {
-		'name': 'OpenCPN',
-		'category': _('Main Program'),
-		'package': 'opencpn',
-		'sources': ['http://ppa.launchpad.net/opencpn/opencpn/ubuntu'],
-		'dev': 'no',
-		'entryPoint': 'x-www-browser https://opencpn.org/',
-		'install': 'install.py',
-		}
-		self.appsDict.append(app)
-
 		wx.Frame.__init__(self, None, title=_('OpenCPN Installer')+' '+version, size=(800,444))
 		self.SetFont(wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))
 		icon = wx.Icon(self.currentdir+"/data/openplotter-opencpn-installer.png", wx.BITMAP_TYPE_PNG)
@@ -533,25 +47,14 @@ class MyFrame(wx.Frame):
 		toolSettings = self.toolbar1.AddTool(106, _('Settings'), wx.Bitmap(self.currentdir+"/data/settings.png"))
 		self.Bind(wx.EVT_TOOL, self.OnToolSettings, toolSettings)
 		self.toolbar1.AddSeparator()
-		toolStartup = self.toolbar1.AddCheckTool(102, _('Autostart OpenCPN'), wx.Bitmap(self.currentdir+"/data/autostart.png"))
-		self.Bind(wx.EVT_TOOL, self.OnToolStartup, toolStartup)
-		if self.conf.get('OPENCPN', 'autostart') == '1': self.toolbar1.ToggleTool(102,True)
-		toolFull = self.toolbar1.AddCheckTool(103, _('Full Screen'), wx.Bitmap(self.currentdir+"/data/fullscreen.png"))
-		self.Bind(wx.EVT_TOOL, self.OnToolFull, toolFull)
-		if self.conf.get('OPENCPN', 'fullscreen') == '1': self.toolbar1.ToggleTool(103,True)
-		if self.toolbar1.GetToolState(102): self.toolbar1.EnableTool(103,True)
-		else: self.toolbar1.EnableTool(103,False)
-		self.toolbar1.AddSeparator()
-		toolUpdate = self.toolbar1.AddTool(105, _('Update Data'), wx.Bitmap(self.currentdir+"/data/update.png"))
-		self.Bind(wx.EVT_TOOL, self.OnToolUpdate, toolUpdate)
-		self.refreshButton = self.toolbar1.AddTool(104, _('Refresh'), wx.Bitmap(self.currentdir+"/data/refresh.png"))
-		self.Bind(wx.EVT_TOOL, self.OnRefreshButton, self.refreshButton)
-		
+		toolCheck = self.toolbar1.AddTool(102, _('Check Versions'), wx.Bitmap(self.currentdir+"/data/check.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolCheck, toolCheck)
+
 		self.notebook = wx.Notebook(self)
 		self.notebook.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.onTabChange)
 		self.apps = wx.Panel(self.notebook)
 		self.output = wx.Panel(self.notebook)
-		self.notebook.AddPage(self.apps, _('OpenCPN packages'))
+		self.notebook.AddPage(self.apps, _('Install'))
 		self.notebook.AddPage(self.output, '')
 		self.il = wx.ImageList(24, 24)
 		img0 = self.il.Add(wx.Bitmap(self.currentdir+"/data/opencpn24.png", wx.BITMAP_TYPE_PNG))
@@ -566,13 +69,26 @@ class MyFrame(wx.Frame):
 		self.SetSizer(vbox)
 
 		self.pageApps()
-		self.onListAppsDeselected()
 		self.pageOutput()
 
 		maxi = self.conf.get('GENERAL', 'maximize')
 		if maxi == '1': self.Maximize()
-		
-		self.Centre() 
+		self.Centre()
+
+		self.toolbar2.EnableTool(201,False)
+		self.toolbar2.EnableTool(202,False)
+		self.toolbar2.EnableTool(203,False)
+		self.toolbar2.EnableTool(204,False)
+		self.toolbar2.EnableTool(205,False)
+		self.toolbar2.EnableTool(206,False)
+		self.toolbar3.EnableTool(301,False)
+		self.toolbar3.EnableTool(302,False)
+		self.toolbar3.EnableTool(303,False)
+		self.toolbar3.EnableTool(304,False)
+		self.toolbar3.EnableTool(305,False)
+		self.toolbar3.EnableTool(306,False)
+		self.ShowStatusBarRED(_('Check versions'))
+
 
 	def ShowStatusBar(self, w_msg, colour):
 		self.GetStatusBar().SetForegroundColour(colour)
@@ -603,79 +119,124 @@ class MyFrame(wx.Frame):
 		subprocess.call(['pkill', '-f', 'openplotter-settings'])
 		subprocess.Popen('openplotter-settings')
 
-	def OnToolStartup(self, e):
-		if self.toolbar1.GetToolState(102):
-			self.conf.set('OPENCPN', 'autostart', '1')
-			self.ShowStatusBarBLACK(_('OpenCPN autostart enabled'))
-			self.toolbar1.EnableTool(103,True)
-		else: 
-			self.conf.set('OPENCPN', 'autostart', '0')
-			self.ShowStatusBarBLACK(_('OpenCPN autostart disabled'))
-			self.toolbar1.EnableTool(103,False)
+	def checkVersions(self):
+		self.ShowStatusBarYELLOW(_('Checking versions please wait. The first time may take a while...'))
+		codeName = self.conf.get('GENERAL', 'codeName')
+		backports = codeName+'-backports'
+		self.installed = False
+		self.candidate = False
+		self.table = ''
+		self.installedFP = False
+		self.candidateFP = False
+		latest = ''
 
-	def OnToolFull(self, e):
-		if self.toolbar1.GetToolState(103):
-			self.conf.set('OPENCPN', 'fullscreen', '1')
-			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart enabled'))
-		else: 
-			self.conf.set('OPENCPN', 'fullscreen', '0')
-			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart disabled'))
-
-	def OnToolUpdate(self, event):
-		self.logger.Clear()
-		self.notebook.ChangeSelection(1)
-		command = self.platform.admin+' apt update'
+		command = 'LC_ALL=C apt-cache policy opencpn'
 		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 		for line in popen.stdout:
-			if not 'Warning' in line and not 'WARNING' in line:
-				self.logger.WriteText(line)
-				self.ShowStatusBarYELLOW(_('Updating packages data, please wait... ')+line)
-				self.logger.ShowPosition(self.logger.GetLastPosition())
-		self.readApps()
+			if 'Installed:' in line: 
+				if not '(none)' in line: 
+					installed = line.split(':')
+					self.installed = installed[1].strip()
+			elif 'Candidate:' in line: pass
+			elif 'opencpn:' in line: pass
+			else: 
+				self.table += line
+				if codeName:
+					if backports in line:
+						latest = latest.replace('*','')
+						self.candidate = latest.strip()
+				latest = line
+
+		command = 'flatpak list'
+		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+		for line in popen.stdout:
+			if 'OpenCPN' in line:
+				line2 = line.split('\t')
+				self.installedFP = line2[2]+' - '+line2[3]
+		command = 'flatpak search OpenCPN'
+		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+		for line in popen.stdout:
+			if 'OpenCPN' in line:
+				line2 = line.split('\t')
+				self.candidateFP = line2[3]+' - '+line2[4]
+
+		self.ShowStatusBarBLACK('')
+
+	def OnToolCheck(self, event):
+		self.checkVersions()
+		self.logger.Clear()
+		self.notebook.ChangeSelection(1)
+		self.logger.BeginBold()
+		self.logger.WriteText('Debian/Ubuntu Backports')
+		self.logger.EndBold()
+		self.logger.Newline()
+		if self.installed: self.logger.WriteText(_('Installed:')+' '+self.installed)
+		else: self.logger.WriteText(_('Installed: none'))
+		self.logger.Newline()
+		if self.candidate: self.logger.WriteText(_('Candidate:')+' '+self.candidate)
+		else: self.logger.WriteText(_('Candidate: none'))
+		self.logger.Newline()
+		if self.table: 
+			self.logger.WriteText(self.table)
+			self.logger.Newline()
+		self.logger.BeginBold()
+		self.logger.WriteText('Flatpak')
+		self.logger.EndBold()
+		self.logger.Newline()
+		if self.installedFP: self.logger.WriteText(_('Installed:')+' '+self.installedFP)
+		else: self.logger.WriteText(_('Installed: none'))
+		self.logger.Newline()
+		if self.candidateFP: self.logger.WriteText(_('Candidate:')+' '+self.candidateFP)
+		else: self.logger.WriteText(_('Candidate: none'))
+		self.read()
 
 	def pageApps(self):
-		self.listApps = wx.ListCtrl(self.apps, -1, style=wx.LC_REPORT | wx.LC_SINGLE_SEL | wx.LC_HRULES, size=(-1,200))
-		self.listApps.InsertColumn(0, _('Name'), width=210)
-		self.listApps.InsertColumn(1, _('Category'), width=130)
-		self.listApps.InsertColumn(2, _('Installed'), width=170)
-		self.listApps.InsertColumn(3, _('Candidate'), width=170)
-		self.listApps.Bind(wx.EVT_LIST_ITEM_SELECTED, self.onListAppsSelected)
-		self.listApps.Bind(wx.EVT_LIST_ITEM_DESELECTED, self.onListAppsDeselected)
-		self.listApps.SetTextColour(wx.BLACK)
+		self.text = wx.StaticText(self.apps, label=_('Installing from Debian/Ubuntu Backports')+' '+_('(recommended for most cases)'))
 
-		self.toolbar2 = wx.ToolBar(self.apps, style=wx.TB_TEXT | wx.TB_VERTICAL)
-		self.installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/install.png"))
-		self.Bind(wx.EVT_TOOL, self.OnInstallButton, self.installButton)
-		self.uninstallButton = self.toolbar2.AddTool(202, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
-		self.Bind(wx.EVT_TOOL, self.OnUninstallButton, self.uninstallButton)
+		self.toolbar2 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
+		installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/debian.png"))
+		self.Bind(wx.EVT_TOOL, self.OnInstallButton, installButton)
+		updateButton = self.toolbar2.AddTool(203, _('Update'), wx.Bitmap(self.currentdir+"/data/caution.png"))
+		self.Bind(wx.EVT_TOOL, self.OnInstallButton, updateButton)
 		self.toolbar2.AddSeparator()
-		self.openButton = self.toolbar2.AddTool(204, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
-		self.Bind(wx.EVT_TOOL, self.OnOpenButton, self.openButton)
-		self.siteButton = self.toolbar2.AddTool(203, 'www', wx.Bitmap(self.currentdir+"/data/info.png"))
-		self.Bind(wx.EVT_TOOL, self.OnSiteButton, self.siteButton)
+		uninstallButton = self.toolbar2.AddTool(202, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
+		self.Bind(wx.EVT_TOOL, self.OnUninstallButton, uninstallButton)
+		self.toolbar2.AddSeparator()
+		toolStartup = self.toolbar2.AddCheckTool(205, _('Autostart'), wx.Bitmap(self.currentdir+"/data/autostart.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolStartup, toolStartup)
+		toolFull = self.toolbar2.AddCheckTool(206, _('Full Screen'), wx.Bitmap(self.currentdir+"/data/fullscreen.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolFull, toolFull)
+		self.toolbar2.AddSeparator()
+		openButton = self.toolbar2.AddTool(204, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
+		self.Bind(wx.EVT_TOOL, self.OnOpenButton, openButton)
 
-		sizer = wx.BoxSizer(wx.HORIZONTAL)
-		sizer.Add(self.listApps, 1, wx.EXPAND, 0)
-		sizer.Add(self.toolbar2, 0)
+		self.textFP = wx.StaticText(self.apps, label=_('Installing from Flatpak')+' '+_('(when Debian/Ubuntu Backports fails)'))
+
+		self.toolbar3 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
+		installButtonFP = self.toolbar3.AddTool(301, _('Install'), wx.Bitmap(self.currentdir+"/data/flatpak.png"))
+		self.Bind(wx.EVT_TOOL, self.OnInstallButtonFP, installButtonFP)
+		updateButtonFP = self.toolbar3.AddTool(303, _('Update'), wx.Bitmap(self.currentdir+"/data/caution.png"))
+		self.Bind(wx.EVT_TOOL, self.OnUpdateButtonFP, updateButtonFP)
+		self.toolbar3.AddSeparator()
+		uninstallButtonFP = self.toolbar3.AddTool(302, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
+		self.Bind(wx.EVT_TOOL, self.OnUninstallButtonFP, uninstallButtonFP)
+		self.toolbar3.AddSeparator()
+		toolStartupFP = self.toolbar3.AddCheckTool(305, _('Autostart'), wx.Bitmap(self.currentdir+"/data/autostart.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolStartupFP, toolStartupFP)
+		toolFullFP = self.toolbar3.AddCheckTool(306, _('Full Screen'), wx.Bitmap(self.currentdir+"/data/fullscreen.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolFullFP, toolFullFP)
+		self.toolbar3.AddSeparator()
+		openButtonFP = self.toolbar3.AddTool(304, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
+		self.Bind(wx.EVT_TOOL, self.OnOpenButtonFP, openButtonFP)
+
+		sizer = wx.BoxSizer(wx.VERTICAL)
+		sizer.AddSpacer(10)
+		sizer.Add(self.text, 0, wx.ALL | wx.EXPAND, 5)
+		sizer.Add(self.toolbar2, 0, wx.ALL | wx.EXPAND, 5)
+		sizer.AddSpacer(10)
+		sizer.Add(self.textFP, 0, wx.ALL | wx.EXPAND, 5)
+		sizer.Add(self.toolbar3, 0, wx.ALL | wx.EXPAND, 5)
 		self.apps.SetSizer(sizer)
-
-		sources = subprocess.check_output(['apt-cache', 'policy']).decode(sys.stdin.encoding)
-		for i in self.appsDict:
-			item = self.listApps.InsertItem(0, i['name'])
-			self.listApps.SetItem(item, 1, i['category'])
-			candidate = ''
-			missing = False
-			for ii in i['sources']:
-				if not ii in sources:  missing = ii
-			if missing: 
-				candidate = _('missing source: ')+missing
-			if i['dev'] == 'yes': 
-				candidate = _('coming soon')
-			if candidate:
-				self.listApps.SetItem(item, 3, candidate)
-			else:
-				self.listApps.SetItem(item, 2, _('Press Refresh'))
-			self.listApps.SetItemBackgroundColour(item,(200,200,200))
 
 	def pageOutput(self):
 		self.logger = rt.RichTextCtrl(self.output, style=wx.TE_MULTILINE|wx.TE_READONLY|wx.TE_DONTWRAP|wx.LC_SORT_ASCENDING)
@@ -686,141 +247,267 @@ class MyFrame(wx.Frame):
 		self.output.SetSizer(sizer)
 
 	def OnInstallButton(self,e):
-		index = self.listApps.GetFirstSelected()
-		if index == -1: return
-		apps = list(reversed(self.appsDict))
-		package = apps[index]['package']
-		script = self.currentdir+'/'+apps[index]['install']
-		msg = _('Are you sure you want to install ')+package+_(' and its dependencies?')
+		msg = _('Are you sure you want to install OpenCPN from Debian/Ubuntu Backports and its dependencies?')+'\n\n'+_('OpenCPN version: ')+self.candidate
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
 			self.notebook.ChangeSelection(1)
-			command = self.platform.admin+' python3 '+script+' '+package
+			command = self.platform.admin+' python3 '+self.currentdir+'/install.py'
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				if not 'Warning' in line and not 'WARNING' in line:
 					self.logger.WriteText(line)
 					self.ShowStatusBarYELLOW(_('Installing package, please wait... ')+line)
 					self.logger.ShowPosition(self.logger.GetLastPosition())
-			dlg.Destroy()
-			self.readApps()
-		else: dlg.Destroy()
+			self.checkVersions()
+			self.read()
+			self.notebook.ChangeSelection(0)
+			self.SetStatusText('')
+		dlg.Destroy()
 
 	def OnUninstallButton(self,e):
-		index = self.listApps.GetFirstSelected()
-		if index == -1: return
-		apps = list(reversed(self.appsDict))
-		package = apps[index]['package']
-		msg = _('Are you sure you want to uninstall ')+package+_(' and its dependencies?')
+		msg = _('Are you sure you want to uninstall OpenCPN and its dependencies?')
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
 			self.notebook.ChangeSelection(1)
-			command = self.platform.admin+' apt autoremove -y '+package
+			command = self.platform.admin+' apt autoremove -y opencpn'
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				if not 'Warning' in line and not 'WARNING' in line:
 					self.logger.WriteText(line)
 					self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
 					self.logger.ShowPosition(self.logger.GetLastPosition())
-			self.ShowStatusBarGREEN(_('Done'))
-			dlg.Destroy()
-			self.readApps()
-		else: dlg.Destroy()
-
-	def OnRefreshButton(self,e):
-		self.readApps()
-
-	def OnSiteButton(self,e):
-		index = self.listApps.GetFirstSelected()
-		if index == -1: return
-		apps = list(reversed(self.appsDict))
-		entryPoint = apps[index]['entryPoint']
-		popen = subprocess.Popen(entryPoint, shell=True)
-
-	def readApps(self):
-		self.notebook.ChangeSelection(0)
-		self.listApps.DeleteAllItems()
-		self.ShowStatusBarYELLOW(_('Checking plugins list, please wait... '))
-		sources = subprocess.check_output(['apt-cache', 'policy']).decode(sys.stdin.encoding)
-		for i in self.appsDict:
-			item = self.listApps.InsertItem(0, i['name'])
-			self.listApps.SetItem(item, 1, i['category'])
-
-			installed = ''
-			candidate = ''
-			if not i['package']: installed = _('managed by OpenCPN')
-			else:
-				command = 'LC_ALL=C apt-cache policy '+i['package']
-				popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
-				for line in popen.stdout:
-					if 'Installed:' in line: installed = line
-					if 'Candidate:' in line: candidate = line
-				if installed:
-					installedL = installed.split(':')
-					installed = installedL[1]
-				if candidate:
-					candidateL = candidate.split(':')
-					candidate = candidateL[1]
-				if '(none)' in installed: installed = ''
-
-				missing = False
-				for ii in i['sources']:
-					if not ii in sources:  missing = ii
-				if missing: 
-					candidate = _('missing source: ')+missing
-					self.listApps.SetItemBackgroundColour(item,(200,200,200))
-
-				if i['dev'] == 'yes': 
-					candidate = _('coming soon')
-					self.listApps.SetItemBackgroundColour(item,(200,200,200))
-
-				if installed and candidate:
-					if installed != candidate: self.listApps.SetItemBackgroundColour(item,(220,255,220))
-
-				if not candidate: self.listApps.SetItemBackgroundColour(item,(200,200,200))
-				self.listApps.SetItem(item, 3, candidate)
-
-			self.listApps.SetItem(item, 2, installed)
-		self.toolbar2.EnableTool(201,False)
-		self.toolbar2.EnableTool(202,False)
-		self.toolbar2.EnableTool(203,False)
-		self.ShowStatusBarGREEN(_('Done'))
-
-	def onListAppsSelected(self, e):
-		i = e.GetIndex()
-		valid = e and i >= 0
-		if not valid: return
-		self.onListAppsDeselected()
-		opencpnInstalled = self.listApps.GetItemText(0, 2)
-		installed = self.listApps.GetItemText(i, 2)
-		self.toolbar2.EnableTool(203,True)
-		if self.listApps.GetItemBackgroundColour(i) != (200,200,200):
-			if not installed: self.toolbar2.EnableTool(201,True)
-			elif installed == _('managed by OpenCPN') and opencpnInstalled: self.toolbar2.EnableTool(204,True)
-			else:
-				if installed and opencpnInstalled:
-					self.toolbar2.EnableTool(201,True)
-					self.toolbar2.EnableTool(202,True)
-					self.toolbar2.EnableTool(204,True)
-
-	def onListAppsDeselected(self, event=0):
-		self.toolbar2.EnableTool(201,False)
-		self.toolbar2.EnableTool(202,False)
-		self.toolbar2.EnableTool(203,False)
-		self.toolbar2.EnableTool(204,False)
+			os.system('rm -rf '+self.conf.home+'/.opencpn')
+			self.checkVersions()
+			self.read()
+			self.notebook.ChangeSelection(0)
+			self.SetStatusText('')
+		dlg.Destroy()
 
 	def OnOpenButton(self,e):
-		index = self.listApps.GetFirstSelected()
-		if index == -1: return
-		installed = self.listApps.GetItemText(index, 2)
-		opencpnInstalled = self.listApps.GetItemText(0, 2)
-		if installed and opencpnInstalled:
-			subprocess.call(['pkill', '-15', 'opencpn'])
-			subprocess.Popen('opencpn')
+		subprocess.call(['pkill', '-15', 'opencpn'])
+		subprocess.Popen('opencpn')
+
+	def OnToolStartup(self, e):
+		if self.toolbar2.GetToolState(205):
+			self.conf.set('OPENCPN', 'autostart', '1')
+			self.ShowStatusBarBLACK(_('OpenCPN autostart enabled'))
+			self.toolbar2.EnableTool(206,True)
+		else: 
+			self.conf.set('OPENCPN', 'autostart', '0')
+			self.ShowStatusBarBLACK(_('OpenCPN autostart disabled'))
+			self.toolbar2.EnableTool(206,False)
+
+	def OnToolFull(self, e):
+		if self.toolbar2.GetToolState(206):
+			self.conf.set('OPENCPN', 'fullscreen', '1')
+			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart enabled'))
+		else: 
+			self.conf.set('OPENCPN', 'fullscreen', '0')
+			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart disabled'))
+
+	def OnInstallButtonFP(self,e):
+		msg = _('Are you sure you want to install OpenCPN from Flatpak and its dependencies?')+'\n\n'+_('OpenCPN version: ')+self.candidateFP
+		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
+		if dlg.ShowModal() == wx.ID_YES:
+			self.logger.Clear()
+			self.notebook.ChangeSelection(1)
+			command = 'flatpak install --user -y https://flathub.org/repo/appstream/org.opencpn.OpenCPN.flatpakref'
+			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+			for line in popen.stdout:
+				if not 'Warning' in line and not 'WARNING' in line:
+					self.logger.WriteText(line)
+					self.ShowStatusBarYELLOW(_('Installing package, please wait... ')+line)
+					self.logger.ShowPosition(self.logger.GetLastPosition())
+
+			file = open(self.conf.home+'/.local/share/flatpak/exports/share/applications/org.opencpn.OpenCPN.desktop', 'r')
+			file2 = ''
+			while True:
+				line = file.readline()
+				if not line: break
+				if 'Categories=' in line: file2 += 'Categories=OpenPlotter\n'
+				elif 'Name=' in line: file2 += 'Name=OpenCPN FP\n'
+				else: file2 += line
+			file.close()
+			file1 = open(self.conf.home+'/.local/share/flatpak/exports/share/applications/org.opencpn.OpenCPN.desktop', 'w')
+			file1.write(file2)
+			file1.close()
+
+			self.checkVersions()
+			self.read()
+			self.notebook.ChangeSelection(0)
+			self.SetStatusText('')
+		dlg.Destroy()
+
+	def OnUpdateButtonFP(self,e):
+		self.logger.Clear()
+		self.notebook.ChangeSelection(1)
+		command = 'flatpak update -y org.opencpn.OpenCPN'
+		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+		for line in popen.stdout:
+			if not 'Warning' in line and not 'WARNING' in line:
+				self.logger.WriteText(line)
+				self.ShowStatusBarYELLOW(_('Installing package, please wait... ')+line)
+				self.logger.ShowPosition(self.logger.GetLastPosition())
+		self.checkVersions()
+		self.read()
+		self.notebook.ChangeSelection(0)
+		self.SetStatusText('')
+
+	def OnUninstallButtonFP(self,e):
+		msg = _('Are you sure you want to uninstall OpenCPN and its dependencies?')
+		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
+		if dlg.ShowModal() == wx.ID_YES:
+			self.logger.Clear()
+			self.notebook.ChangeSelection(1)
+			command = 'flatpak uninstall -y org.opencpn.OpenCPN'
+			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+			for line in popen.stdout:
+				if not 'Warning' in line and not 'WARNING' in line:
+					self.logger.WriteText(line)
+					self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
+					self.logger.ShowPosition(self.logger.GetLastPosition())
+			command = 'flatpak uninstall -y --unused'
+			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+			for line in popen.stdout:
+				if not 'Warning' in line and not 'WARNING' in line:
+					self.logger.WriteText(line)
+					self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
+					self.logger.ShowPosition(self.logger.GetLastPosition())
+			os.system('rm -rf '+self.conf.home+'/.var/app/org.opencpn.OpenCPN')
+			self.checkVersions()
+			self.read()
+			self.notebook.ChangeSelection(0)
+			self.SetStatusText('')
+		dlg.Destroy()
+
+	def OnOpenButtonFP(self,e):
+		subprocess.call(['flatpak', 'kill', 'org.opencpn.OpenCPN'])
+		subprocess.Popen(['flatpak', 'run', 'org.opencpn.OpenCPN'])
+
+	def OnToolStartupFP(self, e):
+		if self.toolbar3.GetToolState(305):
+			self.conf.set('OPENCPN', 'autostartFP', '1')
+			self.ShowStatusBarBLACK(_('OpenCPN autostart enabled'))
+			self.toolbar3.EnableTool(306,True)
+		else: 
+			self.conf.set('OPENCPN', 'autostartFP', '0')
+			self.ShowStatusBarBLACK(_('OpenCPN autostart disabled'))
+			self.toolbar3.EnableTool(306,False)
+
+	def OnToolFullFP(self, e):
+		if self.toolbar3.GetToolState(306):
+			self.conf.set('OPENCPN', 'fullscreenFP', '1')
+			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart enabled'))
+		else: 
+			self.conf.set('OPENCPN', 'fullscreenFP', '0')
+			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart disabled'))
+
+	def read(self):
+		
+		if not self.installed:
+			if not self.candidate: self.toolbar2.EnableTool(201,False)
+			else: self.toolbar2.EnableTool(201,True)
+			self.toolbar2.EnableTool(202,False)
+			self.toolbar2.EnableTool(203,False)
+			self.toolbar2.EnableTool(204,False)
+			self.toolbar2.EnableTool(205,False)
+			self.toolbar2.EnableTool(206,False)
+		else:
+			self.toolbar2.EnableTool(201,False)
+			self.toolbar2.EnableTool(202,True)
+			self.toolbar2.EnableTool(204,True)
+			self.toolbar2.EnableTool(205,True)
+			self.toolbar2.EnableTool(203,False)
+			if self.installed != self.candidate:
+				installed = self.installed.split('.')
+				candidate = self.candidate.split('.')
+				lastInstalled = ''
+				lastCandidate = ''
+				for i in installed[2]:
+					try:
+						ii = int(i)
+						lastInstalled += i
+					except:break
+				for i in candidate[2]:
+					try:
+						ii = int(i)
+						lastCandidate += i
+					except:break
+				try:
+					if int(candidate[0]) > int(installed[0]): 
+						self.toolbar2.EnableTool(203,True)
+						self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidate)
+					if int(candidate[0]) == int(installed[0]):
+						if int(candidate[1]) > int(installed[1]): 
+							self.toolbar2.EnableTool(203,True)
+							self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidate)
+						if int(candidate[1]) == int(installed[1]):
+							if int(lastCandidate) > int(lastInstalled): 
+								self.toolbar2.EnableTool(203,True)
+								self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidate)
+				except: self.toolbar2.EnableTool(203,True)
+			if self.conf.get('OPENCPN', 'autostart') == '1': self.toolbar2.ToggleTool(205,True)
+			if self.conf.get('OPENCPN', 'fullscreen') == '1': self.toolbar2.ToggleTool(206,True)
+			if self.toolbar2.GetToolState(205): self.toolbar2.EnableTool(206,True)
+			else: self.toolbar2.EnableTool(206,False)
+
+		if not self.installedFP:
+			if not self.candidateFP: self.toolbar3.EnableTool(301,False)
+			else: self.toolbar3.EnableTool(301,True)
+			self.toolbar3.EnableTool(302,False)
+			self.toolbar3.EnableTool(303,False)
+			self.toolbar3.EnableTool(304,False)
+			self.toolbar3.EnableTool(305,False)
+			self.toolbar3.EnableTool(306,False)
+		else:
+			self.toolbar3.EnableTool(301,False)
+			self.toolbar3.EnableTool(302,True)
+			self.toolbar3.EnableTool(304,True)
+			self.toolbar3.EnableTool(305,True)
+			self.toolbar3.EnableTool(303,False)
+			if self.installedFP != self.candidateFP:
+				installed = self.installedFP.split('.')
+				candidate = self.candidateFP.split('.')
+				lastInstalled = ''
+				lastCandidate = ''
+				for i in installed[2]:
+					try:
+						ii = int(i)
+						lastInstalled += i
+					except:break
+				for i in candidate[2]:
+					try:
+						ii = int(i)
+						lastCandidate += i
+					except:break
+				try:
+					if int(candidate[0]) > int(installed[0]): 
+						self.toolbar3.EnableTool(303,True)
+						self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidateFP)
+					if int(candidate[0]) == int(installed[0]):
+						if int(candidate[1]) > int(installed[1]): 
+							self.toolbar3.EnableTool(303,True)
+							self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidateFP)
+						if int(candidate[1]) == int(installed[1]):
+							if int(lastCandidate) > int(lastInstalled): 
+								self.toolbar3.EnableTool(303,True)
+								self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidateFP)
+				except: self.toolbar3.EnableTool(303,True)
+			if self.conf.get('OPENCPN', 'autostartFP') == '1': self.toolbar3.ToggleTool(305,True)
+			if self.conf.get('OPENCPN', 'fullscreenFP') == '1': self.toolbar3.ToggleTool(306,True)
+			if self.toolbar3.GetToolState(305): self.toolbar3.EnableTool(306,True)
+			else: self.toolbar3.EnableTool(306,False)
 
 def main():
+	try:
+		platform2 = platform.Platform()
+		if not platform2.postInstall(version,'opencpn'):
+			subprocess.Popen(['openplotterPostInstall', platform2.admin+' opencpnPostInstall'])
+			return
+	except: pass
+
 	app = wx.App()
 	MyFrame().Show()
 	time.sleep(1)
