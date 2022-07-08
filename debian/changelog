@@ -1,3 +1,9 @@
+openplotter-opencpn-installer (3.2.4-stable) bullseye; urgency=medium
+
+  * Sign Debian repositories when adding backports to Raspbian 32-bit
+
+ -- Sailoog <info@sailoog.com>  Thu, 07 Jul 2022 21:00:23 +0200
+
 openplotter-opencpn-installer (3.2.1-stable) bullseye; urgency=medium
 
   * Remove PPA source and add backports and Flatpak sources

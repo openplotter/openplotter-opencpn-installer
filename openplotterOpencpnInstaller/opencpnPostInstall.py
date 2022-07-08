@@ -18,10 +18,12 @@
 import subprocess, os, sys
 from openplotterSettings import conf
 from openplotterSettings import language
+from openplotterSettings import platform
 from .version import version
 
 def main():
 	conf2 = conf.Conf()
+	platform2 = platform.Platform()
 	currentdir = os.path.dirname(os.path.abspath(__file__))
 	currentLanguage = conf2.get('GENERAL', 'lang')
 	language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
@@ -30,7 +32,10 @@ def main():
 	codeName = conf2.get('GENERAL', 'codeName')
 	hostID = conf2.get('GENERAL', 'hostID')
 	backports = codeName+'-backports'
-	if hostID == 'debian': deb = 'deb http://deb.debian.org/debian '+backports+' main contrib non-free'
+	if hostID == 'debian': 
+		deb = 'deb http://deb.debian.org/debian '+backports+' main contrib non-free'
+		RELEASE_DATA = platform2.RELEASE_DATA
+		if RELEASE_DATA['ID'] == 'raspbian': os.system('dpkg -i '+currentdir+'/data/debian-archive-keyring_2021.1.1_all.deb')
 	elif hostID == 'ubuntu': deb = 'deb http://archive.ubuntu.com/ubuntu/ '+backports+' main restricted universe multiverse'
 	else: print(_('FAILED. Unknown host system'))
 	try:
