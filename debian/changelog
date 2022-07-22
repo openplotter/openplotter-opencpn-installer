@@ -1,3 +1,9 @@
+openplotter-opencpn-installer (3.2.6-stable) bullseye; urgency=medium
+
+  * Add libusb-0.1-4 dependence to make o-charts dongles work
+
+ -- Sailoog <info@sailoog.com>  Fri, 22 Jul 2022 18:37:00 +0200
+
 openplotter-opencpn-installer (3.2.4-stable) bullseye; urgency=medium
 
   * Sign Debian repositories when adding backports to Raspbian 32-bit
