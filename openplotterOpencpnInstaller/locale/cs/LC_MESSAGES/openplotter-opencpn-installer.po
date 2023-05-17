@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2022-06-18 12:40+0200\n"
-"PO-Revision-Date: 2022-07-02 18:58+0200\n"
+"POT-Creation-Date: 2023-05-15 15:48+0200\n"
+"PO-Revision-Date: 2023-05-17 13:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
 "X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../..\n"
-"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Crowdin-Project: openplotter\n"
 "X-Crowdin-Project-ID: 289888\n"
@@ -19,18 +19,6 @@ msgstr ""
 "X-Crowdin-File: openplotter-opencpn-installer.po\n"
 "X-Crowdin-File-ID: 6\n"
 "X-Poedit-SearchPath-0: .\n"
-
-#: data/opencpn.desktop:4
-msgid "OpenCPN"
-msgstr "OpenCPN"
-
-#: data/opencpn.desktop:5
-msgid "Open source chart plotter / navigator"
-msgstr "Open Source Chart Plotter/ Navigator"
-
-#: data/opencpn.desktop:7
-msgid "opencpn"
-msgstr "opencpn"
 
 #: data/openplotter-opencpn-installer.desktop:3
 #: openplotterOpencpnInstaller.py:34
@@ -41,25 +29,29 @@ msgstr "Instalátor OpenCPN"
 msgid "openplotter-opencpn-installer"
 msgstr "openplotter-opencpn-installer"
 
-#: opencpnPostInstall.py:29
+#: install.py:44
+msgid "Shortcut rebuilt"
+msgstr ""
+
+#: opencpnPostInstall.py:31
 msgid "Checking sources..."
 msgstr "Kontrola zdrojů..."
 
-#: opencpnPostInstall.py:35
+#: opencpnPostInstall.py:40
 msgid "FAILED. Unknown host system"
-msgstr ""
+msgstr "Chyba. Neznámý hostitelský systém"
 
-#: opencpnPostInstall.py:46 opencpnPostInstall.py:52 opencpnPreUninstall.py:37
+#: opencpnPostInstall.py:51 opencpnPostInstall.py:57 opencpnPreUninstall.py:37
 #: opencpnPreUninstall.py:43
 msgid "DONE"
 msgstr "Hotovo"
 
-#: opencpnPostInstall.py:47 opencpnPostInstall.py:53 opencpnPreUninstall.py:38
+#: opencpnPostInstall.py:52 opencpnPostInstall.py:58 opencpnPreUninstall.py:38
 #: opencpnPreUninstall.py:44
 msgid "FAILED: "
 msgstr "Chyba: "
 
-#: opencpnPostInstall.py:49
+#: opencpnPostInstall.py:54
 msgid "Setting version..."
 msgstr "Nastavuji verzi..."
 
@@ -81,7 +73,7 @@ msgstr "Nastavení"
 
 #: openplotterOpencpnInstaller.py:50
 msgid "Check Versions"
-msgstr ""
+msgstr "Zkontrolovat verzi"
 
 #: openplotterOpencpnInstaller.py:57 openplotterOpencpnInstaller.py:197
 #: openplotterOpencpnInstaller.py:216
@@ -90,39 +82,39 @@ msgstr "Instalovat"
 
 #: openplotterOpencpnInstaller.py:90
 msgid "Check versions"
-msgstr ""
+msgstr "Zkontrolovat verzi"
 
 #: openplotterOpencpnInstaller.py:123
 msgid "Checking versions please wait. The first time may take a while..."
-msgstr ""
+msgstr "Kontroluji verze, prosím čekejte. První kontrola může trvat..."
 
 #: openplotterOpencpnInstaller.py:173 openplotterOpencpnInstaller.py:186
 msgid "Installed:"
-msgstr ""
+msgstr "Instalováno:"
 
 #: openplotterOpencpnInstaller.py:174 openplotterOpencpnInstaller.py:187
 msgid "Installed: none"
-msgstr ""
+msgstr "Nainstalováno: nic"
 
 #: openplotterOpencpnInstaller.py:176 openplotterOpencpnInstaller.py:189
 msgid "Candidate:"
-msgstr ""
+msgstr "Kandidát:"
 
 #: openplotterOpencpnInstaller.py:177 openplotterOpencpnInstaller.py:190
 msgid "Candidate: none"
-msgstr ""
+msgstr "Kandidát: žádný"
 
 #: openplotterOpencpnInstaller.py:194
 msgid "Installing from Debian/Ubuntu Backports"
-msgstr ""
+msgstr "Instalace z Debianu/Ubuntu Backports"
 
 #: openplotterOpencpnInstaller.py:194
 msgid "(recommended for most cases)"
-msgstr ""
+msgstr "(doporučeno pro většinu případů)"
 
 #: openplotterOpencpnInstaller.py:199 openplotterOpencpnInstaller.py:218
 msgid "Update"
-msgstr ""
+msgstr "Aktualizovat"
 
 #: openplotterOpencpnInstaller.py:202 openplotterOpencpnInstaller.py:221
 msgid "Uninstall"
@@ -130,7 +122,7 @@ msgstr "Odinstalovat"
 
 #: openplotterOpencpnInstaller.py:205 openplotterOpencpnInstaller.py:224
 msgid "Autostart"
-msgstr ""
+msgstr "Autom. spuštění"
 
 #: openplotterOpencpnInstaller.py:207 openplotterOpencpnInstaller.py:226
 msgid "Full Screen"
@@ -142,64 +134,64 @@ msgstr "Otevřít"
 
 #: openplotterOpencpnInstaller.py:213
 msgid "Installing from Flatpak"
-msgstr ""
+msgstr "Instalace pomocí Flatpak"
 
 #: openplotterOpencpnInstaller.py:213
 msgid "(when Debian/Ubuntu Backports fails)"
-msgstr ""
+msgstr "(když Debian/Ubuntu Backports selže)"
 
 #: openplotterOpencpnInstaller.py:250
 msgid "Are you sure you want to install OpenCPN from Debian/Ubuntu Backports and its dependencies?"
-msgstr ""
+msgstr "Opravdu chcete nainstalovat OpenCPN z Debian/Ubuntu Backports a jeho závislostí?"
 
 #: openplotterOpencpnInstaller.py:250 openplotterOpencpnInstaller.py:311
 msgid "OpenCPN version: "
-msgstr ""
+msgstr "Verze OpenCPN: "
 
 #: openplotterOpencpnInstaller.py:251 openplotterOpencpnInstaller.py:270
-#: openplotterOpencpnInstaller.py:312 openplotterOpencpnInstaller.py:360
+#: openplotterOpencpnInstaller.py:312 openplotterOpencpnInstaller.py:349
 msgid "Question"
 msgstr "Otázka"
 
 #: openplotterOpencpnInstaller.py:260 openplotterOpencpnInstaller.py:321
-#: openplotterOpencpnInstaller.py:351
+#: openplotterOpencpnInstaller.py:339
 msgid "Installing package, please wait... "
 msgstr "Instaluji balíček, prosím čekejte... "
 
-#: openplotterOpencpnInstaller.py:269 openplotterOpencpnInstaller.py:359
+#: openplotterOpencpnInstaller.py:269 openplotterOpencpnInstaller.py:348
 msgid "Are you sure you want to uninstall OpenCPN and its dependencies?"
-msgstr ""
+msgstr "Opravdu chcete odinstalovat OpenCPN a jeho závislosti?"
 
-#: openplotterOpencpnInstaller.py:279 openplotterOpencpnInstaller.py:369
-#: openplotterOpencpnInstaller.py:376
+#: openplotterOpencpnInstaller.py:279 openplotterOpencpnInstaller.py:358
+#: openplotterOpencpnInstaller.py:365
 msgid "Uninstalling packages, please wait... "
 msgstr "Odebírám balíčky, prosím čekejte... "
 
-#: openplotterOpencpnInstaller.py:295 openplotterOpencpnInstaller.py:392
+#: openplotterOpencpnInstaller.py:295 openplotterOpencpnInstaller.py:381
 msgid "OpenCPN autostart enabled"
 msgstr "Automatické spuštění OpenCPN povoleno"
 
-#: openplotterOpencpnInstaller.py:299 openplotterOpencpnInstaller.py:396
+#: openplotterOpencpnInstaller.py:299 openplotterOpencpnInstaller.py:385
 msgid "OpenCPN autostart disabled"
 msgstr "Automatické spuštění OpenCPN zakázáno"
 
-#: openplotterOpencpnInstaller.py:305 openplotterOpencpnInstaller.py:402
+#: openplotterOpencpnInstaller.py:305 openplotterOpencpnInstaller.py:391
 msgid "OpenCPN fullscreen autostart enabled"
 msgstr "Automatické spuštění OpenCPN na celou obrazovku povoleno"
 
-#: openplotterOpencpnInstaller.py:308 openplotterOpencpnInstaller.py:405
+#: openplotterOpencpnInstaller.py:308 openplotterOpencpnInstaller.py:394
 msgid "OpenCPN fullscreen autostart disabled"
 msgstr "Automatické spuštění OpenCPN na celou obrazovku zakázáno"
 
 #: openplotterOpencpnInstaller.py:311
 msgid "Are you sure you want to install OpenCPN from Flatpak and its dependencies?"
-msgstr ""
+msgstr "Opravdu chcete nainstalovat OpenCPN z Debian/Ubuntu Backports a jeho závislostí?"
 
-#: openplotterOpencpnInstaller.py:441 openplotterOpencpnInstaller.py:445
-#: openplotterOpencpnInstaller.py:449 openplotterOpencpnInstaller.py:488
-#: openplotterOpencpnInstaller.py:492 openplotterOpencpnInstaller.py:496
+#: openplotterOpencpnInstaller.py:430 openplotterOpencpnInstaller.py:434
+#: openplotterOpencpnInstaller.py:438 openplotterOpencpnInstaller.py:477
+#: openplotterOpencpnInstaller.py:481 openplotterOpencpnInstaller.py:485
 msgid "There is a new OpenCPN version: "
-msgstr ""
+msgstr "Byla nalezna nová verze OpenCPN: "
 
 #: ports.py:54 ports.py:62
 msgid "OpenCPN connection"
@@ -207,7 +199,7 @@ msgstr "OpenCPN připojení"
 
 #: ports.py:94 ports.py:102
 msgid "OpenCPN FP connection"
-msgstr ""
+msgstr "OpenCPN FP připojení"
 
 #: startup.py:29
 msgid "Starting OpenCPN..."
@@ -231,41 +223,69 @@ msgstr "běží"
 
 #: startup.py:76
 msgid "not running"
-msgstr ""
-
-#: startup.py:81
-msgid " | fullscreen autostart enabled"
-msgstr ""
+msgstr "neběží"
 
 #: startup.py:82
-msgid " | autostart enabled"
-msgstr ""
+msgid " | fullscreen autostart enabled"
+msgstr " | automatické spuštění OpenCPN na celou obrazovku povoleno"
 
 #: startup.py:83
+msgid " | autostart enabled"
+msgstr " | automatické spuštění povoleno"
+
+#: startup.py:84
 msgid " | autostart disabled"
+msgstr " | automatické spuštění povoleno"
+
+#: startup.py:92
+msgid "touchscreen enabled"
 msgstr ""
 
-#: startup.py:88
+#: startup.py:96
+msgid "touchscreen disabled"
+msgstr ""
+
+#: startup.py:110
+msgid "OpenCPN shortcut is broken, click \"Install\" in OpenCPN Installer app to rebuild it."
+msgstr ""
+
+#: startup.py:117
 msgid " | FP fullscreen autostart enabled"
-msgstr ""
+msgstr " | automatické spuštění OpenCPN na celou obrazovku povoleno"
 
-#: startup.py:89
+#: startup.py:118
 msgid " | FP autostart enabled"
-msgstr ""
+msgstr " | automatické spuštění povoleno"
 
-#: startup.py:90
+#: startup.py:119
 msgid " | FP autostart disabled"
+msgstr " | FP automatické spuštění povoleno"
+
+#: startup.py:127
+msgid "FP touchscreen enabled"
 msgstr ""
 
-#: startup.py:124 startup.py:176
+#: startup.py:131
+msgid "FP touchscreen disabled"
+msgstr ""
+
+#: startup.py:135
+msgid "Touchscreen optimization is not set correctly in OpenCPN FP, try to reset this setting in OpenPlotter Settings app"
+msgstr ""
+
+#: startup.py:149
+msgid "OpenCPN FP shortcut is broken, click \"Install\" in OpenCPN Installer app to rebuild it."
+msgstr ""
+
+#: startup.py:185 startup.py:237
 msgid "TIP: Since version 5.2 and above OpenCPN can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
-msgstr ""
+msgstr "TIP: od OpenCPN 5.2 a výše můžete přijímat data ve formátu Signal K, je doporučeno nahradit NMEA 0183 spojení \"TCP localhost 10110\" připojením typu Signal K."
 
-#: startup.py:128 startup.py:180
+#: startup.py:189 startup.py:241
 msgid "WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Make sure you do not have duplicated data."
-msgstr ""
+msgstr "VAROVÁNÍ: Povolili jste staré NMEA 0183 připojení \"TCP localhost 10110\" a připojení typu Signal K v OpenCPN. Ujistěte se, že nemáte duplicitní data."
 
-#: startup.py:132 startup.py:184
+#: startup.py:193 startup.py:245
 msgid ""
 "The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
 "    Network\n"
@@ -273,15 +293,20 @@ msgid ""
 "    Address: localhost\n"
 "    DataPort: "
 msgstr ""
+"Výchozí OpenCPN spojení chybí a nepřijímá data ze serveru Signal K. Prosím vytvořte v OpenCPN spojení:\n"
+"    Síť\n"
+"    Protokol: Signal K\n"
+"    Adresa: localhost\n"
+"    DataPort: "
 
-#: startup.py:136 startup.py:188
+#: startup.py:197 startup.py:249
 msgid "The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN"
 msgstr "Výchozí připojení OpenCPN je zakázáno a nedostává data ze serveru Signal K. Prosím povolte připojení OpenCPN k Signal K serveru"
 
-#: startup.py:140
+#: startup.py:201
 msgid "Unable to read OpenCPN configuration"
 msgstr "Nepodařilo se přečíst konfiguraci OpenCPN"
 
-#: startup.py:192
+#: startup.py:253
 msgid "Unable to read OpenCPN FP configuration"
-msgstr ""
+msgstr "Nepodařilo se přečíst konfiguraci OpenCPN FP"
