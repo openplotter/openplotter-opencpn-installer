@@ -320,20 +320,8 @@ class MyFrame(wx.Frame):
 					self.logger.WriteText(line)
 					self.ShowStatusBarYELLOW(_('Installing package, please wait... ')+line)
 					self.logger.ShowPosition(self.logger.GetLastPosition())
-
-			file = open(self.conf.home+'/.local/share/flatpak/exports/share/applications/org.opencpn.OpenCPN.desktop', 'r')
-			file2 = ''
-			while True:
-				line = file.readline()
-				if not line: break
-				if 'Categories=' in line: file2 += 'Categories=OpenPlotter\n'
-				elif 'Name=' in line: file2 += 'Name=OpenCPN FP\n'
-				else: file2 += line
-			file.close()
-			file1 = open(self.conf.home+'/.local/share/flatpak/exports/share/applications/org.opencpn.OpenCPN.desktop', 'w')
-			file1.write(file2)
-			file1.close()
-
+			subprocess.Popen(['python3',self.currentdir+'/installFP.py'])
+			self.logger.WriteText('Shortcut rebuilt')
 			self.checkVersions()
 			self.read()
 			self.notebook.ChangeSelection(0)
@@ -350,6 +338,7 @@ class MyFrame(wx.Frame):
 				self.logger.WriteText(line)
 				self.ShowStatusBarYELLOW(_('Installing package, please wait... ')+line)
 				self.logger.ShowPosition(self.logger.GetLastPosition())
+		subprocess.Popen(['python3',self.currentdir+'/installFP.py'])
 		self.checkVersions()
 		self.read()
 		self.notebook.ChangeSelection(0)
@@ -415,7 +404,7 @@ class MyFrame(wx.Frame):
 			self.toolbar2.EnableTool(205,False)
 			self.toolbar2.EnableTool(206,False)
 		else:
-			self.toolbar2.EnableTool(201,False)
+			self.toolbar2.EnableTool(201,True)
 			self.toolbar2.EnableTool(202,True)
 			self.toolbar2.EnableTool(204,True)
 			self.toolbar2.EnableTool(205,True)
@@ -462,7 +451,7 @@ class MyFrame(wx.Frame):
 			self.toolbar3.EnableTool(305,False)
 			self.toolbar3.EnableTool(306,False)
 		else:
-			self.toolbar3.EnableTool(301,False)
+			self.toolbar3.EnableTool(301,True)
 			self.toolbar3.EnableTool(302,True)
 			self.toolbar3.EnableTool(304,True)
 			self.toolbar3.EnableTool(305,True)

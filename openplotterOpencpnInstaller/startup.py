@@ -82,12 +82,72 @@ class Check():
 				else: black += _(' | autostart enabled')
 			else: black += _(' | autostart disabled')
 
+			if self.conf.get('GENERAL', 'touchscreen') == '1':
+				path = self.conf.home+'/.opencpn/opencpn.conf'
+				if os.path.exists(path):
+					data_conf = configparser.ConfigParser()
+					data_conf.read(path)
+					if data_conf.get('Settings','MobileTouch') == '1':
+						msg = _('touchscreen enabled')
+						if not black: black = msg
+						else: black+= ' | '+msg
+					else:
+						msg = _('touchscreen disabled')
+						if red: red += '\n   '+msg
+						else: red = msg
+
+			shortcut = '/usr/share/applications/opencpn.desktop'
+			if os.path.exists(shortcut):
+				file = open(shortcut, 'r')
+				exists = False
+				while True:
+					line = file.readline()
+					if not line: break
+					if 'Categories=OpenPlotter' in line: exists = True
+				file.close()
+				if not exists:
+					msg = _('OpenCPN shortcut is broken, click "Install" in OpenCPN Installer app to rebuild it.')
+					if red: red += '\n   '+msg
+					else: red = msg
+
 		if self.installedFP:
 			if self.conf.get('OPENCPN', 'autostartFP') == '1':
 				if self.conf.get('OPENCPN', 'fullscreenFP') == '1':
 					black += _(' | FP fullscreen autostart enabled')
 				else: black += _(' | FP autostart enabled')
 			else: black += _(' | FP autostart disabled')
+
+			if self.conf.get('GENERAL', 'touchscreen') == '1':
+				path = self.conf.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn/opencpn.conf'
+				if os.path.exists(path):
+					data_conf = configparser.ConfigParser()
+					data_conf.read(path)
+					if data_conf.get('Settings','MobileTouch') == '1':
+						msg = _('FP touchscreen enabled')
+						if not black: black = msg
+						else: black+= ' | '+msg
+					else:
+						msg = _('FP touchscreen disabled')
+						if red: red += '\n   '+msg
+						else: red = msg
+				if not os.path.exists(self.conf.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0/settings.ini'):
+					msg = _('Touchscreen optimization is not set correctly in OpenCPN FP, try to reset this setting in OpenPlotter Settings app')
+					if red: red += '\n   '+msg
+					else: red = msg
+
+			shortcut = self.conf.home+'/.local/share/flatpak/exports/share/applications/org.opencpn.OpenCPN.desktop'
+			if os.path.exists(shortcut):
+				file = open(shortcut, 'r')
+				exists = False
+				while True:
+					line = file.readline()
+					if not line: break
+					if 'Categories=OpenPlotter' in line: exists = True
+				file.close()
+				if not exists:
+					msg = _('OpenCPN FP shortcut is broken, click "Install" in OpenCPN Installer app to rebuild it.')
+					if red: red += '\n   '+msg
+					else: red = msg
 
 		if self.installed:
 			if self.platform.skDir:
