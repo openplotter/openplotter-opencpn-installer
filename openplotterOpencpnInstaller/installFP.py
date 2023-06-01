@@ -14,12 +14,13 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
-import os, configparser, subprocess
+import os, subprocess
 from openplotterSettings import conf
 from openplotterSettings import language
 
 def main():
 	conf2 = conf.Conf()
+	currentdir = os.path.dirname(os.path.abspath(__file__))
 
 	shortcut = conf2.home+'/.local/share/flatpak/exports/share/applications/org.opencpn.OpenCPN.desktop'
 	if os.path.exists(shortcut):
@@ -36,18 +37,24 @@ def main():
 		file1.write(file2)
 		file1.close()
 
+	if not os.path.exists(conf2.home+'/.var'): os.mkdir(conf2.home+'/.var')
+	if not os.path.exists(conf2.home+'/.var/app'): os.mkdir(conf2.home+'/.var/app')
+	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN'): os.mkdir(conf2.home+'/.var/app/org.opencpn.OpenCPN')
+	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN/config'): os.mkdir(conf2.home+'/.var/app/org.opencpn.OpenCPN/config')
+	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn'): os.mkdir(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn')
+	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0'): os.mkdir(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0')
+	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn/opencpn.conf'): os.system('cp -fR '+currentdir+'/data/FP/opencpn.conf'+' '+conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn')
+
 	if conf2.get('GENERAL', 'touchscreen') == '1':
 		subprocess.call(['flatpak', 'kill', 'org.opencpn.OpenCPN'])
-		path0 = conf2.home+'/.config/gtk-3.0'
-		if os.path.exists(path0):
-			os.system('cp -fR '+path0+' '+conf2.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0')
+		if os.path.exists(conf2.home+'/.config/gtk-3.0'):
+			os.system('cp -fa '+conf2.home+'/.config/gtk-3.0/. '+conf2.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0/')
 		path1 = conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn/opencpn.conf'
 		if os.path.exists(path1):
-			data_conf = configparser.ConfigParser()
-			data_conf.read(path1)
-			data_conf.set('Settings','MobileTouch','1')
-			with open(path1, 'w') as file:
-				data_conf.write(file)
+			os.system('sed -i "s/MobileTouch = 0/MobileTouch = 1/g" '+path1)
+			os.system('sed -i "s/MobileTouch=0/MobileTouch=1/g" '+path1)
+			os.system('sed -i "s/mobiletouch = 0/mobiletouch = 1/g" '+path1)
+			os.system('sed -i "s/mobiletouch=0/mobiletouch=1/g" '+path1)
 
 if __name__ == '__main__':
 	main()

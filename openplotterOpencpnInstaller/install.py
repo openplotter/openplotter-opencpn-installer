@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
 
-import os, sys, subprocess, configparser
+import os, sys, subprocess
 from openplotterSettings import conf
 from openplotterSettings import language
 
@@ -47,11 +47,10 @@ def main():
 		subprocess.call(['pkill', '-15', 'opencpn'])
 		path = conf2.home+'/.opencpn/opencpn.conf'
 		if os.path.exists(path):
-			data_conf = configparser.ConfigParser()
-			data_conf.read(path)
-			data_conf.set('Settings','MobileTouch','1')
-			with open(path, 'w') as file:
-				data_conf.write(file)
+			os.system('sed -i "s/MobileTouch = 0/MobileTouch = 1/g" '+path)
+			os.system('sed -i "s/MobileTouch=0/MobileTouch=1/g" '+path)
+			os.system('sed -i "s/mobiletouch = 0/mobiletouch = 1/g" '+path)
+			os.system('sed -i "s/mobiletouch=0/mobiletouch=1/g" '+path)
 
 if __name__ == '__main__':
 	main()

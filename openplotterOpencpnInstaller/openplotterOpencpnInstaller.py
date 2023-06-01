@@ -191,7 +191,7 @@ class MyFrame(wx.Frame):
 		self.read()
 
 	def pageApps(self):
-		self.text = wx.StaticText(self.apps, label=_('Installing from Debian/Ubuntu Backports')+' '+_('(recommended for most cases)'))
+		self.text = wx.StaticText(self.apps, label=_('Installing from Backports. Recommended for:')+' '+_('LTS systems')+', '+_('headless systems')+'.')
 
 		self.toolbar2 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
 		installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/debian.png"))
@@ -210,7 +210,7 @@ class MyFrame(wx.Frame):
 		openButton = self.toolbar2.AddTool(204, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
 		self.Bind(wx.EVT_TOOL, self.OnOpenButton, openButton)
 
-		self.textFP = wx.StaticText(self.apps, label=_('Installing from Flatpak')+' '+_('(when Debian/Ubuntu Backports fails)'))
+		self.textFP = wx.StaticText(self.apps, label=_('Installing from Flatpak. Only 64bit. Recommended for:')+' '+_('non LTS systems')+', '+_('touchscreens')+'.')
 
 		self.toolbar3 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
 		installButtonFP = self.toolbar3.AddTool(301, _('Install'), wx.Bitmap(self.currentdir+"/data/flatpak.png"))
@@ -250,6 +250,8 @@ class MyFrame(wx.Frame):
 		msg = _('Are you sure you want to install OpenCPN from Debian/Ubuntu Backports and its dependencies?')+'\n\n'+_('OpenCPN version: ')+self.candidate
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
+			if not os.path.exists(self.conf.home+'/.opencpn'): os.mkdir(self.conf.home+'/.opencpn')
+			if not os.path.exists(self.conf.home+'/.opencpn/opencpn.conf'): os.system('cp -fR '+self.currentdir+'/data/opencpn.conf'+' '+self.conf.home+'/.opencpn')
 			self.logger.Clear()
 			self.notebook.ChangeSelection(1)
 			command = self.platform.admin+' python3 '+self.currentdir+'/install.py'
