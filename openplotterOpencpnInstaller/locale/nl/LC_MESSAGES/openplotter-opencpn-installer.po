@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
-"POT-Creation-Date: 2023-05-15 15:48+0200\n"
-"PO-Revision-Date: 2023-05-17 13:01+0200\n"
+"POT-Creation-Date: 2023-06-01 14:01+0200\n"
+"PO-Revision-Date: 2023-06-05 12:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -105,11 +105,15 @@ msgid "Candidate: none"
 msgstr ""
 
 #: openplotterOpencpnInstaller.py:194
-msgid "Installing from Debian/Ubuntu Backports"
+msgid "Installing from Backports. Recommended for:"
 msgstr ""
 
 #: openplotterOpencpnInstaller.py:194
-msgid "(recommended for most cases)"
+msgid "LTS systems"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:194
+msgid "headless systems"
 msgstr ""
 
 #: openplotterOpencpnInstaller.py:199 openplotterOpencpnInstaller.py:218
@@ -133,63 +137,67 @@ msgid "Open"
 msgstr ""
 
 #: openplotterOpencpnInstaller.py:213
-msgid "Installing from Flatpak"
+msgid "Installing from Flatpak. Only 64bit. Recommended for:"
 msgstr ""
 
 #: openplotterOpencpnInstaller.py:213
-msgid "(when Debian/Ubuntu Backports fails)"
+msgid "non LTS systems"
+msgstr ""
+
+#: openplotterOpencpnInstaller.py:213
+msgid "touchscreens"
 msgstr ""
 
 #: openplotterOpencpnInstaller.py:250
 msgid "Are you sure you want to install OpenCPN from Debian/Ubuntu Backports and its dependencies?"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:250 openplotterOpencpnInstaller.py:311
+#: openplotterOpencpnInstaller.py:250 openplotterOpencpnInstaller.py:313
 msgid "OpenCPN version: "
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:251 openplotterOpencpnInstaller.py:270
-#: openplotterOpencpnInstaller.py:312 openplotterOpencpnInstaller.py:349
+#: openplotterOpencpnInstaller.py:251 openplotterOpencpnInstaller.py:272
+#: openplotterOpencpnInstaller.py:314 openplotterOpencpnInstaller.py:351
 msgid "Question"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:260 openplotterOpencpnInstaller.py:321
-#: openplotterOpencpnInstaller.py:339
+#: openplotterOpencpnInstaller.py:262 openplotterOpencpnInstaller.py:323
+#: openplotterOpencpnInstaller.py:341
 msgid "Installing package, please wait... "
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:269 openplotterOpencpnInstaller.py:348
+#: openplotterOpencpnInstaller.py:271 openplotterOpencpnInstaller.py:350
 msgid "Are you sure you want to uninstall OpenCPN and its dependencies?"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:279 openplotterOpencpnInstaller.py:358
-#: openplotterOpencpnInstaller.py:365
+#: openplotterOpencpnInstaller.py:281 openplotterOpencpnInstaller.py:360
+#: openplotterOpencpnInstaller.py:367
 msgid "Uninstalling packages, please wait... "
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:295 openplotterOpencpnInstaller.py:381
+#: openplotterOpencpnInstaller.py:297 openplotterOpencpnInstaller.py:383
 msgid "OpenCPN autostart enabled"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:299 openplotterOpencpnInstaller.py:385
+#: openplotterOpencpnInstaller.py:301 openplotterOpencpnInstaller.py:387
 msgid "OpenCPN autostart disabled"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:305 openplotterOpencpnInstaller.py:391
+#: openplotterOpencpnInstaller.py:307 openplotterOpencpnInstaller.py:393
 msgid "OpenCPN fullscreen autostart enabled"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:308 openplotterOpencpnInstaller.py:394
+#: openplotterOpencpnInstaller.py:310 openplotterOpencpnInstaller.py:396
 msgid "OpenCPN fullscreen autostart disabled"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:311
+#: openplotterOpencpnInstaller.py:313
 msgid "Are you sure you want to install OpenCPN from Flatpak and its dependencies?"
 msgstr ""
 
-#: openplotterOpencpnInstaller.py:430 openplotterOpencpnInstaller.py:434
-#: openplotterOpencpnInstaller.py:438 openplotterOpencpnInstaller.py:477
-#: openplotterOpencpnInstaller.py:481 openplotterOpencpnInstaller.py:485
+#: openplotterOpencpnInstaller.py:432 openplotterOpencpnInstaller.py:436
+#: openplotterOpencpnInstaller.py:440 openplotterOpencpnInstaller.py:479
+#: openplotterOpencpnInstaller.py:483 openplotterOpencpnInstaller.py:487
 msgid "There is a new OpenCPN version: "
 msgstr ""
 
@@ -225,67 +233,67 @@ msgstr ""
 msgid "not running"
 msgstr ""
 
-#: startup.py:82
+#: startup.py:81
 msgid " | fullscreen autostart enabled"
 msgstr ""
 
-#: startup.py:83
+#: startup.py:82
 msgid " | autostart enabled"
 msgstr ""
 
-#: startup.py:84
+#: startup.py:83
 msgid " | autostart disabled"
 msgstr ""
 
-#: startup.py:92
+#: startup.py:91
 msgid "touchscreen enabled"
 msgstr ""
 
-#: startup.py:96
+#: startup.py:95
 msgid "touchscreen disabled"
 msgstr ""
 
-#: startup.py:110
+#: startup.py:109
 msgid "OpenCPN shortcut is broken, click \"Install\" in OpenCPN Installer app to rebuild it."
 msgstr ""
 
-#: startup.py:117
+#: startup.py:116
 msgid " | FP fullscreen autostart enabled"
 msgstr ""
 
-#: startup.py:118
+#: startup.py:117
 msgid " | FP autostart enabled"
 msgstr ""
 
-#: startup.py:119
+#: startup.py:118
 msgid " | FP autostart disabled"
 msgstr ""
 
-#: startup.py:127
+#: startup.py:126
 msgid "FP touchscreen enabled"
 msgstr ""
 
-#: startup.py:131
+#: startup.py:130
 msgid "FP touchscreen disabled"
 msgstr ""
 
-#: startup.py:135
+#: startup.py:134
 msgid "Touchscreen optimization is not set correctly in OpenCPN FP, try to reset this setting in OpenPlotter Settings app"
 msgstr ""
 
-#: startup.py:149
+#: startup.py:148
 msgid "OpenCPN FP shortcut is broken, click \"Install\" in OpenCPN Installer app to rebuild it."
 msgstr ""
 
-#: startup.py:185 startup.py:237
+#: startup.py:184 startup.py:236
 msgid "TIP: Since version 5.2 and above OpenCPN can manage Signal K data, you should replace the NMEA 0183 connection \"TCP localhost 10110\" by a Signal K connection."
 msgstr ""
 
-#: startup.py:189 startup.py:241
+#: startup.py:188 startup.py:240
 msgid "WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10110\" and a Signal K connection in OpenCPN. Make sure you do not have duplicated data."
 msgstr ""
 
-#: startup.py:193 startup.py:245
+#: startup.py:192 startup.py:244
 msgid ""
 "The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
 "    Network\n"
@@ -294,14 +302,14 @@ msgid ""
 "    DataPort: "
 msgstr ""
 
-#: startup.py:197 startup.py:249
+#: startup.py:196 startup.py:248
 msgid "The default OpenCPN connection is disabled and is not getting data from Signal K. Please enable the Signal K connection in OpenCPN"
 msgstr ""
 
-#: startup.py:201
+#: startup.py:200
 msgid "Unable to read OpenCPN configuration"
 msgstr ""
 
-#: startup.py:253
+#: startup.py:252
 msgid "Unable to read OpenCPN FP configuration"
 msgstr ""
