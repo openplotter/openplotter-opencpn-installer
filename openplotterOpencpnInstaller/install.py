@@ -26,7 +26,8 @@ def main():
 	language.Language(currentdir,'openplotter-opencpn-installer',currentLanguage)
 
 	codeName = conf2.get('GENERAL', 'codeName')
-	os.system('apt install -y opencpn -t '+codeName+'-backports')
+	if sys.argv[1] == 'backports': os.system('apt install -y opencpn -t '+codeName+'-backports')
+	else: os.system('apt install -y opencpn')
 
 	shortcut = '/usr/share/applications/opencpn.desktop'
 	if os.path.exists(shortcut):

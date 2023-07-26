@@ -75,18 +75,22 @@ class MyFrame(wx.Frame):
 		if maxi == '1': self.Maximize()
 		self.Centre()
 
+
 		self.toolbar2.EnableTool(201,False)
 		self.toolbar2.EnableTool(202,False)
-		self.toolbar2.EnableTool(203,False)
 		self.toolbar2.EnableTool(204,False)
 		self.toolbar2.EnableTool(205,False)
 		self.toolbar2.EnableTool(206,False)
 		self.toolbar3.EnableTool(301,False)
 		self.toolbar3.EnableTool(302,False)
-		self.toolbar3.EnableTool(303,False)
 		self.toolbar3.EnableTool(304,False)
 		self.toolbar3.EnableTool(305,False)
 		self.toolbar3.EnableTool(306,False)
+		self.toolbar4.EnableTool(401,False)
+		self.toolbar4.EnableTool(402,False)
+		self.toolbar4.EnableTool(404,False)
+		self.toolbar4.EnableTool(405,False)
+		self.toolbar4.EnableTool(406,False)
 		self.ShowStatusBarRED(_('Check versions'))
 
 
@@ -123,43 +127,47 @@ class MyFrame(wx.Frame):
 		self.ShowStatusBarYELLOW(_('Checking versions please wait. The first time may take a while...'))
 		codeName = self.conf.get('GENERAL', 'codeName')
 		backports = codeName+'-backports'
-		self.installed = False
-		self.candidate = False
-		self.table = ''
-		self.installedFP = False
-		self.candidateFP = False
 		latest = ''
 
 		command = 'LC_ALL=C apt-cache policy opencpn'
 		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
+		version = ''
 		for line in popen.stdout:
 			if 'Installed:' in line: 
 				if not '(none)' in line: 
 					installed = line.split(':')
 					self.installed = installed[1].strip()
-			elif 'Candidate:' in line: pass
-			elif 'opencpn:' in line: pass
-			else: 
-				self.table += line
-				if codeName:
-					if backports in line:
-						latest = latest.replace('*','')
-						self.candidate = latest.strip()
-				latest = line
+				else: self.installed = ''
+			if 'Candidate:' in line: 
+				if not '(none)' in line: 
+					candidate = line.split(':')
+					self.candidate = candidate[1].strip()
+				else: self.candidate = ''
+			elif line[:8] == '        ':
+				if 'ppa.launchpadcontent.net/opencpn/' in line: self.table['ppa'] = version
+				elif '-backports/' in line: self.table['backports'] = version
+				elif 'deb.debian.org/debian' in line: self.table['debian'] = version
+			elif line[:5] == '     ' or line[:5] == ' *** ':
+				line = line.replace('     ','')
+				line = line.replace(' *** ','')
+				line = line.split(' ')
+				line = line[0]
+				version = line
 
+		self.installedFP = ''
 		command = 'flatpak list'
 		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 		for line in popen.stdout:
 			if 'OpenCPN' in line:
 				line2 = line.split('\t')
 				self.installedFP = line2[2]+' - '+line2[3]
+		self.candidateFP = ''
 		command = 'flatpak search OpenCPN'
 		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 		for line in popen.stdout:
 			if 'OpenCPN' in line:
 				line2 = line.split('\t')
 				self.candidateFP = line2[3]+' - '+line2[4]
-
 		self.ShowStatusBarBLACK('')
 
 	def OnToolCheck(self, event):
@@ -167,37 +175,98 @@ class MyFrame(wx.Frame):
 		self.logger.Clear()
 		self.notebook.ChangeSelection(1)
 		self.logger.BeginBold()
-		self.logger.WriteText('Debian/Ubuntu Backports')
+		self.logger.WriteText('Debian/Ubuntu'+'. ')
 		self.logger.EndBold()
+		self.logger.WriteText(_('Recommended for:')+' '+_('LTS systems')+', '+_('headless systems')+'.')
 		self.logger.Newline()
-		if self.installed: self.logger.WriteText(_('Installed:')+' '+self.installed)
-		else: self.logger.WriteText(_('Installed: none'))
 		self.logger.Newline()
-		if self.candidate: self.logger.WriteText(_('Candidate:')+' '+self.candidate)
-		else: self.logger.WriteText(_('Candidate: none'))
+		if self.installed: self.logger.WriteText('\t'+_('Installed:')+' OpenCPN '+self.installed)
+		else: self.logger.WriteText('\t'+_('Installed:')+' '+_('none'))
 		self.logger.Newline()
-		if self.table: 
-			self.logger.WriteText(self.table)
+		self.logger.WriteText('\t'+_('Candidates:'))
+		self.logger.Newline()
+		if self.table:
+			if self.table['debian']:
+				if self.table['debian'] == self.candidate:
+					self.logger.WriteText('\t\t'+'Debian/Ubuntu:')
+					self.logger.BeginBold()
+					self.logger.WriteText(+' OpenCPN '+str(self.table['debian']))
+					self.logger.EndBold()
+				else: self.logger.WriteText('\t\t'+'Debian/Ubuntu:'+' OpenCPN '+str(self.table['debian']))
+			else: self.logger.WriteText('\t\t'+'Debian/Ubuntu:'+' '+_('none'))
 			self.logger.Newline()
+			if self.table['ppa']:
+				if self.table['ppa'] == self.candidate:
+					self.logger.WriteText('\t\t'+'Ubuntu PPA:')
+					self.logger.BeginBold()
+					self.logger.WriteText(' OpenCPN '+str(self.table['ppa']))
+					self.logger.EndBold()
+				else: self.logger.WriteText('\t\t'+'Ubuntu PPA:'+' OpenCPN '+str(self.table['ppa']))
+			else: self.logger.WriteText('\t\t'+'Ubuntu PPA:'+' '+_('none'))
+			self.logger.Newline()
+			if self.table['backports']: 
+				self.logger.WriteText('\t\t'+'Debian/Ubuntu Backports:')
+				self.logger.BeginBold()
+				self.logger.WriteText(' OpenCPN '+str(self.table['backports']))
+				self.logger.EndBold()
+			else: self.logger.WriteText('\t\t'+'Debian/Ubuntu Backports:'+' '+_('none'))
+		self.logger.Newline()
+		self.logger.Newline()
 		self.logger.BeginBold()
-		self.logger.WriteText('Flatpak')
+		self.logger.WriteText('Flatpak'+'. ')
+		self.logger.EndBold()
+		self.logger.WriteText(_('Only 64bit. Recommended for:')+' '+_('non LTS systems')+', '+_('touchscreens')+'.')
 		self.logger.EndBold()
 		self.logger.Newline()
-		if self.installedFP: self.logger.WriteText(_('Installed:')+' '+self.installedFP)
-		else: self.logger.WriteText(_('Installed: none'))
 		self.logger.Newline()
-		if self.candidateFP: self.logger.WriteText(_('Candidate:')+' '+self.candidateFP)
-		else: self.logger.WriteText(_('Candidate: none'))
+		if self.installedFP: self.logger.WriteText('\t'+_('Installed:')+' OpenCPN '+self.installedFP)
+		else: self.logger.WriteText('\t'+_('Installed:')+' '+_('none'))
+		self.logger.Newline()
+		if self.candidateFP: 
+			self.logger.WriteText('\t'+_('Candidate:'))
+			self.logger.BeginBold()
+			self.logger.WriteText(' OpenCPN '+self.candidateFP)
+			self.logger.EndBold()
+		else: self.logger.WriteText('\t'+_('Candidate:')+' '+_('none'))
 		self.read()
 
 	def pageApps(self):
-		self.text = wx.StaticText(self.apps, label=_('Installing from Backports. Recommended for:')+' '+_('LTS systems')+', '+_('headless systems')+'.')
+		self.installed = ''
+		self.candidate = ''
+		self.table = {'ppa':'','debian':'','backports':''}
+		self.installedFP = ''
+		self.candidateFP = ''
+
+		self.textPPA = wx.StaticText(self.apps, label='Debian/Ubuntu - Ubuntu PPA: ')
+		self.textPPA2 = wx.StaticText(self.apps, label=_('Check versions'))
+		font = self.textPPA2.GetFont()
+		font.SetWeight(wx.BOLD)
+		self.textPPA2.SetFont(font)
+
+		self.toolbar4 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
+		installButtonPPA = self.toolbar4.AddTool(401, _('Install'), wx.Bitmap(self.currentdir+"/data/debian.png"))
+		self.Bind(wx.EVT_TOOL, self.OnInstallButtonDebian, installButtonPPA)
+		self.toolbar4.AddSeparator()
+		uninstallButtonPPA = self.toolbar4.AddTool(402, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
+		self.Bind(wx.EVT_TOOL, self.OnUninstallButton, uninstallButtonPPA)
+		self.toolbar4.AddSeparator()
+		toolStartupPPA = self.toolbar4.AddCheckTool(405, _('Autostart'), wx.Bitmap(self.currentdir+"/data/autostart.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolStartup, toolStartupPPA)
+		toolFullPPA = self.toolbar4.AddCheckTool(406, _('Full Screen'), wx.Bitmap(self.currentdir+"/data/fullscreen.png"))
+		self.Bind(wx.EVT_TOOL, self.OnToolFull, toolFullPPA)
+		self.toolbar4.AddSeparator()
+		openButtonPPA = self.toolbar4.AddTool(404, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
+		self.Bind(wx.EVT_TOOL, self.OnOpenButton, openButtonPPA)
+
+		self.text = wx.StaticText(self.apps, label='Debian/Ubuntu Backports: ')
+		self.text2 = wx.StaticText(self.apps, label=_('Check versions'))
+		font = self.text2.GetFont()
+		font.SetWeight(wx.BOLD)
+		self.text2.SetFont(font)
 
 		self.toolbar2 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
 		installButton = self.toolbar2.AddTool(201, _('Install'), wx.Bitmap(self.currentdir+"/data/debian.png"))
-		self.Bind(wx.EVT_TOOL, self.OnInstallButton, installButton)
-		updateButton = self.toolbar2.AddTool(203, _('Update'), wx.Bitmap(self.currentdir+"/data/caution.png"))
-		self.Bind(wx.EVT_TOOL, self.OnInstallButton, updateButton)
+		self.Bind(wx.EVT_TOOL, self.OnInstallButtonBackports, installButton)
 		self.toolbar2.AddSeparator()
 		uninstallButton = self.toolbar2.AddTool(202, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
 		self.Bind(wx.EVT_TOOL, self.OnUninstallButton, uninstallButton)
@@ -210,13 +279,15 @@ class MyFrame(wx.Frame):
 		openButton = self.toolbar2.AddTool(204, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
 		self.Bind(wx.EVT_TOOL, self.OnOpenButton, openButton)
 
-		self.textFP = wx.StaticText(self.apps, label=_('Installing from Flatpak. Only 64bit. Recommended for:')+' '+_('non LTS systems')+', '+_('touchscreens')+'.')
+		self.textFP = wx.StaticText(self.apps, label='Flatpak: ')
+		self.textFP2 = wx.StaticText(self.apps, label=_('Check versions'))
+		font = self.textFP2.GetFont()
+		font.SetWeight(wx.BOLD)
+		self.textFP2.SetFont(font)
 
 		self.toolbar3 = wx.ToolBar(self.apps, style=wx.TB_TEXT)
 		installButtonFP = self.toolbar3.AddTool(301, _('Install'), wx.Bitmap(self.currentdir+"/data/flatpak.png"))
 		self.Bind(wx.EVT_TOOL, self.OnInstallButtonFP, installButtonFP)
-		updateButtonFP = self.toolbar3.AddTool(303, _('Update'), wx.Bitmap(self.currentdir+"/data/caution.png"))
-		self.Bind(wx.EVT_TOOL, self.OnUpdateButtonFP, updateButtonFP)
 		self.toolbar3.AddSeparator()
 		uninstallButtonFP = self.toolbar3.AddTool(302, _('Uninstall'), wx.Bitmap(self.currentdir+"/data/uninstall.png"))
 		self.Bind(wx.EVT_TOOL, self.OnUninstallButtonFP, uninstallButtonFP)
@@ -229,13 +300,25 @@ class MyFrame(wx.Frame):
 		openButtonFP = self.toolbar3.AddTool(304, _('Open'), wx.Bitmap(self.currentdir+"/data/open.png"))
 		self.Bind(wx.EVT_TOOL, self.OnOpenButtonFP, openButtonFP)
 
+		h1 = wx.BoxSizer(wx.HORIZONTAL)
+		h1.Add(self.textPPA, 0, wx.EXPAND, 0)
+		h1.Add(self.textPPA2, 0, wx.EXPAND, 0)
+
+		h2 = wx.BoxSizer(wx.HORIZONTAL)
+		h2.Add(self.text, 0, wx.EXPAND, 0)
+		h2.Add(self.text2, 0, wx.EXPAND, 0)
+
+		h3 = wx.BoxSizer(wx.HORIZONTAL)
+		h3.Add(self.textFP, 0, wx.EXPAND, 0)
+		h3.Add(self.textFP2, 0, wx.EXPAND, 0)
+
 		sizer = wx.BoxSizer(wx.VERTICAL)
-		sizer.AddSpacer(10)
-		sizer.Add(self.text, 0, wx.ALL | wx.EXPAND, 5)
-		sizer.Add(self.toolbar2, 0, wx.ALL | wx.EXPAND, 5)
-		sizer.AddSpacer(10)
-		sizer.Add(self.textFP, 0, wx.ALL | wx.EXPAND, 5)
-		sizer.Add(self.toolbar3, 0, wx.ALL | wx.EXPAND, 5)
+		sizer.Add(h1, 0, wx.ALL | wx.EXPAND, 4)
+		sizer.Add(self.toolbar4, 0, wx.ALL | wx.EXPAND, 4)
+		sizer.Add(h2, 0, wx.ALL | wx.EXPAND, 4)
+		sizer.Add(self.toolbar2, 0, wx.ALL | wx.EXPAND, 4)
+		sizer.Add(h3, 0, wx.ALL | wx.EXPAND, 4)
+		sizer.Add(self.toolbar3, 0, wx.ALL | wx.EXPAND, 4)
 		self.apps.SetSizer(sizer)
 
 	def pageOutput(self):
@@ -246,15 +329,21 @@ class MyFrame(wx.Frame):
 		sizer.Add(self.logger, 1, wx.EXPAND, 0)
 		self.output.SetSizer(sizer)
 
-	def OnInstallButton(self,e):
-		msg = _('Are you sure you want to install OpenCPN from Debian/Ubuntu Backports and its dependencies?')+'\n\n'+_('OpenCPN version: ')+self.candidate
+	def OnInstallButtonDebian(self,e):
+		self.OnInstallButton('debian')
+
+	def OnInstallButtonBackports(self,e):
+		self.OnInstallButton('backports')
+
+	def OnInstallButton(self,source):
+		msg = _('Are you sure you want to install OpenCPN and its dependencies?')
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
 			if not os.path.exists(self.conf.home+'/.opencpn'): os.mkdir(self.conf.home+'/.opencpn')
 			if not os.path.exists(self.conf.home+'/.opencpn/opencpn.conf'): os.system('cp -fR '+self.currentdir+'/data/opencpn.conf'+' '+self.conf.home+'/.opencpn')
 			self.logger.Clear()
 			self.notebook.ChangeSelection(1)
-			command = self.platform.admin+' python3 '+self.currentdir+'/install.py'
+			command = self.platform.admin+' python3 '+self.currentdir+'/install.py '+source
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				if not 'Warning' in line and not 'WARNING' in line:
@@ -280,7 +369,6 @@ class MyFrame(wx.Frame):
 					self.logger.WriteText(line)
 					self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
 					self.logger.ShowPosition(self.logger.GetLastPosition())
-			os.system('rm -rf '+self.conf.home+'/.opencpn')
 			self.checkVersions()
 			self.read()
 			self.notebook.ChangeSelection(0)
@@ -292,25 +380,26 @@ class MyFrame(wx.Frame):
 		subprocess.Popen('opencpn')
 
 	def OnToolStartup(self, e):
-		if self.toolbar2.GetToolState(205):
+		if self.toolbar2.GetToolState(205) or self.toolbar4.GetToolState(405):
 			self.conf.set('OPENCPN', 'autostart', '1')
 			self.ShowStatusBarBLACK(_('OpenCPN autostart enabled'))
-			self.toolbar2.EnableTool(206,True)
 		else: 
 			self.conf.set('OPENCPN', 'autostart', '0')
+			self.conf.set('OPENCPN', 'fullscreen', '0')
 			self.ShowStatusBarBLACK(_('OpenCPN autostart disabled'))
-			self.toolbar2.EnableTool(206,False)
+		self.read()
 
 	def OnToolFull(self, e):
-		if self.toolbar2.GetToolState(206):
+		if self.toolbar2.GetToolState(206) or self.toolbar4.GetToolState(406):
 			self.conf.set('OPENCPN', 'fullscreen', '1')
 			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart enabled'))
 		else: 
 			self.conf.set('OPENCPN', 'fullscreen', '0')
 			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart disabled'))
+		self.read()
 
 	def OnInstallButtonFP(self,e):
-		msg = _('Are you sure you want to install OpenCPN from Flatpak and its dependencies?')+'\n\n'+_('OpenCPN version: ')+self.candidateFP
+		msg = _('Are you sure you want to install OpenCPN and its dependencies?')
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
@@ -366,7 +455,6 @@ class MyFrame(wx.Frame):
 					self.logger.WriteText(line)
 					self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
 					self.logger.ShowPosition(self.logger.GetLastPosition())
-			os.system('rm -rf '+self.conf.home+'/.var/app/org.opencpn.OpenCPN')
 			self.checkVersions()
 			self.read()
 			self.notebook.ChangeSelection(0)
@@ -381,11 +469,11 @@ class MyFrame(wx.Frame):
 		if self.toolbar3.GetToolState(305):
 			self.conf.set('OPENCPN', 'autostartFP', '1')
 			self.ShowStatusBarBLACK(_('OpenCPN autostart enabled'))
-			self.toolbar3.EnableTool(306,True)
 		else: 
 			self.conf.set('OPENCPN', 'autostartFP', '0')
+			self.conf.set('OPENCPN', 'fullscreenFP', '0')
 			self.ShowStatusBarBLACK(_('OpenCPN autostart disabled'))
-			self.toolbar3.EnableTool(306,False)
+		self.read()
 
 	def OnToolFullFP(self, e):
 		if self.toolbar3.GetToolState(306):
@@ -394,70 +482,126 @@ class MyFrame(wx.Frame):
 		else: 
 			self.conf.set('OPENCPN', 'fullscreenFP', '0')
 			self.ShowStatusBarBLACK(_('OpenCPN fullscreen autostart disabled'))
+		self.read()
 
 	def read(self):
 		
-		if not self.installed:
-			if not self.candidate: self.toolbar2.EnableTool(201,False)
-			else: self.toolbar2.EnableTool(201,True)
-			self.toolbar2.EnableTool(202,False)
-			self.toolbar2.EnableTool(203,False)
-			self.toolbar2.EnableTool(204,False)
-			self.toolbar2.EnableTool(205,False)
-			self.toolbar2.EnableTool(206,False)
-		else:
-			self.toolbar2.EnableTool(201,True)
+		self.text2.SetLabel('OpenCPN '+self.table['backports'])
+		self.textFP2.SetLabel('OpenCPN '+self.candidateFP)
+		if self.table['debian']: debian = self.table['debian'].split('.')
+		else: debian = ['1','1','1']
+		if self.table['ppa']: ppa = self.table['ppa'].split('.')
+		else: ppa = ['1','1','1']
+		lastdebian = ''
+		lastppa = ''
+		bigger = ''
+		try:
+			for i in debian[2]:
+				try:
+					ii = int(i)
+					lastdebian += i
+				except:break
+			for i in ppa[2]:
+				try:
+					ii = int(i)
+					lastppa += i
+				except:break
+			if int(ppa[0]) > int(debian[0]): bigger = 'ppa'
+			elif int(debian[0]) > int(ppa[0]): bigger = 'debian'
+			else:	
+				if int(ppa[1]) > int(debian[1]): bigger = 'ppa'
+				elif int(debian[1]) > int(ppa[1]): bigger = 'debian'
+				else:
+					if int(lastppa) > int(lastdebian): bigger = 'ppa'
+					elif int(lastdebian) > int(lastppa): bigger = 'debian'
+		except: self.textPPA2.SetLabel('')
+		if bigger: self.textPPA2.SetLabel('OpenCPN '+self.table[bigger])
+		else: self.textPPA2.SetLabel('')
+
+		self.toolbar2.EnableTool(201,False)
+		self.toolbar2.EnableTool(202,False)
+		self.toolbar2.EnableTool(204,False)
+		self.toolbar2.EnableTool(205,False)
+		self.toolbar2.EnableTool(206,False)
+		self.toolbar2.ToggleTool(205,False)
+		self.toolbar2.ToggleTool(206,False)
+
+		self.toolbar3.EnableTool(301,False)
+		self.toolbar3.EnableTool(302,False)
+		self.toolbar3.EnableTool(304,False)
+		self.toolbar3.EnableTool(305,False)
+		self.toolbar3.EnableTool(306,False)
+		self.toolbar3.ToggleTool(305,False)
+		self.toolbar3.ToggleTool(306,False)
+
+		self.toolbar4.EnableTool(401,False)
+		self.toolbar4.EnableTool(402,False)
+		self.toolbar4.EnableTool(404,False)
+		self.toolbar4.EnableTool(405,False)
+		self.toolbar4.EnableTool(406,False)
+		self.toolbar4.ToggleTool(405,False)
+		self.toolbar4.ToggleTool(406,False)
+
+		if self.table['backports']: self.toolbar2.EnableTool(201,True)
+		if self.table['ppa'] or self.table['debian']: self.toolbar4.EnableTool(401,True)
+
+		if self.installed and self.installed == self.table['backports']:
 			self.toolbar2.EnableTool(202,True)
 			self.toolbar2.EnableTool(204,True)
 			self.toolbar2.EnableTool(205,True)
-			self.toolbar2.EnableTool(203,False)
-			if self.installed != self.candidate:
-				installed = self.installed.split('.')
-				candidate = self.candidate.split('.')
-				lastInstalled = ''
-				lastCandidate = ''
-				for i in installed[2]:
-					try:
-						ii = int(i)
-						lastInstalled += i
-					except:break
-				for i in candidate[2]:
-					try:
-						ii = int(i)
-						lastCandidate += i
-					except:break
+		if self.installed and self.installed == self.table['ppa'] or self.installed == self.table['debian']:
+			self.toolbar4.EnableTool(402,True)
+			self.toolbar4.EnableTool(404,True)
+			self.toolbar4.EnableTool(405,True)
+
+		if self.installed and self.conf.get('OPENCPN', 'autostart') == '1': 
+			if self.installed == self.table['backports']: self.toolbar2.ToggleTool(205,True)
+			if self.installed == self.table['ppa'] or self.installed == self.table['debian']: self.toolbar4.ToggleTool(405,True)
+			if self.conf.get('OPENCPN', 'fullscreen') == '1': 
+				if self.installed == self.table['backports']: self.toolbar2.ToggleTool(206,True)
+				if self.installed == self.table['ppa'] or self.installed == self.table['debian']: self.toolbar4.ToggleTool(406,True)
+
+		if self.toolbar2.GetToolState(205): self.toolbar2.EnableTool(206,True)
+		if self.toolbar4.GetToolState(405): self.toolbar4.EnableTool(406,True)
+
+		if self.installed and self.installed != self.candidate:
+			installed = self.installed.split('.')
+			candidate = self.candidate.split('.')
+			lastInstalled = ''
+			lastCandidate = ''
+			for i in installed[2]:
 				try:
-					if int(candidate[0]) > int(installed[0]): 
-						self.toolbar2.EnableTool(203,True)
-						self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidate)
-					if int(candidate[0]) == int(installed[0]):
-						if int(candidate[1]) > int(installed[1]): 
-							self.toolbar2.EnableTool(203,True)
-							self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidate)
-						if int(candidate[1]) == int(installed[1]):
-							if int(lastCandidate) > int(lastInstalled): 
-								self.toolbar2.EnableTool(203,True)
-								self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidate)
-				except: self.toolbar2.EnableTool(203,True)
-			if self.conf.get('OPENCPN', 'autostart') == '1': self.toolbar2.ToggleTool(205,True)
-			if self.conf.get('OPENCPN', 'fullscreen') == '1': self.toolbar2.ToggleTool(206,True)
-			if self.toolbar2.GetToolState(205): self.toolbar2.EnableTool(206,True)
-			else: self.toolbar2.EnableTool(206,False)
+					ii = int(i)
+					lastInstalled += i
+				except:break
+			for i in candidate[2]:
+				try:
+					ii = int(i)
+					lastCandidate += i
+				except:break
+			try:
+				new = False
+				if int(candidate[0]) > int(installed[0]): new = True
+				if int(candidate[0]) == int(installed[0]):
+					if int(candidate[1]) > int(installed[1]): new = True
+					if int(candidate[1]) == int(installed[1]):
+						if int(lastCandidate) > int(lastInstalled): new = True
+				if new: self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidate)
+			except: pass
 
 		if not self.installedFP:
-			if not self.candidateFP: self.toolbar3.EnableTool(301,False)
-			else: self.toolbar3.EnableTool(301,True)
-			self.toolbar3.EnableTool(302,False)
-			self.toolbar3.EnableTool(303,False)
-			self.toolbar3.EnableTool(304,False)
-			self.toolbar3.EnableTool(305,False)
-			self.toolbar3.EnableTool(306,False)
+			if self.candidateFP: self.toolbar3.EnableTool(301,True)
 		else:
 			self.toolbar3.EnableTool(301,True)
 			self.toolbar3.EnableTool(302,True)
 			self.toolbar3.EnableTool(304,True)
 			self.toolbar3.EnableTool(305,True)
-			self.toolbar3.EnableTool(303,False)
+
+			if self.conf.get('OPENCPN', 'autostartFP') == '1': self.toolbar3.ToggleTool(305,True)
+			if self.conf.get('OPENCPN', 'fullscreenFP') == '1': self.toolbar3.ToggleTool(306,True)
+
+			if self.toolbar3.GetToolState(305): self.toolbar3.EnableTool(306,True)
+
 			if self.installedFP != self.candidateFP:
 				installed = self.installedFP.split('.')
 				candidate = self.candidateFP.split('.')
@@ -474,22 +618,14 @@ class MyFrame(wx.Frame):
 						lastCandidate += i
 					except:break
 				try:
-					if int(candidate[0]) > int(installed[0]): 
-						self.toolbar3.EnableTool(303,True)
-						self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidateFP)
+					new = False
+					if int(candidate[0]) > int(installed[0]): new = True
 					if int(candidate[0]) == int(installed[0]):
-						if int(candidate[1]) > int(installed[1]): 
-							self.toolbar3.EnableTool(303,True)
-							self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidateFP)
+						if int(candidate[1]) > int(installed[1]): new = True
 						if int(candidate[1]) == int(installed[1]):
-							if int(lastCandidate) > int(lastInstalled): 
-								self.toolbar3.EnableTool(303,True)
-								self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidateFP)
-				except: self.toolbar3.EnableTool(303,True)
-			if self.conf.get('OPENCPN', 'autostartFP') == '1': self.toolbar3.ToggleTool(305,True)
-			if self.conf.get('OPENCPN', 'fullscreenFP') == '1': self.toolbar3.ToggleTool(306,True)
-			if self.toolbar3.GetToolState(305): self.toolbar3.EnableTool(306,True)
-			else: self.toolbar3.EnableTool(306,False)
+							if int(lastCandidate) > int(lastInstalled): new = True
+					if new: self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidateFP)
+				except: pass
 
 def main():
 	try:

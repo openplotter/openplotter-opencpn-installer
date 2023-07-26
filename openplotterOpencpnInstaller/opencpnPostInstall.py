@@ -32,22 +32,41 @@ def main():
 	codeName = conf2.get('GENERAL', 'codeName')
 	hostID = conf2.get('GENERAL', 'hostID')
 	backports = codeName+'-backports'
-	if hostID == 'debian': 
-		deb = 'deb http://deb.debian.org/debian '+backports+' main contrib non-free'
+	ubuntu_codeName = False
+	deb = False
+	deb2 = False
+	if hostID == 'debian':
 		RELEASE_DATA = platform2.RELEASE_DATA
 		if RELEASE_DATA['ID'] == 'raspbian': os.system('dpkg -i '+currentdir+'/data/debian-archive-keyring_2021.1.1_all.deb')
-	elif hostID == 'ubuntu': deb = 'deb http://archive.ubuntu.com/ubuntu/ '+backports+' main restricted universe multiverse'
+		if codeName:
+			deb = 'deb http://deb.debian.org/debian '+backports+' main contrib non-free'
+			if codeName == 'buster': ubuntu_codeName = 'bionic'
+			elif codeName == 'bullseye': ubuntu_codeName = 'focal'
+			elif codeName == 'bookworm': ubuntu_codeName = 'jammy'
+			if ubuntu_codeName:
+				deb2 = 'deb https://ppa.launchpadcontent.net/opencpn/opencpn/ubuntu '+ubuntu_codeName+' main'
+	elif hostID == 'ubuntu':
+		if codeName:
+			deb = 'deb http://archive.ubuntu.com/ubuntu/ '+backports+' main restricted universe multiverse'
+			deb2 = 'deb https://ppa.launchpadcontent.net/opencpn/opencpn/ubuntu '+codeName+' main'
 	else: print(_('FAILED. Unknown host system'))
+
 	try:
 		os.system('flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo')
-		if codeName:
-			os.system('rm -f /etc/apt/sources.list.d/opencpn.list')
-			sources = subprocess.check_output('apt-cache policy', shell=True).decode(sys.stdin.encoding)
+		os.system('rm -f /etc/apt/sources.list.d/opencpn.list')
+		sources = subprocess.check_output('apt-cache policy', shell=True).decode(sys.stdin.encoding)
+		if deb:
 			if not backports in sources:
 				fo = open('/etc/apt/sources.list.d/opencpn-backports.list', "w")
 				fo.write(deb)
 				fo.close()
-				os.system('apt update')
+		if deb2:
+			os.system('cat '+currentdir+'/data/opencpn.gpg.key | gpg --dearmor > "/etc/apt/trusted.gpg.d/opencpn.gpg"')
+			if not 'ppa.launchpadcontent.net/opencpn' in sources:
+				fo = open('/etc/apt/sources.list.d/opencpn-ppa.list', "w")
+				fo.write(deb2)
+				fo.close()
+		os.system('apt update')
 		print(_('DONE'))
 	except Exception as e: print(_('FAILED: ')+str(e))
 
