@@ -70,6 +70,14 @@ def main():
 		print(_('DONE'))
 	except Exception as e: print(_('FAILED: ')+str(e))
 
+	print(_('Copying udev rules...'))
+	try:
+		subprocess.call(['cp', '-f', currentdir+'/data/65-ocpn-dongle.rules', '/etc/udev/rules.d/'])
+		subprocess.call(['udevadm', 'control', '--reload-rules'])
+		subprocess.call(['udevadm', 'trigger'])
+		print(_('DONE'))
+	except Exception as e: print(_('FAILED: ')+str(e))
+
 	print(_('Setting version...'))
 	try:
 		conf2.set('APPS', 'opencpn', version)
