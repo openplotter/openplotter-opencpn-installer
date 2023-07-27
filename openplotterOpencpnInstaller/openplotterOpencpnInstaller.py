@@ -486,8 +486,10 @@ class MyFrame(wx.Frame):
 
 	def read(self):
 		
-		self.text2.SetLabel('OpenCPN '+self.table['backports'])
-		self.textFP2.SetLabel('OpenCPN '+self.candidateFP)
+		if self.table['backports']: self.text2.SetLabel('OpenCPN '+self.table['backports'])
+		else: self.text2.SetLabel('')
+		if self.candidateFP: self.textFP2.SetLabel('OpenCPN '+self.candidateFP)
+		else: self.textFP2.SetLabel('')
 		if self.table['debian']: debian = self.table['debian'].split('.')
 		else: debian = ['1','1','1']
 		if self.table['ppa']: ppa = self.table['ppa'].split('.')
