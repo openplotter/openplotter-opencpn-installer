@@ -1,3 +1,11 @@
+openplotter-opencpn-installer (3.3.0-stable) bullseye; urgency=medium
+
+  * Add Ubuntu PPA source
+  * Copy udev rule for o-charts dongles
+  * Update translations
+
+ -- Sailoog <info@sailoog.com>  Tue, 18 Jul 2023 13:00:09 +0200
+
 openplotter-opencpn-installer (3.2.20-stable) bullseye; urgency=medium
 
   * Fix minor errors
