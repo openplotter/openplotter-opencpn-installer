@@ -130,8 +130,20 @@ class Check():
 						msg = _('FP touchscreen disabled')
 						if red: red += '\n   '+msg
 						else: red = msg
-				if not os.path.exists(self.conf.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0/settings.ini'):
+				try:
+					msg = ''
+					file = open(self.conf.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0/gtk.css', 'r')
+					exists = False
+					while True:
+						line = file.readline()
+						if not line: break
+						if '@import url("openplotter.css");' in line: exists = True
+					file.close()
+					if not exists:
+						msg = _('Touchscreen optimization is not set correctly in OpenCPN FP, try to reset this setting in OpenPlotter Settings app')
+				except:
 					msg = _('Touchscreen optimization is not set correctly in OpenCPN FP, try to reset this setting in OpenPlotter Settings app')
+				if msg:
 					if red: red += '\n   '+msg
 					else: red = msg
 
