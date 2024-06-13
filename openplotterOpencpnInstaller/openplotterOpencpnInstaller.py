@@ -125,6 +125,7 @@ class MyFrame(wx.Frame):
 
 	def checkVersions(self):
 		self.ShowStatusBarYELLOW(_('Checking versions please wait. The first time may take a while...'))
+		wx.GetApp().Yield()
 		codeName = self.conf.get('GENERAL', 'codeName')
 		backports = codeName+'-backports'
 		latest = ''
@@ -171,13 +172,13 @@ class MyFrame(wx.Frame):
 		self.ShowStatusBarBLACK('')
 
 	def OnToolCheck(self, event):
-		self.checkVersions()
 		self.logger.Clear()
 		self.notebook.ChangeSelection(1)
+		self.checkVersions()
 		self.logger.BeginBold()
 		self.logger.WriteText('Debian/Ubuntu'+'. ')
 		self.logger.EndBold()
-		self.logger.WriteText(_('Recommended for:')+' '+_('LTS systems')+', '+_('headless systems')+'.')
+		self.logger.WriteText(_('Recommended for Long Term Support systems.'))
 		self.logger.Newline()
 		self.logger.Newline()
 		if self.installed: self.logger.WriteText('\t'+_('Installed:')+' OpenCPN '+self.installed)
@@ -215,7 +216,7 @@ class MyFrame(wx.Frame):
 		self.logger.BeginBold()
 		self.logger.WriteText('Flatpak'+'. ')
 		self.logger.EndBold()
-		self.logger.WriteText(_('Only 64bit. Recommended for:')+' '+_('non LTS systems')+', '+_('touchscreens')+'.')
+		self.logger.WriteText(_('Recommended for non Long Term Support systems.'))
 		self.logger.EndBold()
 		self.logger.Newline()
 		self.logger.Newline()
@@ -343,13 +344,14 @@ class MyFrame(wx.Frame):
 			if not os.path.exists(self.conf.home+'/.opencpn/opencpn.conf'): os.system('cp -fR '+self.currentdir+'/data/opencpn.conf'+' '+self.conf.home+'/.opencpn')
 			self.logger.Clear()
 			self.notebook.ChangeSelection(1)
+			self.ShowStatusBarYELLOW(_('Installing package, please wait... '))
 			command = self.platform.admin+' python3 '+self.currentdir+'/install.py '+source
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				if not 'Warning' in line and not 'WARNING' in line:
 					self.logger.WriteText(line)
-					self.ShowStatusBarYELLOW(_('Installing package, please wait... ')+line)
 					self.logger.ShowPosition(self.logger.GetLastPosition())
+					wx.GetApp().Yield()
 			self.checkVersions()
 			self.read()
 			self.notebook.ChangeSelection(0)
@@ -362,13 +364,14 @@ class MyFrame(wx.Frame):
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
 			self.notebook.ChangeSelection(1)
+			self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... '))
 			command = self.platform.admin+' apt autoremove -y opencpn'
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				if not 'Warning' in line and not 'WARNING' in line:
 					self.logger.WriteText(line)
-					self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
 					self.logger.ShowPosition(self.logger.GetLastPosition())
+					wx.GetApp().Yield()
 			self.checkVersions()
 			self.read()
 			self.notebook.ChangeSelection(0)
@@ -404,13 +407,14 @@ class MyFrame(wx.Frame):
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
 			self.notebook.ChangeSelection(1)
+			self.ShowStatusBarYELLOW(_('Installing package, please wait... '))
 			command = 'flatpak install --user -y https://flathub.org/repo/appstream/org.opencpn.OpenCPN.flatpakref'
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				if not 'Warning' in line and not 'WARNING' in line:
 					self.logger.WriteText(line)
-					self.ShowStatusBarYELLOW(_('Installing package, please wait... ')+line)
 					self.logger.ShowPosition(self.logger.GetLastPosition())
+					wx.GetApp().Yield()
 			subprocess.Popen(['python3',self.currentdir+'/installFP.py'])
 			self.logger.WriteText('Shortcut rebuilt')
 			self.checkVersions()
@@ -419,42 +423,27 @@ class MyFrame(wx.Frame):
 			self.SetStatusText('')
 		dlg.Destroy()
 
-	def OnUpdateButtonFP(self,e):
-		self.logger.Clear()
-		self.notebook.ChangeSelection(1)
-		command = 'flatpak update -y org.opencpn.OpenCPN'
-		popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
-		for line in popen.stdout:
-			if not 'Warning' in line and not 'WARNING' in line:
-				self.logger.WriteText(line)
-				self.ShowStatusBarYELLOW(_('Installing package, please wait... ')+line)
-				self.logger.ShowPosition(self.logger.GetLastPosition())
-		subprocess.Popen(['python3',self.currentdir+'/installFP.py'])
-		self.checkVersions()
-		self.read()
-		self.notebook.ChangeSelection(0)
-		self.SetStatusText('')
-
 	def OnUninstallButtonFP(self,e):
 		msg = _('Are you sure you want to uninstall OpenCPN and its dependencies?')
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
 			self.notebook.ChangeSelection(1)
+			self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... '))
 			command = 'flatpak uninstall -y org.opencpn.OpenCPN'
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				if not 'Warning' in line and not 'WARNING' in line:
 					self.logger.WriteText(line)
-					self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
 					self.logger.ShowPosition(self.logger.GetLastPosition())
+					wx.GetApp().Yield()
 			command = 'flatpak uninstall -y --unused'
 			popen = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True, shell=True)
 			for line in popen.stdout:
 				if not 'Warning' in line and not 'WARNING' in line:
 					self.logger.WriteText(line)
-					self.ShowStatusBarYELLOW(_('Uninstalling packages, please wait... ')+line)
 					self.logger.ShowPosition(self.logger.GetLastPosition())
+					wx.GetApp().Yield()
 			self.checkVersions()
 			self.read()
 			self.notebook.ChangeSelection(0)
@@ -551,10 +540,11 @@ class MyFrame(wx.Frame):
 			self.toolbar2.EnableTool(202,True)
 			self.toolbar2.EnableTool(204,True)
 			self.toolbar2.EnableTool(205,True)
-		if self.installed and self.installed == self.table['ppa'] or self.installed == self.table['debian']:
-			self.toolbar4.EnableTool(402,True)
-			self.toolbar4.EnableTool(404,True)
-			self.toolbar4.EnableTool(405,True)
+		if self.installed:
+			if self.installed == self.table['ppa'] or self.installed == self.table['debian']:
+				self.toolbar4.EnableTool(402,True)
+				self.toolbar4.EnableTool(404,True)
+				self.toolbar4.EnableTool(405,True)
 
 		if self.installed and self.conf.get('OPENCPN', 'autostart') == '1': 
 			if self.installed == self.table['backports']: self.toolbar2.ToggleTool(205,True)

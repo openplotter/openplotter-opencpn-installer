@@ -1,3 +1,15 @@
+openplotter-opencpn-installer (4.1.0-stable) bookworm; urgency=medium
+
+  * stable
+
+ -- Sailoog <info@sailoog.com>  Thu, 13 Jun 2024 11:06:29 +0200
+
+openplotter-opencpn-installer (4.0.4-beta) bookworm; urgency=medium
+
+  * beta
+
+ -- Sailoog <info@sailoog.com>  Mon, 16 Oct 2023 19:18:52 +0200
+
 openplotter-opencpn-installer (3.3.0-stable) bullseye; urgency=medium
 
   * Add Ubuntu PPA source

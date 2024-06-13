@@ -14,7 +14,7 @@ Install [openplotter-settings](https://github.com/openplotter/openplotter-settin
 
 Install openplotter-opencpn-installer dependencies:
 
-`sudo apt install flatpak`
+`sudo apt install openplotter-settings flatpak libusb-0.1-4`
 
 Clone the repository:
 

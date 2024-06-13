@@ -37,7 +37,6 @@ def main():
 	deb2 = False
 	if hostID == 'debian':
 		RELEASE_DATA = platform2.RELEASE_DATA
-		if RELEASE_DATA['ID'] == 'raspbian': os.system('dpkg -i '+currentdir+'/data/debian-archive-keyring_2021.1.1_all.deb')
 		if codeName:
 			deb = 'deb http://deb.debian.org/debian '+backports+' main contrib non-free'
 			if codeName == 'buster': ubuntu_codeName = 'bionic'
