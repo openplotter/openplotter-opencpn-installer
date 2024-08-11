@@ -76,6 +76,53 @@ class Check():
 		else: black = _('not running')
 
 		if self.installed:
+			if self.platform.isRPI:
+				codeName = self.conf.get('GENERAL', 'codeName')
+				hostID = self.conf.get('GENERAL', 'hostID')
+				if hostID == 'debian':
+					if codeName:
+						if codeName == 'buster': CompatOsVersion = '10'
+						elif codeName == 'bullseye': CompatOsVersion = '11'
+						elif codeName == 'bookworm': CompatOsVersion = '12'
+						path = self.conf.home+'/.opencpn/opencpn.conf'
+						if os.path.exists(path):
+							try:
+								data_conf = configparser.ConfigParser()
+								data_conf.read(path)
+								if data_conf.get('Settings','CompatOsVersion') != CompatOsVersion or data_conf.get('Settings','CompatOS') != 'debian-arm64':
+									if 'opencpn' in test2:
+										subprocess.call(['pkill', '-15', 'opencpn'])
+										time.sleep(2)
+									os.system('cp -f '+path+' '+path+'_back')
+									file = open(path, 'r')
+									out = ''
+									while True:
+										line = file.readline()
+										if not line: break
+										if 'CompatOsVersion' in line: 
+											out += 'CompatOsVersion='+CompatOsVersion+'\n'
+										elif 'CompatOS' in line: 
+											out += 'CompatOS=debian-arm64\n'
+										else: out += line
+									file.close()
+									try: 
+										file = open(path, 'w')
+										file.write(out)
+										file.close()
+									except Exception as e:
+										os.system('cp -f '+path+'_back '+path)
+										msg = _('Error editing CompatOS: ')+str(e)
+										if red: red += '\n   '+msg
+										else: red = msg
+							except Exception as e:
+								msg = _('Error checking CompatOS: ')+str(e)
+								if red: red += '\n   '+msg
+								else: red = msg
+							else:
+								msg = _('CompatOS checked')
+								if not black: black = msg
+								else: black+= ' | '+msg
+
 			if self.conf.get('OPENCPN', 'autostart') == '1':
 				if self.conf.get('OPENCPN', 'fullscreen') == '1':
 					black += _(' | fullscreen autostart enabled')
