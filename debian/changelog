@@ -1,6 +1,6 @@
-openplotter-opencpn-installer (4.1.9-stable) bookworm; urgency=medium
+openplotter-opencpn-installer (4.2.0-stable) bookworm; urgency=medium
 
-  * x
+  * OpenCPN 5.10 support
 
  -- Sailoog <info@sailoog.com>  Sun, 11 Aug 2024 12:04:00 +0200
 
