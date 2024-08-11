@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
 "POT-Creation-Date: 2024-05-20 11:39+0200\n"
-"PO-Revision-Date: 2024-06-13 11:04+0200\n"
+"PO-Revision-Date: 2024-07-04 20:08\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv\n"
@@ -13,12 +13,12 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
 "X-Crowdin-Project: openplotter\n"
 "X-Crowdin-Project-ID: 289888\n"
 "X-Crowdin-Language: sv-SE\n"
 "X-Crowdin-File: openplotter-opencpn-installer.po\n"
 "X-Crowdin-File-ID: 6\n"
-"X-Poedit-SearchPath-0: .\n"
 
 #: data/openplotter-opencpn-installer.desktop:3
 #: openplotterOpencpnInstaller.py:34
@@ -95,7 +95,7 @@ msgstr "Kontrollerar versioner vänligen vänta. Första gången kan ta en stund
 
 #: openplotterOpencpnInstaller.py:181
 msgid "Recommended for Long Term Support systems."
-msgstr ""
+msgstr "Rekommenderas för system med långtidsstöd."
 
 #: openplotterOpencpnInstaller.py:184 openplotterOpencpnInstaller.py:185
 #: openplotterOpencpnInstaller.py:223 openplotterOpencpnInstaller.py:224
@@ -114,7 +114,7 @@ msgstr "Kandidater:"
 
 #: openplotterOpencpnInstaller.py:219
 msgid "Recommended for non Long Term Support systems."
-msgstr ""
+msgstr "Rekommenderas för system utan långtidsstöd."
 
 #: openplotterOpencpnInstaller.py:227 openplotterOpencpnInstaller.py:231
 msgid "Candidate:"
@@ -274,14 +274,12 @@ msgid "WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10
 msgstr "VARNING: Du har aktiverat den gamla NMEA 0183 anslutningen \"TCP localhost 10110\" och en Signal K-anslutning i OpenCPN. Se till att du inte har duplicerade data."
 
 #: startup.py:204 startup.py:256
-msgid ""
-"The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
+msgid "The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
 "    Network\n"
 "    Protocol: Signal K\n"
 "    Address: localhost\n"
 "    DataPort: "
-msgstr ""
-"Standard OpenCPN anslutning saknas och får inte data från Signal K. Vänligen skapa denna anslutning i OpenCPN:\n"
+msgstr "Standard OpenCPN anslutning saknas och får inte data från Signal K. Vänligen skapa denna anslutning i OpenCPN:\n"
 "    Nätverk\n"
 "    Protokoll: Signal K\n"
 "    Adress: localhost\n"
@@ -298,3 +296,4 @@ msgstr "Det går inte att läsa OpenCPN-konfigurationen"
 #: startup.py:264
 msgid "Unable to read OpenCPN FP configuration"
 msgstr "Det går inte att läsa OpenCPN FP konfigurationen"
+

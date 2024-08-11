@@ -43,7 +43,6 @@ def main():
 	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN/config'): os.mkdir(conf2.home+'/.var/app/org.opencpn.OpenCPN/config')
 	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn'): os.mkdir(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn')
 	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0'): os.mkdir(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0')
-	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn/opencpn.conf'): os.system('cp -fR '+currentdir+'/data/FP/opencpn.conf'+' '+conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn')
 
 	if conf2.get('GENERAL', 'touchscreen') == '1':
 		subprocess.call(['flatpak', 'kill', 'org.opencpn.OpenCPN'])

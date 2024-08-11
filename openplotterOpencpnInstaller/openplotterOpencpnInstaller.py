@@ -26,6 +26,8 @@ from .version import version
 class MyFrame(wx.Frame):
 	def __init__(self):
 		self.conf = conf.Conf()
+		if self.conf.get('GENERAL', 'debug') == 'yes': self.debug = True
+		else: self.debug = False
 		self.platform = platform.Platform()
 		self.currentdir = os.path.dirname(os.path.abspath(__file__))
 		currentLanguage = self.conf.get('GENERAL', 'lang')
@@ -137,12 +139,14 @@ class MyFrame(wx.Frame):
 			if 'Installed:' in line: 
 				if not '(none)' in line: 
 					installed = line.split(':')
-					self.installed = installed[1].strip()
+					installed.pop(0)
+					self.installed  = ':'.join(installed).strip()
 				else: self.installed = ''
 			if 'Candidate:' in line: 
 				if not '(none)' in line: 
 					candidate = line.split(':')
-					self.candidate = candidate[1].strip()
+					candidate.pop(0)
+					self.candidate  = ':'.join(candidate).strip()
 				else: self.candidate = ''
 			elif line[:8] == '        ':
 				if 'ppa.launchpadcontent.net/opencpn/' in line: self.table['ppa'] = version
@@ -340,8 +344,6 @@ class MyFrame(wx.Frame):
 		msg = _('Are you sure you want to install OpenCPN and its dependencies?')
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
-			if not os.path.exists(self.conf.home+'/.opencpn'): os.mkdir(self.conf.home+'/.opencpn')
-			if not os.path.exists(self.conf.home+'/.opencpn/opencpn.conf'): os.system('cp -fR '+self.currentdir+'/data/opencpn.conf'+' '+self.conf.home+'/.opencpn')
 			self.logger.Clear()
 			self.notebook.ChangeSelection(1)
 			self.ShowStatusBarYELLOW(_('Installing package, please wait... '))
@@ -479,9 +481,15 @@ class MyFrame(wx.Frame):
 		else: self.text2.SetLabel('')
 		if self.candidateFP: self.textFP2.SetLabel('OpenCPN '+self.candidateFP)
 		else: self.textFP2.SetLabel('')
-		if self.table['debian']: debian = self.table['debian'].split('.')
+		if self.table['debian']: 
+			debian = self.table['debian'].split(':')
+			if len(debian) > 1: debian.pop(0)
+			debian = debian[0].split('.')
 		else: debian = ['1','1','1']
-		if self.table['ppa']: ppa = self.table['ppa'].split('.')
+		if self.table['ppa']: 
+			ppa = self.table['ppa'].split(':')
+			if len(ppa) > 1: ppa.pop(0)
+			ppa = ppa[0].split('.')
 		else: ppa = ['1','1','1']
 		lastdebian = ''
 		lastppa = ''
@@ -557,8 +565,12 @@ class MyFrame(wx.Frame):
 		if self.toolbar4.GetToolState(405): self.toolbar4.EnableTool(406,True)
 
 		if self.installed and self.installed != self.candidate:
-			installed = self.installed.split('.')
-			candidate = self.candidate.split('.')
+			installed = self.installed.split(':')
+			if len(installed) > 1: installed.pop(0)
+			installed = installed[0].split('.')
+			candidate = self.candidate.split(':')
+			if len(candidate) > 1: candidate.pop(0)
+			candidate = candidate[0].split('.')
 			lastInstalled = ''
 			lastCandidate = ''
 			for i in installed[2]:
@@ -578,8 +590,9 @@ class MyFrame(wx.Frame):
 					if int(candidate[1]) > int(installed[1]): new = True
 					if int(candidate[1]) == int(installed[1]):
 						if int(lastCandidate) > int(lastInstalled): new = True
-				if new: self.ShowStatusBarYELLOW(_('There is a new OpenCPN version: ')+self.candidate)
-			except: pass
+				if new: self.ShowStatusBarRED(_('There is a new OpenCPN version: ')+self.candidate)
+			except Exception as e: 
+				if self.debug: print(str(e))
 
 		if not self.installedFP:
 			if self.candidateFP: self.toolbar3.EnableTool(301,True)

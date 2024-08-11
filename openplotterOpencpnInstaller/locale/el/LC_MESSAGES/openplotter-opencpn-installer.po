@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openplotter\n"
 "POT-Creation-Date: 2024-05-20 11:39+0200\n"
-"PO-Revision-Date: 2024-06-13 11:04+0200\n"
+"PO-Revision-Date: 2024-06-12 11:12\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -13,12 +13,12 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
 "X-Crowdin-Project: openplotter\n"
 "X-Crowdin-Project-ID: 289888\n"
 "X-Crowdin-Language: el\n"
 "X-Crowdin-File: openplotter-opencpn-installer.po\n"
 "X-Crowdin-File-ID: 6\n"
-"X-Poedit-SearchPath-0: .\n"
 
 #: data/openplotter-opencpn-installer.desktop:3
 #: openplotterOpencpnInstaller.py:34
@@ -274,8 +274,7 @@ msgid "WARNING: You have enabled the old NMEA 0183 connection \"TCP localhost 10
 msgstr ""
 
 #: startup.py:204 startup.py:256
-msgid ""
-"The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
+msgid "The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n"
 "    Network\n"
 "    Protocol: Signal K\n"
 "    Address: localhost\n"
@@ -293,3 +292,4 @@ msgstr ""
 #: startup.py:264
 msgid "Unable to read OpenCPN FP configuration"
 msgstr ""
+

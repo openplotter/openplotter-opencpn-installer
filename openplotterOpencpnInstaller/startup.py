@@ -187,7 +187,7 @@ class Check():
 						items = connection.split(';')
 						if items[0] == '1':
 							if items[1] == '3':
-								if items[2] == 'localhost' and items[19] == '0':
+								if items[2] == 'localhost':
 									if items[3] == self.platform.skPort:
 										if items[17] == '1': resultSK = 'enabled'
 										else: resultSK = 'disabled'
@@ -201,7 +201,7 @@ class Check():
 						if black: black += '\n'+msg
 						else: black = msg
 					if resultNMEA != 'enabled' and not resultSK:
-						msg = _('The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n    Network\n    Protocol: Signal K\n    Address: localhost\n    DataPort: '+self.platform.skPort+'\n    Automatic server discovery: not')
+						msg = _('The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n    Network\n    Protocol: Signal K\n    Address: localhost\n    DataPort: '+self.platform.skPort)
 						if red: red += '\n'+msg
 						else: red = msg				
 					elif resultNMEA != 'enabled' and resultSK == 'disabled':
@@ -239,7 +239,7 @@ class Check():
 						items = connection.split(';')
 						if items[0] == '1':
 							if items[1] == '3':
-								if items[2] == 'localhost' and items[19] == '0':
+								if items[2] == 'localhost':
 									if items[3] == self.platform.skPort:
 										if items[17] == '1': resultSK = 'enabled'
 										else: resultSK = 'disabled'
@@ -253,7 +253,7 @@ class Check():
 						if black: black += '\n'+msg
 						else: black = msg
 					if resultNMEA != 'enabled' and not resultSK:
-						msg = _('The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n    Network\n    Protocol: Signal K\n    Address: localhost\n    DataPort: '+self.platform.skPort+'\n    Automatic server discovery: not')
+						msg = _('The default OpenCPN connection is missing and is not getting data from Signal K. Please create this connection in OpenCPN:\n    Network\n    Protocol: Signal K\n    Address: localhost\n    DataPort: '+self.platform.skPort)
 						if red: red += '\n'+msg
 						else: red = msg				
 					elif resultNMEA != 'enabled' and resultSK == 'disabled':
