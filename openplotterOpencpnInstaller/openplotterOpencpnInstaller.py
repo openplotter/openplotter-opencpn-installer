@@ -342,6 +342,8 @@ class MyFrame(wx.Frame):
 
 	def OnInstallButton(self,source):
 		msg = _('Are you sure you want to install OpenCPN and its dependencies?')
+		msg += '\n'
+		msg += _('After installation, OpenPlotter will reboot.')
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
@@ -355,10 +357,8 @@ class MyFrame(wx.Frame):
 					self.logger.ShowPosition(self.logger.GetLastPosition())
 					wx.GetApp().Yield()
 			self.checkVersions()
-			self.read()
-			self.notebook.ChangeSelection(0)
-			self.SetStatusText('')
-		dlg.Destroy()
+			os.system('shutdown -r now')
+
 
 	def OnUninstallButton(self,e):
 		msg = _('Are you sure you want to uninstall OpenCPN and its dependencies?')
@@ -405,6 +405,8 @@ class MyFrame(wx.Frame):
 
 	def OnInstallButtonFP(self,e):
 		msg = _('Are you sure you want to install OpenCPN and its dependencies?')
+		msg += '\n'
+		msg += _('After installation, OpenPlotter will reboot.')
 		dlg = wx.MessageDialog(None, msg, _('Question'), wx.YES_NO | wx.NO_DEFAULT | wx.ICON_EXCLAMATION)
 		if dlg.ShowModal() == wx.ID_YES:
 			self.logger.Clear()
@@ -420,10 +422,7 @@ class MyFrame(wx.Frame):
 			subprocess.Popen(['python3',self.currentdir+'/installFP.py'])
 			self.logger.WriteText('Shortcut rebuilt')
 			self.checkVersions()
-			self.read()
-			self.notebook.ChangeSelection(0)
-			self.SetStatusText('')
-		dlg.Destroy()
+			os.system('shutdown -r now')
 
 	def OnUninstallButtonFP(self,e):
 		msg = _('Are you sure you want to uninstall OpenCPN and its dependencies?')
