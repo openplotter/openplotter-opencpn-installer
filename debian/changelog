@@ -1,3 +1,10 @@
+openplotter-opencpn-installer (4.2.5-stable) bookworm; urgency=medium
+
+  * fix startup fullscreen
+  * reboot after installing to built icons
+
+ -- Sailoog <info@sailoog.com>  Thu, 15 Aug 2024 21:20:04 +0200
+
 openplotter-opencpn-installer (4.2.0-stable) bookworm; urgency=medium
 
   * OpenCPN 5.10 support
