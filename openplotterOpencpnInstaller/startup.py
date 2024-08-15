@@ -36,7 +36,7 @@ class Start():
 			subprocess.call(['pkill', '-15', 'opencpn'])
 			if self.conf.get('OPENCPN', 'fullscreen') == '1':
 				black = _('fullscreen')
-				subprocess.Popen(['opencpn', '-fullscreen'])
+				subprocess.Popen(['opencpn', '-f'])
 			else:
 				black = _('non fullscreen')
 				subprocess.Popen('opencpn')
@@ -45,7 +45,7 @@ class Start():
 			subprocess.call(['flatpak', 'kill', 'org.opencpn.OpenCPN'])
 			if self.conf.get('OPENCPN', 'fullscreenFP') == '1':
 				black = _('fullscreen')
-				subprocess.Popen(['flatpak', 'run', 'org.opencpn.OpenCPN', '-fullscreen'])
+				subprocess.Popen(['flatpak', 'run', 'org.opencpn.OpenCPN', '-f'])
 			else:
 				black = _('non fullscreen')
 				subprocess.Popen(['flatpak', 'run', 'org.opencpn.OpenCPN'])
