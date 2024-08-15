@@ -31,6 +31,7 @@ def main():
 		os.system('rm -f /etc/apt/sources.list.d/opencpn-backports.list')
 		os.system('rm -f /etc/apt/sources.list.d/opencpn-ppa.list')
 		os.system('rm -rf '+conf2.home+'/.opencpn')
+		os.system('rm -rf '+conf2.home+'/.local/lib/opencpn')
 		os.system('apt update')
 		os.system('sudo -u '+conf2.user+' flatpak uninstall -y org.opencpn.OpenCPN')
 		os.system('sudo -u '+conf2.user+' flatpak uninstall -y --unused')
