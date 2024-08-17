@@ -1,3 +1,10 @@
+openplotter-opencpn-installer (4.2.13-stable) bookworm; urgency=medium
+
+  * Fix minor bugs
+  * Improve CompatOS management
+
+ -- Sailoog <info@sailoog.com>  Fri, 16 Aug 2024 19:44:35 +0200
+
 openplotter-opencpn-installer (4.2.5-stable) bookworm; urgency=medium
 
   * fix startup fullscreen
