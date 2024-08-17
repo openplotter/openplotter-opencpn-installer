@@ -14,7 +14,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with Openplotter. If not, see <http://www.gnu.org/licenses/>.
-import os, subprocess
+import os, subprocess, sys
 from openplotterSettings import conf
 from openplotterSettings import language
 
@@ -44,10 +44,15 @@ def main():
 	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn'): os.mkdir(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn')
 	if not os.path.exists(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0'): os.mkdir(conf2.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0')
 
+	out = subprocess.check_output('gsettings get org.gnome.desktop.interface gtk-theme', shell=True).decode(sys.stdin.encoding)
+	out = out.replace("'","")
+	out = out.strip()
+	path = '/usr/share/themes/'+out+'/gtk-3.0'
+	if os.path.exists(path):
+		os.system('cp -fa '+path+'/. '+conf2.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0/')
+
 	if conf2.get('GENERAL', 'touchscreen') == '1':
-		subprocess.call(['flatpak', 'kill', 'org.opencpn.OpenCPN'])
-		if os.path.exists(conf2.home+'/.config/gtk-3.0'):
-			os.system('cp -fa '+conf2.home+'/.config/gtk-3.0/. '+conf2.home+'/.var/app/org.opencpn.OpenCPN/config/gtk-3.0/')
+		subprocess.call('pkill -15 opencpn', shell=True)
 		path1 = conf2.home+'/.var/app/org.opencpn.OpenCPN/config/opencpn/opencpn.conf'
 		if os.path.exists(path1):
 			os.system('sed -i "s/MobileTouch = 0/MobileTouch = 1/g" '+path1)
